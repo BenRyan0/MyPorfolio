@@ -84,9 +84,9 @@ const MyResume = () => {
     <div className="h-screen bg-[#020617] flex flex-col justify-center items-center gap-4 pt-6">
       <div
         ref={viewerRef}
-        className={`relative inset-0 w-full md:w-[60%] py-5 rounded-xl overflow-hidden shadow-xl bg-white flex flex-row justify-center items-center text-center pt-0 ${
+        className={`relative inset-0 w-full md:w-[60%] py-5 rounded-xl overflow-hidden shadow-xl bg-white flex flex-row justify-center items-center text-center pt-6 ${
           isFullscreen
-            ? "flex justify-center items-center text-center h-screen pt-[200px] md:pt-[50px] "
+            ? "flex justify-center items-center h-screen pt-[100px] "
             : ""
         } cursor-pointer group`}
         onClick={handleFullscreen}
@@ -139,11 +139,9 @@ const MyResume = () => {
             defaultScale={
               isFullscreen
                 ? window.innerWidth >= 1024
-                  ? setScale(1.3) // 🖥️ Desktop fullscreen zoom
-                  : window.innerWidth < 640
-                  ? setScale(.9)// 📱 Mobile fullscreen zoom
-                  : setScale(1.0) // 💻 Tablet or intermediate view zoom
-                : scale // 🌐 Non-fullscreen uses responsive scale state
+                  ? 1.3 // ✅ Lock to 1.0 scale on desktops in fullscreen
+                  : scale // 🪶 Let scale adjust normally for smaller screens
+                : scale // 🔄 Use responsive scale when not fullscreen
             }
           />
         </Worker>
