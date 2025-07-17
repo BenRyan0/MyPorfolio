@@ -5,17 +5,19 @@ import AboutMe from './AboutMe';
 import Technologies from './Technologies';
 import Experience from './Experience';
 import Projects from './Projects';
+import MyResume from './MyResume';
 
 const Home = () => {
   return (
      <div className="flex min-h-svh flex-col items-center justify-center bg-[#020617] relative ">
-       <div className="container mx-auto px-8 mt-20 lg:mt-0 ">
+       <div className="container mx-auto px-8 mt-20 lg:mt-0 pb-6">
          <NavBar/>
          <Hero/>
          <AboutMe/>
          <Technologies/>
          <Experience/>
          <Projects/>
+         <MyResume/>
        </div>
     
     </div>

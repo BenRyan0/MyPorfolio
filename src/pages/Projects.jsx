@@ -43,33 +43,32 @@ const Projects = () => {
               className="lg:w-5/6 flex flex-col lg:flex-row lg:justify-between mt-5"
               key={index}
             >
-              <div className="relative">
-                <h2 className="font-bold">
-                  <a
-                    href={prj.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="relative group block w-fit"
-                  >
-                    <img
-                      className="lg:w-[300px] w-full mb-2"
-                      src={prj.image}
-                      alt="Project Preview"
-                    />
-                    <a
-                      href={prj.PreviewLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="absolute inset-0 bg-black bg-opacity-90 opacity-0 group-hover:opacity-60 transition-opacity duration-300 flex items-center justify-center text-white text-lg font-semibold flex-col"
-                    >
-                      <h2 className="flex gap-1 text-white">
-                        Click to view preview <MonitorCheck />
-                      </h2>
-                      <p className="text-xs">{prj.title}</p>
-                    </a>
-                  </a>
-                </h2>
+              <div className="relative w-fit group">
+                <a
+                  href={prj.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
+                >
+                  <img
+                    className="lg:w-[300px] w-full mb-2"
+                    src={prj.image}
+                    alt={`Preview of ${prj.title}`}
+                  />
+                </a>
+                <a
+                  href={prj.PreviewLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute inset-0 bg-black bg-opacity-90 opacity-0 group-hover:opacity-60 transition-opacity duration-300 flex items-center justify-center text-white text-lg font-semibold flex-col"
+                >
+                  <h2 className="flex gap-1 text-white">
+                    Click to view preview <MonitorCheck />
+                  </h2>
+                  <p className="text-xs">{prj.title}</p>
+                </a>
               </div>
+
               <div className="lg:w-7/12 ">
                 <h2 className="font-bold flex items-center gap-3">
                   {prj.title}

@@ -125,3 +125,15 @@
 }
 
 
+.rpv-default-layout__toolbar {
+  background-color: #1e293b;
+  color: #fff;
+  padding: 10px;
+}
+
+.rpv-default-layout__page {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  margin: 16px auto;
+}
+
+
