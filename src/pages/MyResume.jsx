@@ -141,7 +141,7 @@ const MyResume = () => {
                 ? window.innerWidth >= 1024
                   ? 1.3 // 🖥️ Desktop fullscreen zoom
                   : window.innerWidth < 640
-                  ? 1.2 // 📱 Mobile fullscreen zoom
+                  ? .9// 📱 Mobile fullscreen zoom
                   : 1.0 // 💻 Tablet or intermediate view zoom
                 : scale // 🌐 Non-fullscreen uses responsive scale state
             }
