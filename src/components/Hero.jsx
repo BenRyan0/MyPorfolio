@@ -37,7 +37,7 @@ const Hero = () => {
           transition={{ duration: 1, ease: "easeOut" }}
           className="w-full lg:w-1/2 flex justify-center items-end "
         >
-          <img className="relative w-[550px]" src={myImage} alt="" />
+          <img className="relative w-[650px]" src={myImage} alt="" />
         </motion.div>
       </div>
     </div>
