@@ -23,7 +23,7 @@ import {
   NavigationMenuTrigger,
 } from "../components/ui/navigation-menu"; // adjust the path as needed
 
-import NumLabel from "../components/myComponents/numberLabel";
+import NumLabel from "../components/myComponents/NumberLabel";
 
 const Projects = () => {
   return (
@@ -56,12 +56,17 @@ const Projects = () => {
                       src={prj.image}
                       alt="Project Preview"
                     />
-                    <div className="absolute inset-0 bg-black bg-opacity-90 opacity-0 group-hover:opacity-60 transition-opacity duration-300 flex items-center justify-center text-white text-lg font-semibold flex-col">
+                    <a
+                      href={prj.PreviewLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="absolute inset-0 bg-black bg-opacity-90 opacity-0 group-hover:opacity-60 transition-opacity duration-300 flex items-center justify-center text-white text-lg font-semibold flex-col"
+                    >
                       <h2 className="flex gap-1 text-white">
                         Click to view preview <MonitorCheck />
                       </h2>
                       <p className="text-xs">{prj.title}</p>
-                    </div>
+                    </a>
                   </a>
                 </h2>
               </div>
