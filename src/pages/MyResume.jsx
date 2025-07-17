@@ -139,10 +139,10 @@ const MyResume = () => {
             defaultScale={
               isFullscreen
                 ? window.innerWidth >= 1024
-                  ? 1.3 // 🖥️ Desktop fullscreen zoom
+                  ? setScale(1.3) // 🖥️ Desktop fullscreen zoom
                   : window.innerWidth < 640
-                  ? .9// 📱 Mobile fullscreen zoom
-                  : 1.0 // 💻 Tablet or intermediate view zoom
+                  ? setScale(.9)// 📱 Mobile fullscreen zoom
+                  : setScale(1.0) // 💻 Tablet or intermediate view zoom
                 : scale // 🌐 Non-fullscreen uses responsive scale state
             }
           />
