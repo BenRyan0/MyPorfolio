@@ -139,9 +139,11 @@ const MyResume = () => {
             defaultScale={
               isFullscreen
                 ? window.innerWidth >= 1024
-                  ? 1.3 // ✅ Lock to 1.0 scale on desktops in fullscreen
-                  : scale // 🪶 Let scale adjust normally for smaller screens
-                : scale // 🔄 Use responsive scale when not fullscreen
+                  ? 1.3 // 🖥️ Desktop fullscreen zoom
+                  : window.innerWidth < 640
+                  ? 1.2 // 📱 Mobile fullscreen zoom
+                  : 1.0 // 💻 Tablet or intermediate view zoom
+                : scale // 🌐 Non-fullscreen uses responsive scale state
             }
           />
         </Worker>
