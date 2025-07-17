@@ -80,6 +80,15 @@ const MyResume = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const computedScale = isFullscreen
+  ? window.innerWidth >= 1024
+    ? 1.3         // 🖥️ Desktop
+    : window.innerWidth < 640
+      ? 0.9       // 📱 Mobile
+      : 1.0       // 💻 Tablet
+  : scale;
+
+
   return (
     <div className="h-screen bg-[#020617] flex flex-col justify-center items-center gap-4 pt-6">
       <div
@@ -136,13 +145,16 @@ const MyResume = () => {
           <Viewer
             key={scale} // 🔁 forces re-mount when scale changes
             fileUrl="/pdf/Ben-Ryan-Rinconada-WebDeveloper.pdf"
-            defaultScale={
-              isFullscreen
-                ? window.innerWidth >= 1024
-                  ? 1.3 // ✅ Lock to 1.0 scale on desktops in fullscreen
-                  : scale // 🪶 Let scale adjust normally for smaller screens
-                : scale // 🔄 Use responsive scale when not fullscreen
-            }
+            defaultScale={computedScale}
+            // defaultScale={
+            //   isFullscreen
+            //     ? window.innerWidth >= 1024
+            //       ? setScale(1.3)// 🖥️ Desktop fullscreen zoom
+            //       : window.innerWidth < 640
+            //       ? setScale(0.7) // 📱 Mobile fullscreen zoom
+            //       : setScale(1.0) // 💻 Tablet or intermediate view zoom
+            //     : scale // 🌐 Non-fullscreen uses responsive scale state
+            // }
           />
         </Worker>
       </div>
