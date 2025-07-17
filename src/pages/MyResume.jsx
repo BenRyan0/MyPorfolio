@@ -3,6 +3,8 @@ import { Worker, Viewer, SpecialZoomLevel } from "@react-pdf-viewer/core";
 import "@react-pdf-viewer/core/lib/styles/index.css";
 import "../assets/resume-css/index.css";
 
+import { FileDown, Minimize } from "lucide-react";
+
 const MyResume = () => {
   const viewerRef = useRef(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -38,7 +40,7 @@ const MyResume = () => {
         // Restore responsive scaling
         const width = window.innerWidth;
         if (width < 640) {
-          setScale(1.0);
+          setScale(0.5);
         } else if (width < 1024) {
           setScale(1.0);
         } else {
@@ -79,7 +81,7 @@ const MyResume = () => {
   }, []);
 
   return (
-    <div className="h-screen bg-[#020617] flex flex-col justify-center items-center gap-4 p-4">
+    <div className="h-screen bg-[#020617] flex flex-col justify-center items-center gap-4 pt-6">
       <div
         ref={viewerRef}
         className={`relative inset-0 w-full md:w-[60%] py-5 rounded-xl overflow-hidden shadow-xl bg-white flex flex-row justify-center items-center text-center  ${
@@ -110,40 +112,51 @@ const MyResume = () => {
               } else if (document.msExitFullscreen) {
                 document.msExitFullscreen();
               }
+
+              // 🛠 Force scale reset (simulating your fullscreen change handler)
+              const width = window.innerWidth;
+              if (width >= 1024) {
+                setScale(1.3); // ✅ Apply only for desktops
+              } else if (width >= 640) {
+                setScale(1.0); // Tablet fallback
+              } else {
+                setScale(0.5); // Mobile fallback
+              }
+
+              setIsFullscreen(false); // Also update local state immediately
             }}
-            className="absolute bottom-4 right-4 z-50 px-3 py-2 bg-red-600 text-white rounded-md shadow-md hover:bg-red-700 transition duration-200"
+            className="absolute bottom-4 right-4 z-50 px-3 py-2 bg-purple-600 text-white rounded-md shadow-md hover:bg-purple-700 transition duration-200 flex justify-center items-center gap-1"
           >
-            Exit Fullscreen
+            Exit <Minimize />
           </button>
         )}
 
         {/* PDF Viewer */}
         <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.9.179/build/pdf.worker.min.js">
           <Viewer
+            key={scale} // 🔁 forces re-mount when scale changes
             fileUrl="/pdf/Ben-Ryan-Rinconada-WebDeveloper.pdf"
-            defaultScale={scale}
+            defaultScale={
+              isFullscreen
+                ? window.innerWidth >= 1024
+                  ? 1.3 // ✅ Lock to 1.0 scale on desktops in fullscreen
+                  : scale // 🪶 Let scale adjust normally for smaller screens
+                : scale // 🔄 Use responsive scale when not fullscreen
+            }
           />
         </Worker>
       </div>
 
       {/* Download Button */}
       <a
-        href="/pdf/my-resume.pdf"
+        href="/pdf/Ben-Ryan-Rinconada-WebDeveloper.pdf"
         download
-        className="px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-200"
+        className="px-4 py-2 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition-colors duration-200 flex gap-1"
       >
-        Download PDF
+        Download My Resume <FileDown />
       </a>
     </div>
   );
 };
 
 export default MyResume;
-
-//  <div className="h-screen bg-[#020617] flex justify-center items-center p-">
-//  <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.9.179/build/pdf.worker.min.js">
-//     <div className="w-full max-w-screen-xl h-[90vh] rounded-xl overflow-hidden shadow-xl bg-white p-2">
-//       <Viewer fileUrl="/pdf/my-resume.pdf" />
-//     </div>
-//   </Worker>
-// </div>
