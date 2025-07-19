@@ -9,7 +9,7 @@ import logo from "/images/BR-white.png";
 
 const NavBar = () => {
   return (
-    <div className="fixed top-0 left-0 right-0 flex justify-between mx-auto container pt-5 items-center px-8 z-50">
+    <div className="fixed top-2 left-0 right-0 flex justify-between mx-auto container pt-5 items-center px-8 z-50">
       <Link to="/">
         <img
           className="h-[50px] transition-transform duration-300 hover:scale-120 hover:rotate-9"

@@ -1,15 +1,46 @@
 import React from "react";
-import myImage from "/images/grad-pic-x.png";
+// import myImage from "/images/grad-pic-x.png";
+
+import LaptopCanvas from "./3d/laptop";
+import Position from "./3d/Position";
 
 // eslint-disable-next-line no-unused-vars
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
+import { useEffect } from "react";
 
-const Hero = () => {
+const Hero = ({ scrollContainer }) => {
+  const controls = useAnimation();
+
+  useEffect(() => {
+    const sequence = async () => {
+      await controls.start({
+        y: 0,
+        opacity: 1,
+        transition: {
+          duration: 1,
+          ease: "easeOut",
+        },
+      });
+
+      controls.start({
+        y: [0, -10, 0],
+        transition: {
+          duration: 3,
+          ease: "easeInOut",
+          repeat: Infinity,
+          repeatType: "mirror",
+        },
+      });
+    };
+
+    sequence();
+  }, [controls]);
+
   return (
     <div className="border-b border-slate-900 text-slate-100 pb-32">
-      <div className="relative lg:h-screen flex flex-wrap justify-center items-center border-b-2 border-slate-700 overflow-hidden flex-col-reverse">
+      <div className="relative h-screen flex flex-wrap justify-center items-center border-b-2 border-slate-700 overflow-hidden flex-col-reverse md:flex-row">
         <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
-        <div className="w-full lg:w-1/2">
+        {/* <div className="w-full lg:w-6/12 z-30 pointer-events-none">
           <motion.div
             initial={{ x: -200, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -30,14 +61,13 @@ const Hero = () => {
               type and scrambled it to make a type specimen book.
             </p>
           </motion.div>
-        </div>
+        </div> */}
         <motion.div
-          initial={{ x: 200, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="w-full lg:w-1/2 flex justify-center items-end "
+          initial={{ y: 200, opacity: 0 }}
+          animate={controls}
+          className="absolute inset-0 z-20 h-screen w-screen pointer-events-none"
         >
-          <img className="relative w-[550px]" src={myImage} alt="" />
+          <LaptopCanvas scrollContainer={scrollContainer} />
         </motion.div>
       </div>
     </div>
