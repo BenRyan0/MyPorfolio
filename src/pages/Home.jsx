@@ -16,7 +16,7 @@ const Home = () => {
      <div className="flex flex-col items-center justify-center bg-[#020617] ">
        <div className="container mx-auto px-8 mt-20 lg:mt-0 pb-6  "   ref={wrapperRef}>
          <NavBar/>
-          <div className='z-10'>
+          <div className='z-10 bg-transparent'>
             <Hero scrollContainer={wrapperRef} />
           </div>
           {/* </div> */}
