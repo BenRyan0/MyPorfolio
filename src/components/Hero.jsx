@@ -1,8 +1,6 @@
 import React from "react";
-// import myImage from "/images/grad-pic-x.png";
+import LaptopCanvas from "./3d/Laptop";
 
-import LaptopCanvas from "./3d/laptop";
-import Position from "./3d/Position";
 
 // eslint-disable-next-line no-unused-vars
 import { motion, useAnimation } from "framer-motion";
