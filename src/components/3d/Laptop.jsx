@@ -81,17 +81,17 @@ const [isInactive, setIsInactive] = useState(false);
 
     const handleResize = () => {
       if (window.innerWidth < 768) {
-            setScale([.5, .5, 0.2]);
-        setPosition([-0.35, 0.4, -0.9]); // Slight vertical offset, centered horizontally
+            setScale([.47, .47, 0.2]);
+        setPosition([-0.5, 0.4, -0.9]); // Slight vertical offset, centered horizontally
       } else if (window.innerWidth < 1024) {
           setScale([1.2, 1.2, 0.59]);
         setPosition([-0.2, -1.4, -0.9]); // Slight vertical offset, centered horizontally
       } else if (window.innerWidth < 1280) {
          setScale([1.2, 1.2, 0.59]);
-        setPosition([-0.2, -1.4, -0.9]);// Slight vertical offset, centered horizontally
+        setPosition([-0.3, -1.4, -0.9]);// Slight vertical offset, centered horizontally
       } else if (window.innerWidth < 1536) {
         setScale([1.2, 1.2, 0.59]);
-        setPosition([-0.2, -1.4, -0.9]); // Slight vertical offset, centered horizontally
+        setPosition([-0.6, -1.4, -0.9]); // Slight vertical offset, centered horizontally
       } else {
           setScale([1.2, 1.2, 0.59]);
         setPosition([-0.2, -1.4, -0.9]);  // Slight vertical offset, centered horizontally
