@@ -143,9 +143,7 @@ const LaptopCanvas = ({ scrollContainer }) => {
     ? defaultRotation[1]
     : rotationY + mouseX * 1.5;
 
-  console.log("computedRotationX" + computedRotationX);
-  console.log("computedRotationY" + computedRotationY);
-  console.log("window.innerWidth" + window.innerWidth);
+
 
 
 
