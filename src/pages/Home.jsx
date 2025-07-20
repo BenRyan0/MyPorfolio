@@ -27,8 +27,9 @@ const Home = () => {
   }, []);
 
   const sectionComponents = [
-    <Hero scrollContainer={wrapperRef} key="hero" />,
     <Hero2 scrollContainer={wrapperRef} key="hero2" />,
+    <Hero scrollContainer={wrapperRef} key="hero" />,
+    
     <AboutMe key="about" />,
     <Technologies key="tech" />,
     <Experience key="exp" />,
