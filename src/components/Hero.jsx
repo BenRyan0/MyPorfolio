@@ -23,11 +23,9 @@ const Hero = () => {
             >
               Full Stack Developer
             </h2>
-            <p className="pt-3 pl-1">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book.
+            <p className="pt-3 pl-1 text-base pr-0 sm:pr-[60px] text-wrap">
+             Fueled by curiosity and a love for building seamless digital experiences, I specialize in JavaScript, Node.js, and React.js. 
+             I thrive in dynamic environments, enjoy collaborative problem-solving, and embrace challenges that push the boundaries of web development.
             </p>
           </motion.div>
         </div>

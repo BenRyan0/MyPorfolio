@@ -6,7 +6,7 @@ import LaptopCanvas from "./3d/Laptop";
 import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
 
-const Hero = ({ scrollContainer }) => {
+const Hero2 = ({ scrollContainer }) => {
   const controls = useAnimation();
 
   useEffect(() => {
@@ -72,4 +72,4 @@ const Hero = ({ scrollContainer }) => {
   );
 };
 
-export default Hero;
+export default Hero2;

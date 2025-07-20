@@ -1,6 +1,7 @@
 import {  useRef } from 'react';
 import NavBar from './../components/NavBar';
 import Hero from './../components/Hero';
+import Hero2 from './../components/Hero2';
 import AboutMe from './AboutMe';
 import Technologies from './Technologies';
 import Experience from './Experience';
@@ -18,7 +19,7 @@ const Home = () => {
             <Hero scrollContainer={wrapperRef} />
           </div>
           {/* </div> */}
-         <Hero  scrollContainer={wrapperRef}/>
+         <Hero2  scrollContainer={wrapperRef}/>
          <AboutMe/>
          <Technologies/>
          <Experience/>
