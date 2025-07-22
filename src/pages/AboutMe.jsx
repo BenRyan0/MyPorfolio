@@ -3,7 +3,7 @@ import myImage from '/images/grad-pic.png'
 
 const AboutMe = () => {
   return (
-   <div className=" text-slate-100">
+   <div id="about" className=" text-slate-100">
          <div className="lg:h-screen flex flex-wrap  justify-center items-center">
             <h2 className='font-bold text-3xl mt-3'>About Me</h2>
           <div className="flex flex-wrap justify-between items-center">

@@ -27,7 +27,7 @@ import NumLabel from "../components/myComponents/NumberLabel";
 
 const Projects = () => {
   return (
-    <div className=" relative border-b border-slate-800 pb-20 pt-10 overflow-hidden">
+    <div id="projects" className=" relative border-b border-slate-800 pb-20 pt-10 overflow-hidden">
       <Tooltip
         id="my-tooltip"
         className="z-50 !bg-purple-600 font-bold px-0 text-center"

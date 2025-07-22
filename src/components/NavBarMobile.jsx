@@ -35,12 +35,12 @@ const NavBarMobile = () => {
     },
     {
       label: "Projects",
-      link: "#work",
+      link: "#projects",
       className: "nav-link",
     },
     {
       label: "Resume",
-      link: "#reviews",
+      link: "#resume",
       className: "nav-link",
     },
   

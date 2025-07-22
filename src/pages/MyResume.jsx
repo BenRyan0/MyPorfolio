@@ -81,7 +81,7 @@ const MyResume = () => {
   }, []);
 
   return (
-    <div className="h-screen bg-[#020617] flex flex-col justify-center items-center gap-4 pt-6">
+    <div id="resume" className="h-screen bg-[#020617] flex flex-col justify-center items-center gap-4 pt-6">
       <div
         ref={viewerRef}
         className={`relative inset-0 w-full md:w-[60%] py-5 rounded-xl overflow-hidden shadow-xl bg-white flex flex-row justify-center items-center text-center pt-6 ${

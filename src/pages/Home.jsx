@@ -31,13 +31,12 @@ const Home = () => {
 
   const sectionComponents = [
     // <Hero2 scrollContainer={wrapperRef} key="hero2" />,
-     <HeroModel scrollContainer={wrapperRef} key="hero" />,
+     <HeroModel scrollContainer={wrapperRef} key="hero" href="/"/>,
     // <Hero scrollContainer={wrapperRef} key="hero" />,
    
     
-    <AboutMe key="about" />,
-    <Technologies key="tech" />,
-    // <Experience key="exp" />,
+    <AboutMe key="about" href="#about" />,
+    <Technologies key="tech" href="#work" />,
     <Projects key="proj" />,
     <MyResume key="resume" />
     
