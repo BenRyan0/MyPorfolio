@@ -1,75 +1,75 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
-import { FaSquareXTwitter } from "react-icons/fa6";
-import { Tooltip } from "react-tooltip";
-import logo from "/images/BR-white.png";
+import React, { useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 
+const NavBar = ({ navOpen }) => {
+  const lastActiveLink = useRef();
+  const activeBox = useRef();
+  const initActiveBox = () => {
+    activeBox.current.style.top = lastActiveLink.current.offsetTop + "px";
+    activeBox.current.style.left = lastActiveLink.current.offsetLeft + "px";
+    activeBox.current.style.width = lastActiveLink.current.offsetWidth + "px";
+    activeBox.current.style.height = lastActiveLink.current.offsetHeight + "px";
+  };
+  useEffect(initActiveBox, []);
+  const activeCurrentLink = (e) => {
+    lastActiveLink.current?.classList.remove("active");
+    e.target.classList.add("active");
+    lastActiveLink.current = e.target;
 
+    activeBox.current.style.top = event.target.offsetTop + "px";
+    activeBox.current.style.left = event.target.offsetLeft + "px";
+    activeBox.current.style.width =event.target.offsetWidth + "px";
+    activeBox.current.style.height =event.target.offsetHeight + "px";
+  };
+  const navItems = [
+    {
+      label: "Home",
+      link: "#home",
+      className: "nav-link active",
+      ref: lastActiveLink,
+    },
+    {
+      label: "About",
+      link: "#about",
+      className: "nav-link",
+    },
+    {
+      label: "Work",
+      link: "#work",
+      className: "nav-link",
+    },
+    {
+      label: "Reviews",
+      link: "#reviews",
+      className: "nav-link",
+    },
+    {
+      label: "Contact",
+      link: "#contact",
+      className: "nav-link md:hidden",
+    },
+  ];
 
-const NavBar = () => {
   return (
-    <div className="fixed top-2 left-0 right-0 flex justify-between mx-auto container pt-5 items-center px-8 z-50">
-      <Link to="/">
-        <img
-          className="h-[50px] transition-transform duration-300 hover:scale-120 hover:rotate-9"
-          src={logo}
-          alt="Logo"
-        />
-      </Link>
+    <nav className={"navbar" + (navOpen ? " active" : " opacity-0")}>
+      {navItems.map(({ label, link, className, ref }, key) => (
+        <a
+          className={className}
+          href={link}
+          ref={ref}
+          key={key}
+          onClick={activeCurrentLink}
+        >
+          {label}
+        </a>
+      ))}
 
-      <div className="text-slate-100">
-        <ul className="flex justify-center gap-2 text-2xl">
-          <li className="transition-transform duration-300 hover:scale-130 hover:rotate-10">
-            <a 
-              data-tooltip-id="my-tooltip"
-              data-tooltip-content="Linkedin"
-              href="https://www.linkedin.com/in/ben-ryan-rinconada-323b25369"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaLinkedin />
-            </a>
-          </li>
-          <li className="transition-transform duration-300 hover:scale-130 hover:-rotate-9">
-            <a
-              data-tooltip-id="my-tooltip"
-              data-tooltip-content="GitHub"
-              href="https://github.com/BenRyan0"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaGithub />
-            </a>
-          </li>
-
-          <li className="transition-transform duration-300 hover:scale-130 hover:rotate-9">
-            <a
-              data-tooltip-id="my-tooltip"
-              data-tooltip-content="Instagram"
-              href="https://www.linkedin.com/in/ben-ryan-rinconada-323b25369"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaInstagram />
-            </a>
-          </li>
-          <li className="transition-transform duration-300 hover:scale-130 hover:-rotate-9">
-            <a
-              data-tooltip-id="my-tooltip"
-              data-tooltip-content="X"
-              href="https://www.linkedin.com/in/ben-ryan-rinconada-323b25369"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaSquareXTwitter />
-            </a>
-          </li>
-        </ul>
-        <Tooltip id="my-tooltip" />
-      </div>
-    </div>
+      <div className="active-box" ref={activeBox}></div>
+    </nav>
   );
 };
 
+NavBar.PropTypes = {
+  navOpen: PropTypes.bool.isRequired,
+};
 export default NavBar;

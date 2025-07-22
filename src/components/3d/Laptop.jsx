@@ -48,11 +48,11 @@ const Laptop = ({ scale, position, rotationX, rotationY, positionDefault }) => {
   );
 };
 const LaptopCanvas = ({ scrollContainer }) => {
-  const [mouseX, setMouseX] = useState(0);
-  const [mouseY, setMouseY] = useState(0);
+  const [mouseX, setMouseX] = useState(-0.2);
+  const [mouseY, setMouseY] = useState(0.1);
   const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
-  const defaultRotation = [0, 0, 0]; // your original rotation
+  const defaultRotation = [0.12, -0.3, 0]; // your original rotation
   // const defaultRotation = [-0.064, 0.02, -0.150]; // your original rotation
   const lastActiveRef = useRef(Date.now());
   const [isInactive, setIsInactive] = useState(false);
@@ -68,7 +68,7 @@ const LaptopCanvas = ({ scrollContainer }) => {
       if (Date.now() - lastActiveRef.current > 2000) {
         setIsInactive(true);
       }
-    }, 1000); // check every second
+    }, 600); // check every second
 
     return () => clearInterval(interval);
   }, []);
@@ -86,24 +86,24 @@ const LaptopCanvas = ({ scrollContainer }) => {
 
     const handleResize = () => {
       if (window.innerWidth < 768) {
-        setScale([0.55, 0.55, 0.29]);
+        setScale([0.6, 0.6, 0.5]);
         setPosition([-0.3, -1.4, -0.9]);
-        setPositionDefault([-0.6, 3, -0.9]);
+        setPositionDefault([-0.6, 1.3, -0.9]);
       } else if (window.innerWidth < 1024) {
-        setScale([1.2, 1.2, 0.59]);
-        setPosition([-0.3, -1.4, -0.9]);
+        setScale([.9, .9, 0.59]);
+        setPosition([.3, -1.1, -0.9]);
         setPositionDefault([-1, 0, 0.3]);
       } else if (window.innerWidth < 1280) {
-        setScale([1.2, 1.2, 0.59]);
-        setPosition([-0.3, -1.4, -0.9]);
+        setScale([.69, .69, 0.59]);
+        setPosition([-0.1, -.4, -0.9]);
         setPositionDefault([-1, 0, 0.3]);
       } else if (window.innerWidth < 1536) {
-        setScale([1.3, 1.3, 0.59]);
-        setPosition([-0.8, -1.4, -0.9]);
-        setPositionDefault([-0.1, 0, -0.9]);
+        setScale([1.04, 1.04, 0.86]);
+        setPosition([-0.12, -1.9, -0.9]);
+        setPositionDefault([-0.5, 1, -0.9]);
       } else {
-        setScale([1.2, 1.2, 0.59]);
-        setPosition([-0.3, -1.4, -0.9]);
+        setScale([1.2, 1.2, 1]);
+        setPosition([0.99, -1.4, -0.9]);
         setPositionDefault([-1.599, 0, -0.9]);
       }
     };
@@ -129,9 +129,12 @@ const LaptopCanvas = ({ scrollContainer }) => {
     const rawY = (clientY / innerHeight - 0.5) * 2;
 
     // Clamp to avoid wild movement
-    const clampedX = clamp(rawX, -0.05, 0.05);
-    const clampedY = clamp(rawY, -0.05, 0.05);
+    const clampedX = clamp(rawX, 0.4, -0.4);
+    // const clampedX = clamp(rawX, -0.4, 0.4);
+    const clampedY = clamp(rawY, -0.2, 0.1);
 
+    console.log("Sad")
+    console.log(clampedX)
     setMouseX(clampedX);
     setMouseY(clampedY);
   };
@@ -143,40 +146,46 @@ const LaptopCanvas = ({ scrollContainer }) => {
     ? defaultRotation[1]
     : rotationY + mouseX * 1.5;
 
-
-
-
-
   return (
-    <Canvas
-      className={`w-full h-screen z-10 mt-10 rotate-3 bg-transparent`}
-      camera={{ near: 0.1, far: 1000 }}
-      onPointerMove={handleMouseMove}
+    <div
+      style={{
+        width: "100%",
+        maxWidth: "800px",
+        height: "600px",
+        margin: "0 auto",
+      }}
     >
-      <Suspense fallback={<CanvasLoader />}>
-        <directionalLight position={[1, 3, 2]} intensity={8} />
-        <ambientLight intensity={0.5} />
-        <pointLight position={[10, 5, 10]} intensity={2} />
-        <spotLight
-          position={[0, 50, 10]}
-          angle={0.15}
-          penumbra={1}
-          intensity={2}
-        />
-        <hemisphereLight
-          skyColor="#b1e1ff"
-          groundColor="#000000"
-          intensity={1}
-        />
-        <Laptop
-          rotationX={computedRotationX}
-          rotationY={computedRotationY}
-          scale={scale}
-          position={position}
-          positionDefault={positionDefault}
-        />
-      </Suspense>
-    </Canvas>
+      <Canvas
+        className={`z-10 mt-10 rotate-3 w-full h-full`}
+        camera={{ position: [0, 0, 5], near: 0.1, far: 100 }}
+        onPointerMove={handleMouseMove}
+      >
+        <Suspense fallback={<CanvasLoader />}>
+          <directionalLight position={[1, 3, 2]} intensity={8} />
+          <ambientLight intensity={0.5} />
+          <pointLight position={[10, 5, 10]} intensity={2} />
+          <spotLight
+            position={[0, 50, 10]}
+            angle={0.15}
+            penumbra={1}
+            intensity={2}
+          />
+          <hemisphereLight
+            skyColor="#b1e1ff"
+            groundColor="#000000"
+            intensity={1}
+          />
+          <Laptop
+            rotationX={computedRotationX}
+            rotationY={computedRotationY}
+            scale={scale}
+            position={position}
+            positionDefault={positionDefault}
+          />
+     
+        </Suspense>
+      </Canvas>
+    </div>
   );
 };
 
