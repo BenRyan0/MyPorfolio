@@ -129,9 +129,9 @@ const LaptopCanvas = ({ scrollContainer }) => {
     const rawY = (clientY / innerHeight - 0.5) * 2;
 
     // Clamp to avoid wild movement
-    const clampedX = clamp(rawX, 0.4, -0.4);
+    const clampedX = clamp(rawX, -0.4, 0.4);
     // const clampedX = clamp(rawX, -0.4, 0.4);
-    const clampedY = clamp(rawY, -0.2, 0.1);
+    const clampedY = clamp(rawY, -0.2, 0.2);
 
     console.log("Sad")
     console.log(clampedX)
@@ -150,13 +150,13 @@ const LaptopCanvas = ({ scrollContainer }) => {
     <div
       style={{
         width: "100%",
-        maxWidth: "800px",
+        maxWidth: "100%",
         height: "600px",
         margin: "0 auto",
       }}
     >
       <Canvas
-        className={`z-10 mt-10 rotate-3 w-full h-full`}
+        className={`z-10 mt-10 rotate-3 w-full h-full pb-[100px]`}
         camera={{ position: [0, 0, 5], near: 0.1, far: 100 }}
         onPointerMove={handleMouseMove}
       >

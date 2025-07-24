@@ -1,5 +1,12 @@
 import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
+import { House, SquareUserRound, Folder, FileText } from "lucide-react";
+// import { Tooltip } from "react-tooltip";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const NavBar = ({ navOpen }) => {
   const lastActiveLink = useRef();
@@ -12,47 +19,49 @@ const NavBar = ({ navOpen }) => {
   };
   useEffect(initActiveBox, []);
   const activeCurrentLink = (e) => {
-    lastActiveLink.current?.classList.remove("active");
-    e.target.classList.add("active");
-    lastActiveLink.current = e.target;
+    const link = e.currentTarget; // always the <a> element
 
-    activeBox.current.style.top = event.target.offsetTop + "px";
-    activeBox.current.style.left = event.target.offsetLeft + "px";
-    activeBox.current.style.width =event.target.offsetWidth + "px";
-    activeBox.current.style.height =event.target.offsetHeight + "px";
+    lastActiveLink.current?.classList.remove("active");
+    link.classList.add("active");
+    lastActiveLink.current = link;
+
+    activeBox.current.style.top = link.offsetTop + "px";
+    activeBox.current.style.left = link.offsetLeft + "px";
+    activeBox.current.style.width = link.offsetWidth + "px";
+    activeBox.current.style.height = link.offsetHeight + "px";
   };
+
   const navItems = [
     {
+      icon: <House />,
       label: "Home",
       link: "#home",
-      className: "nav-link active",
+      className: "nav-link",
       ref: lastActiveLink,
     },
     {
+      icon: <SquareUserRound />,
       label: "About",
       link: "#about",
       className: "nav-link",
     },
     {
-      label: "Work",
-      link: "#work",
+      icon: <Folder />,
+      label: "Works",
+      link: "#projects",
       className: "nav-link",
     },
     {
-      label: "Reviews",
-      link: "#reviews",
+      icon: <FileText />,
+      label: "Resume",
+      link: "#resume",
       className: "nav-link",
-    },
-    {
-      label: "Contact",
-      link: "#contact",
-      className: "nav-link md:hidden",
     },
   ];
 
   return (
     <nav className={"navbar" + (navOpen ? " active" : " opacity-0")}>
-      {navItems.map(({ label, link, className, ref }, key) => (
+      {navItems.map(({ link, className, ref, icon, label }, key) => (
         <a
           className={className}
           href={link}
@@ -60,7 +69,15 @@ const NavBar = ({ navOpen }) => {
           key={key}
           onClick={activeCurrentLink}
         >
-          {label}
+          <Tooltip>
+            <TooltipTrigger asChild>
+              {/* Only one direct child element here */}
+              <span className="icon-wrapper">{icon}</span>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>{`${label}`}</p>
+            </TooltipContent>
+          </Tooltip>
         </a>
       ))}
 
