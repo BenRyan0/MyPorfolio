@@ -228,13 +228,13 @@ body::-webkit-scrollbar-thumb {
 
 /* nav */
 .navbar {
-  @apply top-full right-0 min-w-30 p-2 bg-[#1C1A19] rounded-2xl scale-90 isolate  invisible hidden transition-all static md:flex items-center mt-0 opacity-100 md:blur-none md:visible md:scale-100 md:bottom-0 border-2 border-zinc-50 gap-3 px-5 text-center;
+  @apply top-full right-0 min-w-30 p-2 bg-[#020617] rounded-xl scale-90 isolate invisible hidden transition-all static md:flex items-center mt-0 opacity-100 md:blur-none md:visible md:scale-100 md:bottom-0 border-2 border-zinc-50 gap-3 px-5 pr-6 py-1 text-center;
 }
 .navbarSide {
-  @apply top-full right-0 min-w-40 p-2 bg-[#1C1A19] rounded-2xl scale-90 isolate  invisible hidden transition-all static md:flex items-center mt-0 opacity-100 md:blur-none md:visible md:scale-100 md:bottom-0 border-2 border-zinc-50;
+  @apply top-full right-0 min-w-40 p-2 bg-[#020617] rounded-2xl scale-90 isolate  invisible hidden transition-all static md:flex items-center mt-0 opacity-100 md:blur-none md:visible md:scale-100 md:bottom-0 border-2 border-zinc-50;
 }
 .navbarMobile {
-  @apply top-full bg-[#1C1A19] w-full p-2 rounded-2xl isolate md:hidden transition-all static flex items-center justify-center gap-5 mt-0 opacity-100 blur-none md:visible md:scale-100 bottom-0  border-2 border-zinc-50 px-7;
+  @apply top-full w-full bg-[#020617] p-2  rounded-2xl isolate md:hidden transition-all static flex items-center justify-center gap-5 opacity-100 blur-none md:visible md:scale-100 bottom-22 border-2 border-zinc-50;
 }
 
 .navbar.active {
@@ -242,7 +242,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .nav-link {
-  @apply flex items-center h-9 w-12 text-center text-sm font-medium
+  @apply flex items-center h-9 w-11 text-center text-sm font-medium
    text-zinc-50 hover:text-purple-500
   transition-all justify-center;
 }

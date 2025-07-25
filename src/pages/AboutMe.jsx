@@ -5,7 +5,7 @@ const AboutMe = () => {
   return (
    <div id="about" className=" text-slate-100">
          <div className="lg:h-screen flex flex-wrap  justify-center items-center">
-            <h2 className='font-bold text-3xl mt-3'>About Me</h2>
+            <h2 className='font-bold text-3xl mt-18'>About Me</h2>
           <div className="flex flex-wrap justify-between items-center">
             <div className="w-full lg:w-1/2 flex justify-center items-center">
              <img className="relative w-[350px]" src={myImage} alt="" />

@@ -49,7 +49,7 @@ const HeroModel = ({drawerOpen,setDrawerOpen}) => {
             transition={{ duration: 1, ease: "easeOut" }}
             className="flex flex-col justify-center items-start md:items-center"
           >
-            <h2 className="font-semibold text-2xl pl-1">G'day, I'm</h2>
+            <h2 className="font-semibold text-2xl pl-1                                                        ">G'day, I'm</h2>
             <h2 className="font-semibold md:text-8xl text-6xl text-start md:text-center">Ben Ryan Rinconada</h2>
             <h2
               className="mt-2 font-bold pl-1 text-2xl text-[#353334] bg-clip-text tracking-tight

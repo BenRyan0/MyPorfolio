@@ -19,8 +19,8 @@ const Header = ({ setDrawerOpen }) => {
 
 
   return (
-   <header className="fixed top-3 left-0 right-0 w-full h-20 flex items-center z-40 container mx-auto md:px-22 px-8">
-    <div className="max-w-screen-2xl w-full mx-auto px-4 flex justify-between items-center md:grid md:grid-cols-3 ">
+   <header className="fixed top-3 left-0 right-0 w-full h-20 flex items-center z-40 container mx-auto md:px-22 px-6">
+    <div className="max-w-screen-2xl w-full mx-auto flex justify-between items-center md:grid md:grid-cols-3 ">
       <h1>
         <Link to="/">
         <img

@@ -38,32 +38,32 @@ const NavBar = ({ navOpen, setDrawerOpen }) => {
 
   const navItems = [
     {
-      icon: <House />,
+      icon: <House size={20} />,
       label: "Home",
       link: "#home",
       className: "nav-link active",
       ref: lastActiveLink,
     },
     {
-      icon: <SquareUserRound />,
+      icon: <SquareUserRound size={20} />,
       label: "About",
       link: "#about",
       className: "nav-link",
     },
     {
-      icon: <Folder />,
+      icon: <Folder size={20} />,
       label: "Works",
       link: "#projects",
       className: "nav-link",
     },
     {
-      icon: <FileText />,
+      icon: <FileText size={20} />,
       label: "Resume",
       link: "#resume",
       className: "nav-link",
     },
     {
-      icon: <Contact />,
+      icon: <Contact  size={20} />,
       label: "Connect",
       link: "#Home",
       className: "nav-link",
@@ -72,7 +72,7 @@ const NavBar = ({ navOpen, setDrawerOpen }) => {
   ];
 
   return (
-    <nav className={`navbar${navOpen ? " active" : " opacity-0"}`}>
+    <nav className={`navbar ${navOpen ? " active" : " opacity-0"}`}>
       {navItems.map(
         ({ link, className, ref, icon, label, triggerDrawer }, key) => (
           <a
@@ -85,10 +85,10 @@ const NavBar = ({ navOpen, setDrawerOpen }) => {
                 setDrawerOpen(true); // Only for "Connect"
               }
             }}
-            className={`group relative flex flex-col items-center justify-center w-16 h-16 transition-all duration-300 ${className}`}
+            className={`group relative flex flex-col items-center justify-center w-16 h-16 transition-all duration-500 ${className}`}
           >
             {/* ICON */}
-            <span className="transition-all duration-300 ease-in-out group-hover:-translate-y-4 group-hover:opacity-0">
+            <span className="transition-all duration-500 ease-in-out group-hover:-translate-y-4 group-hover:opacity-0 text-xs">
               {icon}
             </span>
 

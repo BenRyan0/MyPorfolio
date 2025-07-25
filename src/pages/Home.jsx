@@ -45,8 +45,8 @@ const Home = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center justify-center bg-[#151312]">
-      <div className="container mx-auto px-9 md:px-22 mt-20 lg:mt-0 6 wrapper" ref={wrapperRef}>
+    <div className="flex flex-col items-center justify-center bg-[#020617]">
+      <div className="container mx-auto  px-6 md:px-22  lg:mt-6 wrapper" ref={wrapperRef}>
         <Header setDrawerOpen={setDrawerOpen} />
         {sectionComponents.slice(0, visibleCount)}
           <HeaderMobile setDrawerOpen={setDrawerOpen}/>

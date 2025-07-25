@@ -20,8 +20,8 @@ const HeaderMobile = ({ setDrawerOpen }) => {
 
 
   return (
-   <header className="fixed bottom-0 left-0 right-0 w-full h-20 flex items-center z-40 px-5">
-    <div className=" w-full flex justify-center items-center  ">
+   <header className="fixed bottom-2 left-0 right-0 w-full h-20 flex items-center z-40">
+    <div className=" w-full flex justify-center items-center mx-3">
         <NavBarMobile setDrawerOpen={setDrawerOpen}/>    
     </div>
 

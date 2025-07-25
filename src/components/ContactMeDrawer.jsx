@@ -16,19 +16,23 @@ import {
   DrawerHeader,
   DrawerTitle,
 } from "@/components/ui/drawer";
+// eslint-disable-next-line no-unused-vars
+import { motion, useAnimation } from "framer-motion";
 
 import { FaLinkedin, FaGithub, FaFacebookSquare } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { Tooltip } from "react-tooltip";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ContactMeForm } from './ContactMeForm';
+import { ContactMeForm } from "./ContactMeForm";
 
 export function ContactMe({ open, setOpen }) {
   return (
     <Drawer open={open} onOpenChange={setOpen} className={""}>
       <DrawerContent
-        className={"container mx-auto w-11/12 md:w-8/12 lg:w-5/12 bg-[#121212] "}
+        className={
+          "container mx-auto w-11/12 md:w-8/12 lg:w-5/12 bg-[#121212] "
+        }
       >
         <div className="mx-auto w-11/12 pb-10">
           <DrawerHeader>
@@ -97,47 +101,61 @@ export function ContactMe({ open, setOpen }) {
                 <TabsTrigger value="password">Fill a form</TabsTrigger>
               </TabsList>
               <TabsContent value="account">
-                <div className="w-full  text-zinc-100 flex flex-col gap-2">
-                  <div className="mt-3 grid md:grid-cols-2 gap-2">
-                    <div className="border-2 rounded-md border-neutral-800 h-[150px] ">
-                      <div className="p-4 flex gap-2 border-b-2 border-neutral-800 gap-x-3  bg-gradient-to-r to-transparent from-blue-900/20">
-                        <Mail color="#4E9CFA" />
-                        <h2 className="font-bold">Email</h2>
+                <motion.div
+                  initial={{ y: 100, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  className="flex flex-col justify-center items-start md:items-center"
+                >
+                  <div className="w-full  text-zinc-100 flex flex-col gap-2">
+                    <div className="mt-3 grid md:grid-cols-2 gap-2">
+                      <div className="border-2 rounded-md border-neutral-800 h-[150px] ">
+                        <div className="p-4 flex gap-2 border-b-2 border-neutral-800 gap-x-3  bg-gradient-to-r to-transparent from-blue-900/20">
+                          <Mail color="#4E9CFA" />
+                          <h2 className="font-bold">Email</h2>
+                        </div>
+                        <div className="p-3 text-sm">
+                          <h2 className="font-semibold  ">{CONTACT.email}</h2>
+                          <p className="mt-3 text-xs text-zinc-400">
+                            Send me an email directly
+                          </p>
+                        </div>
                       </div>
-                      <div className="p-3 text-sm">
-                        <h2 className="font-semibold  ">{CONTACT.email}</h2>
-                        <p className="mt-3 text-xs text-zinc-400">
-                          Send me an email directly
-                        </p>
+                      <div className="border-2 rounded-md border-neutral-800 h-[150px]  ">
+                        <div className="p-4 flex gap-2 border-b-2 border-neutral-800 gap-x-3  bg-gradient-to-r to-transparent from-purple-900/20">
+                          <Mail color="#C27AFF" />
+                          <h2 className="font-bold">Book a call</h2>
+                        </div>
+                        <div className="p-3 text-sm text-start ">
+                          <h2 className="font-semibold ">
+                            Schedule a time slot
+                          </h2>
+                          <p className="mt-3 text-xs text-zinc-400">
+                            Book a call on my calendar
+                          </p>
+                        </div>
                       </div>
                     </div>
-                    <div className="border-2 rounded-md border-neutral-800 h-[150px]  ">
-                      <div className="p-4 flex gap-2 border-b-2 border-neutral-800 gap-x-3  bg-gradient-to-r to-transparent from-purple-900/20">
-                        <Mail color="#C27AFF" />
-                        <h2 className="font-bold">Book a call</h2>
-                      </div>
-                      <div className="p-3 text-sm text-start ">
-                        <h2 className="font-semibold ">Schedule a time slot</h2>
-                        <p className="mt-3 text-xs text-zinc-400">
-                          Book a call on my calendar
-                        </p>
-                      </div>
-                    </div>
-                  </div>
 
-                  <div className="w-full mt-1 rounded-md border-neutral-800 border-2 py-3 text-xs text-center font-base text-green-200 bg-gradient-to-r to-transparent from-green-900/30 flex justify-center items-center">
-                    <div className="relative inline-flex">
-                      <div className="rounded-full bg-green-400 h-[8px] w-[8px] inline-block mr-2"></div>
-                      <div className="absolute animate-ping rounded-full bg-green-400 h-[8px] w-[8px] mr-2"></div>
+                    <div className="w-full mt-1 rounded-md border-neutral-800 border-2 py-3 text-xs text-center font-base text-green-200 bg-gradient-to-r to-transparent from-green-900/30 flex justify-center items-center">
+                      <div className="relative inline-flex">
+                        <div className="rounded-full bg-green-400 h-[8px] w-[8px] inline-block mr-2"></div>
+                        <div className="absolute animate-ping rounded-full bg-green-400 h-[8px] w-[8px] mr-2"></div>
+                      </div>
+                      <h2>Currently Available for new opportunities</h2>
                     </div>
-                    <h2>Currently Available for new opportunities</h2>
                   </div>
-                </div>
+                </motion.div>
               </TabsContent>
               <TabsContent value="password">
-                <div className="w-full">
-                  <ContactMeForm className={"border-0 "}/>
-                </div>
+                <motion.div
+                  initial={{ y: 100, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  className="w-full"
+                >
+                  <ContactMeForm className={"border-0 "} />
+                </motion.div>
               </TabsContent>
             </Tabs>
           </div>
