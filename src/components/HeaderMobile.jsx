@@ -11,18 +11,18 @@ import { BiLogoGmail } from "react-icons/bi";
 import { Tooltip } from "react-tooltip";
 
 import { Menu } from 'lucide-react';
-import NavBar from './NavBarMobile';
+import NavBarMobile from './NavBarMobile';
 import { IoMdClose } from "react-icons/io";
 
 
-const HeaderMobile = () => {
+const HeaderMobile = ({ setDrawerOpen }) => {
     // const [navOpen, setNavOpen] = useState(false)
 
 
   return (
    <header className="fixed bottom-0 left-0 right-0 w-full h-20 flex items-center z-40 px-5">
     <div className=" w-full flex justify-center items-center  ">
-        <NavBar/>    
+        <NavBarMobile setDrawerOpen={setDrawerOpen}/>    
     </div>
 
    </header>

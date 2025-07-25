@@ -125,7 +125,7 @@ export function ContactMe({ open, setOpen }) {
                     </div>
                   </div>
 
-                  <div className="w-full mt-1 rounded-md border-neutral-800 border-2 py-3 text-xs text-center font-base text-green-200 bg-gradient-to-r to-transparent from-green-900/30 flex justify-center item">
+                  <div className="w-full mt-1 rounded-md border-neutral-800 border-2 py-3 text-xs text-center font-base text-green-200 bg-gradient-to-r to-transparent from-green-900/30 flex justify-center items-center">
                     <div className="relative inline-flex">
                       <div className="rounded-full bg-green-400 h-[8px] w-[8px] inline-block mr-2"></div>
                       <div className="absolute animate-ping rounded-full bg-green-400 h-[8px] w-[8px] mr-2"></div>

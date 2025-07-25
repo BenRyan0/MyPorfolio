@@ -15,6 +15,8 @@ import MyResume from './MyResume';
 const Home = () => {
   const wrapperRef = useRef(null);
   const [visibleCount, setVisibleCount] = useState(1);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
 
   // Sequential reveal
   useEffect(() => {
@@ -31,7 +33,7 @@ const Home = () => {
 
   const sectionComponents = [
     // <Hero2 scrollContainer={wrapperRef} key="hero2" />,
-     <HeroModel scrollContainer={wrapperRef} key="hero" href="/"/>,
+     <HeroModel drawerOpen={drawerOpen} setDrawerOpen={setDrawerOpen} scrollContainer={wrapperRef} key="hero" href="/"/>,
     // <Hero scrollContainer={wrapperRef} key="hero" />,
    
     
@@ -45,9 +47,9 @@ const Home = () => {
   return (
     <div className="flex flex-col items-center justify-center bg-[#151312]">
       <div className="container mx-auto px-9 md:px-22 mt-20 lg:mt-0 6 wrapper" ref={wrapperRef}>
-        <Header />
+        <Header setDrawerOpen={setDrawerOpen} />
         {sectionComponents.slice(0, visibleCount)}
-          <HeaderMobile />
+          <HeaderMobile setDrawerOpen={setDrawerOpen}/>
       </div>
     </div>
   );

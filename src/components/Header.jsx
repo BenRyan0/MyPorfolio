@@ -14,7 +14,7 @@ import NavBar from './NavBar';
 import { IoMdClose } from "react-icons/io";
 
 
-const Header = () => {
+const Header = ({ setDrawerOpen }) => {
     // const [navOpen, setNavOpen] = useState(false)
 
 
@@ -33,7 +33,7 @@ const Header = () => {
 
 
       <div className="relative md:justify-self-center text-white">
-        <NavBar/>
+        <NavBar setDrawerOpen={setDrawerOpen}/>
 
         
       </div>

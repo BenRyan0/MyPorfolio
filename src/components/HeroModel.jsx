@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import LaptopCanvas from "./3d/Laptop";
 import { ArrowRight } from "lucide-react";
 import { ContactMe } from "@/components/ContactMeDrawer";
@@ -8,9 +8,9 @@ import { ContactMe } from "@/components/ContactMeDrawer";
 import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
 
-const HeroModel = () => {
+const HeroModel = ({drawerOpen,setDrawerOpen}) => {
   // const HeroModel = ({ scrollContainer }) => {
-  const [drawerOpen, setDrawerOpen] = useState(false);
+  // const [drawerOpen, setDrawerOpen] = useState(false);
   const controls = useAnimation();
 
   useEffect(() => {
@@ -47,17 +47,17 @@ const HeroModel = () => {
             initial={{ y: -200, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="flex flex-col justify-center items-center"
+            className="flex flex-col justify-center items-start md:items-center"
           >
-            <h2 className="font-semibold text-2xl">G'day, I'm</h2>
-            <h2 className="font-semibold md:text-8xl text-4xl">Ben Ryan Rinconada</h2>
+            <h2 className="font-semibold text-2xl pl-1">G'day, I'm</h2>
+            <h2 className="font-semibold md:text-8xl text-6xl text-start md:text-center">Ben Ryan Rinconada</h2>
             <h2
               className="mt-2 font-bold pl-1 text-2xl text-[#353334] bg-clip-text tracking-tight
             "
             >
               Full Stack Developer
             </h2>
-            <button className="mt-2" onClick={() => setDrawerOpen(true)}>
+            <button className="mt-2 pl-1" onClick={() => setDrawerOpen(true)}>
               <div className="bg-purple-500 px-4 py-2 rounded-4xl flex items-center gap-2 group transition-all hover:bg-white hover:text-purple-500 font-semibold duration-500">
                 Let's Connect
                 <span className="relative z-10 p-1 rounded-full bg-white text-purple-500 transition-transform duration-300 group-hover:translate-x-1">
@@ -68,7 +68,7 @@ const HeroModel = () => {
             </button>
 
             {/* Drawer */}
-            <ContactMe open={drawerOpen} setOpen={setDrawerOpen} />
+            <ContactMe open={drawerOpen} setOpen={setDrawerOpen}  />
             {/* <p className="pt-3 pl-1 text-base pr-0 sm:pr-[60px] text-wrap w-4/6">
            Open to job opportunities worldwide. Passionate about building polished,intuitive,and thoughtful digital experiences that leave a mark.
             </p> */}

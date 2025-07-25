@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { House, SquareUserRound, Folder, FileText,Contact } from "lucide-react";
 
-const NavBarMobile = ({ navOpen }) => {
+const NavBarMobile = ({ navOpen,setDrawerOpen }) => {
   const lastActiveLink = useRef();
   const activeBox = useRef();
 
@@ -56,11 +56,12 @@ const NavBarMobile = ({ navOpen }) => {
       link: "#resume",
       className: "nav-link",
     },
-    {
+     {
       icon: <Contact />,
       label: "Connect",
-      link: "#Connect",
+      link: "#Home",
       className: "nav-link",
+      triggerDrawer: true, 
     },
   ];
 
@@ -68,12 +69,17 @@ const NavBarMobile = ({ navOpen }) => {
     <nav className={`navbarMobile ${navOpen ? " active" : " opacity-0"}`}>
     {/* // <nav className={"navbarMobile active w-full flex justify-between items-center"}> */}
     {/* <nav className={"navbar" + (navOpen ? " active" : " opacity-0")}> */}
-     {navItems.map(({ link, className, ref, icon, label }, key) => (
+     {navItems.map(({ link, className, ref, icon, label, triggerDrawer }, key) => (
         <a
           key={key}
           href={link}
           ref={ref}
-          onClick={activeCurrentLink}
+           onClick={(e) => {
+              activeCurrentLink(e);
+              if (triggerDrawer) {
+                setDrawerOpen(true); // Only for "Connect"
+              }
+            }}
           className={`group relative flex flex-col items-center justify-center w-16 h-16 transition-all duration-300 ${className}`}
         >
           {/* ICON */}
