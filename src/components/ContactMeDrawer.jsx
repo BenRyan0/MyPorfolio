@@ -2,8 +2,9 @@
 
 import React from "react";
 // import React, { useState } from "react";
-import { Minus, Plus } from "lucide-react";
+import { Minus, Plus, Mail } from "lucide-react";
 import { Bar, BarChart, ResponsiveContainer } from "recharts";
+import { CONTACT } from "@/constants";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -21,83 +22,122 @@ import { FaSquareXTwitter } from "react-icons/fa6";
 import { Tooltip } from "react-tooltip";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-
-
+import { ContactMeForm } from './ContactMeForm';
 
 export function ContactMe({ open, setOpen }) {
-
-
   return (
-    <Drawer open={open} onOpenChange={setOpen}>
-      <DrawerContent>
-        <div className="mx-auto w-full max-w-sm pb-10">
+    <Drawer open={open} onOpenChange={setOpen} className={""}>
+      <DrawerContent
+        className={"container mx-auto w-11/12 md:w-8/12 lg:w-5/12 bg-[#121212] "}
+      >
+        <div className="mx-auto w-11/12 pb-10">
           <DrawerHeader>
-            {/* <DrawerTitle>Move Goal<
-            /DrawerTitle> */}
-            <div className="text-slate-600  flex justify-center items-center ">
-              <ul className="flex justify-end items-center gap-2 text-2xl">
-                <li className="transition-transform duration-300 hover:scale-130 hover:rotate-10">
-                  <a
-                    data-tooltip-id="my-tooltip"
-                    data-tooltip-content="Linkedin"
-                    href="https://www.linkedin.com/in/ben-ryan-rinconada"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaLinkedin />
-                  </a>
-                </li>
-                <li className="transition-transform duration-300 hover:scale-130 hover:-rotate-9">
-                  <a
-                    data-tooltip-id="my-tooltip"
-                    data-tooltip-content="GitHub"
-                    href="https://github.com/BenRyan0"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaGithub />
-                  </a>
-                </li>
+            <DrawerTitle>
+              <div className="text-neutral-600  flex justify-center items-center  ">
+                <ul className="flex justify-end items-center gap-2 text-2xl">
+                  <li className="transition-transform duration-300 hover:scale-130 hover:rotate-10">
+                    <a
+                      data-tooltip-id="my-tooltip"
+                      data-tooltip-content="Linkedin"
+                      href="https://www.linkedin.com/in/ben-ryan-rinconada"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FaLinkedin />
+                    </a>
+                  </li>
+                  <li className="transition-transform duration-300 hover:scale-130 hover:-rotate-9">
+                    <a
+                      data-tooltip-id="my-tooltip"
+                      data-tooltip-content="GitHub"
+                      href="https://github.com/BenRyan0"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FaGithub />
+                    </a>
+                  </li>
 
-                <li className="transition-transform duration-300 hover:scale-130 hover:rotate-9">
-                  <a
-                    data-tooltip-id="my-tooltip"
-                    data-tooltip-content="Facebook"
-                    href="https://www.linkedin.com/in/ben-ryan-rinconada-323b25369"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaFacebookSquare />
-                  </a>
-                </li>
-                <li className="transition-transform duration-300 hover:scale-130 hover:-rotate-9">
-                  <a
-                    data-tooltip-id="my-tooltip"
-                    data-tooltip-content="X"
-                    href="https://www.linkedin.com/in/ben-ryan-rinconada-323b25369"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <FaSquareXTwitter />
-                  </a>
-                </li>
-              </ul>
-              <Tooltip id="my-tooltip" />
-            </div>
-            <DrawerDescription>Set your daily activity goal.</DrawerDescription>
+                  <li className="transition-transform duration-300 hover:scale-130 hover:rotate-9">
+                    <a
+                      data-tooltip-id="my-tooltip"
+                      data-tooltip-content="Facebook"
+                      href="https://www.linkedin.com/in/ben-ryan-rinconada-323b25369"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FaFacebookSquare />
+                    </a>
+                  </li>
+                  <li className="transition-transform duration-300 hover:scale-130 hover:-rotate-9">
+                    <a
+                      data-tooltip-id="my-tooltip"
+                      data-tooltip-content="X"
+                      href="https://www.linkedin.com/in/ben-ryan-rinconada-323b25369"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <FaSquareXTwitter />
+                    </a>
+                  </li>
+                </ul>
+                <Tooltip id="my-tooltip" />
+              </div>
+            </DrawerTitle>
+
+            {/* <DrawerDescription>Set your daily activity goal.</DrawerDescription> */}
           </DrawerHeader>
-          <div className="p-4 pb-0">
-            <Tabs defaultValue="account" className="w-[400px]">
-              <TabsList>
-                <TabsTrigger value="account">Account</TabsTrigger>
-                <TabsTrigger value="password">Password</TabsTrigger>
+          <div className="">
+            <Tabs
+              defaultValue="account"
+              className="w-full transition-all duration-500 "
+            >
+              <TabsList className={"w-full gap-2 "}>
+                <TabsTrigger value="account">Quick Connect</TabsTrigger>
+                <TabsTrigger value="password">Fill a form</TabsTrigger>
               </TabsList>
               <TabsContent value="account">
-                Make changes to your account here
-                <div className="w-full bg-red-500 h-[300px]">asdf</div>
+                <div className="w-full  text-zinc-100 flex flex-col gap-2">
+                  <div className="mt-3 grid md:grid-cols-2 gap-2">
+                    <div className="border-2 rounded-md border-neutral-800 h-[150px] ">
+                      <div className="p-4 flex gap-2 border-b-2 border-neutral-800 gap-x-3  bg-gradient-to-r to-transparent from-blue-900/20">
+                        <Mail color="#4E9CFA" />
+                        <h2 className="font-bold">Email</h2>
+                      </div>
+                      <div className="p-3 text-sm">
+                        <h2 className="font-semibold  ">{CONTACT.email}</h2>
+                        <p className="mt-3 text-xs text-zinc-400">
+                          Send me an email directly
+                        </p>
+                      </div>
+                    </div>
+                    <div className="border-2 rounded-md border-neutral-800 h-[150px]  ">
+                      <div className="p-4 flex gap-2 border-b-2 border-neutral-800 gap-x-3  bg-gradient-to-r to-transparent from-purple-900/20">
+                        <Mail color="#C27AFF" />
+                        <h2 className="font-bold">Book a call</h2>
+                      </div>
+                      <div className="p-3 text-sm text-start ">
+                        <h2 className="font-semibold ">Schedule a time slot</h2>
+                        <p className="mt-3 text-xs text-zinc-400">
+                          Book a call on my calendar
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="w-full mt-1 rounded-md border-neutral-800 border-2 py-3 text-xs text-center font-base text-green-200 bg-gradient-to-r to-transparent from-green-900/30 flex justify-center item">
+                    <div className="relative inline-flex">
+                      <div className="rounded-full bg-green-400 h-[8px] w-[8px] inline-block mr-2"></div>
+                      <div className="absolute animate-ping rounded-full bg-green-400 h-[8px] w-[8px] mr-2"></div>
+                    </div>
+                    <h2>Currently Available for new opportunities</h2>
+                  </div>
+                </div>
               </TabsContent>
               <TabsContent value="password">
-                Change your password here.
+                <div className="w-full">
+                  <ContactMeForm className={"border-0 "}/>
+                </div>
               </TabsContent>
             </Tabs>
           </div>
