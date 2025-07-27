@@ -8,11 +8,11 @@ import Technologies from "./Technologies";
 
 const AboutMe = () => {
   return (
-    <div id="about" className="text-zinc-200 lg:h-screen pt-28  md:px-5">
+    <div id="about" className="text-zinc-200 lg:h-screen pt-28 px-3 md:px-5">
       <div className="lg:h-full flex flex-col justify-center items-center">
         <h2 className="font-bold text-3xl w-full">MORE ABOUT ME</h2>
 
-        <div className="flex flex-wrap items-center">
+        <div className="flex flex-wrap items-center w-full">
           <div className="w-full lg:w-1/2 h-full flex flex-col gap-5 text-lg">
             <div className="self-start font-bold mt-2 text-4xl lg:text-4xl xl:text-5xl">
               {/* <h2 className="">I'm Ben Ryan, a</h2>
@@ -31,12 +31,12 @@ const AboutMe = () => {
               Beyond work, I'm endlessly curious and believe in living life with
               purpose and balance.
             </p>
-            <div className="">
+            <div className="w-full ">
               <Technologies />
             </div>
           </div>
 
-          <div className="w-full lg:w-1/2 flex justify-center items-end ">
+          <div className="w-full lg:w-1/2 flex justify-center items-end bg-">
             <InfiniteSwipe />
           </div>
         </div>

@@ -44,7 +44,7 @@ export const PROJECTS = [
     image: project1,
     description:
       "Harvestify is a web and mobile agri-marketplace that empowers local farmers in Davao Oriental by connecting them directly with traders, enabling fair pricing, improved market access, and sustainable agricultural trade through a secure, user-friendly platform.",
-    technologies: ["HTML", "CSS", "React", "Node.js", "MongoDB", "Tailwindcss", "Socket.io"],
+    technologies: ["HTML", "CSS", "React", "Node.js", "MongoDB", "Tailwindcss"],
     FrontendRepo: "https://github.com/BenRyan0/ModMatrix",
     BackendRepo: "https://github.com/BenRyan0/Harvestify_api.git",
     SecondFrontendRepo: "https://github.com/BenRyan0/ModMatrix",
@@ -55,7 +55,7 @@ export const PROJECTS = [
     image: project2,
     description:
       "FarmFuture is a web-based platform that equips farmers in Mati, Davao Oriental with real-time market data and price trend analytics. By offering intuitive dashboards, historical pricing charts, and alert systems, FarmFuture empowers local farmers to make informed decisions, optimize profits, and promote sustainable agriculture.",
-    technologies: ["HTML", "CSS", "React", "Node.js", "MongoDB", "Tailwindcss","Socket.io"],
+    technologies: ["HTML", "CSS", "React", "Node.js", "MongoDB", "Tailwindcss"],
     FrontendRepo: "https://github.com/BenRyan0/ModMatrix",
     BackendRepo: "",
     SecondFrontendRepo: "",

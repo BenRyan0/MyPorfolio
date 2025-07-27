@@ -46,7 +46,7 @@ const icons = [
 
 const Technologies = () => {
   return (
-    <div className="relative h-[200px] mt-4">
+    <div className="relative md:h-[200px] mt-4 ">
       <h2 className="font-bold text-slate-200 text-3xl text-start">
         Tech stack
       </h2>
@@ -54,7 +54,7 @@ const Technologies = () => {
         Some technologies and tools I use on daily basis.
       </p>
 
-      <div className="text-2xl transition-transform duration-300 mt-5 grid grid-cols-3 gap-2 w-10/12">
+      <div className="text-2xl transition-transform duration-300 mt-5 grid grid-cols-2 md:grid-cols-3 gap-2 md:w-10/12">
         {icons.map((item, i) => (
           <div
             key={i}

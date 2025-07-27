@@ -31,14 +31,14 @@ const Projects = () => {
 
     <div className="text-slate-300 container mx-auto lg:px-7 flex justify-center flex-col items-center gap-5 h-full pt-32 ">
      
-      <div className="w-full flex flex-col justify-center items-center">
+      <div className="w-full flex flex-col justify-center items-center ">
          <h2 className="font-bold text-slate-200 text-3xl text-start w-full lg:px-20 ">
         Selected Works
       </h2>
         {PROJECTS.map((prj, index) => {
           return (
             <div
-              className="lg:w-full flex flex-col lg:flex-row lg:justify-center gap-8 mt-5 "
+              className="w-full flex flex-col lg:flex-row lg:justify-center gap-8 mt-5 "
               key={index}
             >
               <div className="relative w-fit group">
