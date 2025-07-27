@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
 @import "tailwindcss";
 @import "tw-animate-css";
@@ -47,7 +47,7 @@ html {
 }
 
 :root {
-  font-family: "Inter", sans-serif;
+  font-family: "Outfit", sans-serif;
 }
 
 body {
@@ -72,7 +72,7 @@ body::-webkit-scrollbar-thumb {
 /* Scrollbar styles for dark mode */
 @media (prefers-color-scheme: dark) {
   body::-webkit-scrollbar-track {
-    background-color: #151312; /* neutral-700 */
+    background-color: #020617; /* neutral-700 */
   }
 
   body::-webkit-scrollbar-thumb {
@@ -234,7 +234,7 @@ body::-webkit-scrollbar-thumb {
   @apply top-full right-0 min-w-40 p-2 bg-[#020617] rounded-2xl scale-90 isolate  invisible hidden transition-all static md:flex items-center mt-0 opacity-100 md:blur-none md:visible md:scale-100 md:bottom-0 border-2 border-zinc-50;
 }
 .navbarMobile {
-  @apply top-full w-full bg-[#020617] p-2  rounded-2xl isolate md:hidden transition-all static flex items-center justify-center gap-5 opacity-100 blur-none md:visible md:scale-100 bottom-22 border-2 border-zinc-50;
+  @apply top-full w-fit bg-[#020617] py-2 px-6  rounded-2xl isolate md:hidden transition-all static flex items-center justify-center gap-5 opacity-100 blur-none md:visible md:scale-100 bottom-22 border-2 border-zinc-50 backdrop-blur-2xl;
 }
 
 .navbar.active {
@@ -280,4 +280,37 @@ body::-webkit-scrollbar-thumb {
 } */
 @theme {
   --primary: #ff0000; /* Replace with your desired color */
+}
+
+@layer utilities {
+  @keyframes rotate-shake {
+    0%, 100% { transform: rotate(0deg); }
+    20%, 60% { transform: rotate(-10deg); }
+    40%, 80% { transform: rotate(10deg); }
+  }
+
+  .rotate-shake {
+    animation: rotate-shake 0.6s infinite ease-in-out;
+  }
+}
+
+@keyframes dotPulse {
+  0% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
+  100% { opacity: 0.2; transform: scale(1); }
+}
+
+.dots-animate {
+  display: inline-block;
+  animation: dotPulse 1s infinite;
+}
+
+.dots-animate:nth-child(1) {
+  animation-delay: 0s;
+}
+.dots-animate:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.dots-animate:nth-child(3) {
+  animation-delay: 0.4s;
 }

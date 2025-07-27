@@ -1,22 +1,41 @@
-import { useRef, useEffect, useState } from 'react';
-// import your components
-import NavBar from './../components/NavBar';
-import Header from './../components/Header';
-import HeaderMobile from './../components/HeaderMobile';
-import Hero from './../components/Hero';
-import Hero2 from './../components/Hero2';
-import HeroModel from './../components/HeroModel';
-import AboutMe from './AboutMe';
-import Technologies from './Technologies';
-import Experience from './Experience';
-import Projects from './Projects';
-import MyResume from './MyResume';
+import { useRef, useEffect, useState } from "react";
+
+import Header from "./../components/Header";
+import HeaderMobile from "./../components/HeaderMobile";
+import HeroModel from "./../components/HeroModel";
+import AboutMe from "./AboutMe";
+import Projects from "./Projects";
+import MyResume from "./MyResume";
+
+// eslint-disable-next-line no-unused-vars
+import { motion, useAnimation } from "framer-motion";
+
 
 const Home = () => {
   const wrapperRef = useRef(null);
   const [visibleCount, setVisibleCount] = useState(1);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
+  const [activeSection, setActiveSection] = useState("home");
+
+  useEffect(() => {
+    const onScroll = () => {
+      const sections = document.querySelectorAll("section[id]");
+      let current = "home";
+
+      sections.forEach((sec) => {
+        const { top, bottom } = sec.getBoundingClientRect();
+        if (top <= window.innerHeight / 2 && bottom > window.innerHeight / 2) {
+          current = sec.id;
+        }
+      });
+
+      setActiveSection(current);
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   // Sequential reveal
   useEffect(() => {
@@ -32,24 +51,62 @@ const Home = () => {
   }, []);
 
   const sectionComponents = [
-    // <Hero2 scrollContainer={wrapperRef} key="hero2" />,
-     <HeroModel drawerOpen={drawerOpen} setDrawerOpen={setDrawerOpen} scrollContainer={wrapperRef} key="hero" href="/"/>,
-    // <Hero scrollContainer={wrapperRef} key="hero" />,
-   
-    
-    <AboutMe key="about" href="#about" />,
-    <Technologies key="tech" href="#work" />,
-    <Projects key="proj" />,
-    <MyResume key="resume" />
-    
+    {
+      id: "home",
+      element: (
+        <HeroModel
+          drawerOpen={drawerOpen}
+          setDrawerOpen={setDrawerOpen}
+          scrollContainer={wrapperRef}
+        />
+      ),
+    },
+    {
+      id: "about",
+      element: <AboutMe />,
+    },
+    {
+      id: "works",
+      element: <Projects />,
+    },
+    {
+      id: "resume",
+      element: <MyResume />,
+    },
   ];
 
   return (
     <div className="flex flex-col items-center justify-center bg-[#020617]">
-      <div className="container mx-auto  px-6 md:px-22  lg:mt-6 wrapper" ref={wrapperRef}>
-        <Header setDrawerOpen={setDrawerOpen} />
-        {sectionComponents.slice(0, visibleCount)}
-          <HeaderMobile setDrawerOpen={setDrawerOpen}/>
+
+      <div
+        className="container mx-auto  px-6 md:px-22  lg:mt-6 wrapper"
+        ref={wrapperRef}
+      >
+        <Header setDrawerOpen={setDrawerOpen} activeSection={activeSection} />
+        {sectionComponents.slice(0, visibleCount).map(({ id, element }) => (
+          <motion.section
+            key={id}
+            id={id}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.7,
+              ease: "easeOut",
+            }}
+            viewport={{ once: false, amount: 0.5 }} // Triggers animation when ~60% of the section is in view
+           className="min-h-screen" // Ensures it fills at least one viewport
+
+          >
+            {element}
+          </motion.section>
+        ))}
+
+        <HeaderMobile
+          setDrawerOpen={setDrawerOpen}
+          activeSection={activeSection}
+        />
+      
+         
       </div>
     </div>
   );

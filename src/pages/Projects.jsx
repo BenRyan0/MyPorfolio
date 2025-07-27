@@ -27,20 +27,18 @@ import NumLabel from "../components/myComponents/NumberLabel";
 
 const Projects = () => {
   return (
-    <div id="projects" className=" relative border-b border-slate-800 pb-20 pt-10 overflow-hidden">
-      <Tooltip
-        id="my-tooltip"
-        className="z-50 !bg-purple-600 font-bold px-0 text-center"
-      />
+     <div id="works" className="text-zinc-200 lg:h-screen mt-36 md:px-5 h-full pb-20 ">
 
-      <h2 className="font-bold text-slate-200 text-3xl text-center">
-        Projects
+    <div className="text-slate-300 container mx-auto lg:px-7 flex justify-center flex-col items-center gap-5 h-full pt-32 ">
+     
+      <div className="w-full flex flex-col justify-center items-center">
+         <h2 className="font-bold text-slate-200 text-3xl text-start w-full lg:px-20 ">
+        Selected Works
       </h2>
-      <div className="text-slate-300 container mx-auto lg:px-20 flex justify-center flex-col items-center gap-5 mt-10">
         {PROJECTS.map((prj, index) => {
           return (
             <div
-              className="lg:w-5/6 flex flex-col lg:flex-row lg:justify-between mt-5"
+              className="lg:w-full flex flex-col lg:flex-row lg:justify-center gap-8 mt-5 "
               key={index}
             >
               <div className="relative w-fit group">
@@ -69,14 +67,14 @@ const Projects = () => {
                 </a>
               </div>
 
-              <div className="lg:w-7/12 ">
+              <div className="lg:w-6/12 ">
                 <h2 className="font-bold flex items-center gap-3">
                   {prj.title}
                   <div className="">
                     <NavigationMenu>
                       <NavigationMenuList>
                         <NavigationMenuItem>
-                          <NavigationMenuTrigger className="text-sm bg-purple-600 px-2 rounded-xs text-slate-200 relative z-50 font-semibold group ">
+                          <NavigationMenuTrigger className="text-sm bg-purple-600 px-2 rounded-xs text-slate-200 relative z-30 font-semibold group ">
                             Project Links{" "}
                             <Globe className="pl-2 group-hover:scale-125 transition-all duration-300 ease-in-out" />
                           </NavigationMenuTrigger>
@@ -164,6 +162,9 @@ const Projects = () => {
           );
         })}
       </div>
+
+    
+    </div>
     </div>
   );
 };

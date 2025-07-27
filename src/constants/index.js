@@ -1,7 +1,7 @@
 import project1 from "../assets/projects/project-1.jpg";
 import project2 from "../assets/projects/project-2.jpg";
-import project3 from "../assets/projects/project-3.jpg";
-import project4 from "../assets/projects/project-4.jpg";
+// import project3 from "../assets/projects/project-3.jpg";
+
 
 export const HERO_CONTENT = `I am a passionate full stack developer with a knack for crafting robust and scalable web applications. With 5 years of hands-on experience, I have honed my skills in front-end technologies like React and Next.js, as well as back-end technologies like Node.js, MySQL, PostgreSQL, and MongoDB. My goal is to leverage my expertise to create innovative solutions that drive business growth and deliver exceptional user experiences.`;
 
@@ -44,7 +44,7 @@ export const PROJECTS = [
     image: project1,
     description:
       "Harvestify is a web and mobile agri-marketplace that empowers local farmers in Davao Oriental by connecting them directly with traders, enabling fair pricing, improved market access, and sustainable agricultural trade through a secure, user-friendly platform.",
-    technologies: ["HTML", "CSS", "React", "Node.js", "MongoDB", "Tailwindcss"],
+    technologies: ["HTML", "CSS", "React", "Node.js", "MongoDB", "Tailwindcss", "Socket.io"],
     FrontendRepo: "https://github.com/BenRyan0/ModMatrix",
     BackendRepo: "https://github.com/BenRyan0/Harvestify_api.git",
     SecondFrontendRepo: "https://github.com/BenRyan0/ModMatrix",
@@ -55,34 +55,24 @@ export const PROJECTS = [
     image: project2,
     description:
       "FarmFuture is a web-based platform that equips farmers in Mati, Davao Oriental with real-time market data and price trend analytics. By offering intuitive dashboards, historical pricing charts, and alert systems, FarmFuture empowers local farmers to make informed decisions, optimize profits, and promote sustainable agriculture.",
-    technologies: ["HTML", "CSS", "React", "Node.js", "MongoDB", "Tailwindcss"],
+    technologies: ["HTML", "CSS", "React", "Node.js", "MongoDB", "Tailwindcss","Socket.io"],
     FrontendRepo: "https://github.com/BenRyan0/ModMatrix",
     BackendRepo: "",
     SecondFrontendRepo: "",
     PreviewLink: "https://farm-future-consumer.vercel.app/",
   },
-  {
-    title: "Portfolio Website",
-    image: project3,
-    description:
-      "A personal portfolio website showcasing projects, skills, and contact information.",
-    technologies: ["HTML", "CSS", "React", "Bootstrap"],
-    FrontendRepo: "https://github.com/BenRyan0/ModMatrix",
-    BackendRepo: "",
-    SecondFrontendRepo: "",
-    PreviewLink: "https://dev-benryanrinconada-p3lp.onrender.com",
-  },
-  {
-    title: "Blogging Platform",
-    image: project4,
-    description:
-      "A platform for creating and publishing blog posts, with features like rich text editing, commenting, and user profiles.",
-    technologies: ["HTML", "CSS", "Vue.js", "Express", "mySQL"],
-    FrontendRepo: "https://github.com/BenRyan0/ModMatrix",
-    BackendRepo: "",
-    SecondFrontendRepo: "",
-    PreviewLink: "https://dev-benryanrinconada-p3lp.onrender.com",
-  },
+  // {
+  //   title: "Portfolio Website",
+  //   image: project3,
+  //   description:
+  //     "A personal portfolio website showcasing projects, skills, and contact information.",
+  //   technologies: ["HTML", "CSS", "React", "Bootstrap"],
+  //   FrontendRepo: "https://github.com/BenRyan0/ModMatrix",
+  //   BackendRepo: "",
+  //   SecondFrontendRepo: "",
+  //   PreviewLink: "https://dev-benryanrinconada-p3lp.onrender.com",
+  // },
+ 
 ];
 
 

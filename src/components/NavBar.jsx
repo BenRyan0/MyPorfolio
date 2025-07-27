@@ -1,3 +1,4 @@
+// NavBar.jsx
 import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import {
@@ -8,32 +9,68 @@ import {
   Contact,
 } from "lucide-react";
 
-const NavBar = ({ navOpen, setDrawerOpen }) => {
-  const lastActiveLink = useRef();
-  const activeBox = useRef();
+const NavBar = ({ navOpen, setDrawerOpen, activeSection }) => {
+  const lastActiveLink = useRef(null);
+  const activeBox = useRef(null);
 
-  const initActiveBox = () => {
-    if (!lastActiveLink.current || !activeBox.current) return;
-    const link = lastActiveLink.current;
-    activeBox.current.style.top = link.offsetTop + "px";
-    activeBox.current.style.left = link.offsetLeft + "px";
-    activeBox.current.style.width = link.offsetWidth + "px";
-    activeBox.current.style.height = link.offsetHeight + "px";
+  // Utility to position the highlight box
+  const repositionBox = (el) => {
+    if (!el || !activeBox.current) return;
+    const { offsetTop, offsetLeft, offsetWidth, offsetHeight } = el;
+    Object.assign(activeBox.current.style, {
+      top: `${offsetTop}px`,
+      left: `${offsetLeft}px`,
+      width: `${offsetWidth}px`,
+      height: `${offsetHeight}px`,
+    });
   };
 
-  useEffect(initActiveBox, []);
+  useEffect(() => {
+  if (activeSection) {
+    const newHash = `#${activeSection}`;
+    if (window.location.hash !== newHash) {
+      window.history.replaceState(null, "", newHash);
+    }
+  }
+}, [activeSection]);
 
-  const activeCurrentLink = (e) => {
+
+  // On mount, find default active link and position box
+  useEffect(() => {
+    const initLink = document.querySelector(
+      `.nav-link[data-section="${activeSection}"]`
+    );
+    if (initLink) {
+      initLink.classList.add("active");
+      lastActiveLink.current = initLink;
+      repositionBox(initLink);
+    }
+  }, []); // run once
+
+  // Whenever scroll-spy reports a new activeSection, update highlight
+  useEffect(() => {
+    const newLink = document.querySelector(
+      `.nav-link[data-section="${activeSection}"]`
+    );
+    if (newLink && newLink !== lastActiveLink.current) {
+      lastActiveLink.current?.classList.remove("active");
+      newLink.classList.add("active");
+      lastActiveLink.current = newLink;
+      repositionBox(newLink);
+    }
+  }, [activeSection]);
+
+  // Click handler still animates and triggers drawer
+  const handleClick = (e, triggerDrawer) => {
     const link = e.currentTarget;
-
     lastActiveLink.current?.classList.remove("active");
     link.classList.add("active");
     lastActiveLink.current = link;
+    repositionBox(link);
 
-    activeBox.current.style.top = link.offsetTop + "px";
-    activeBox.current.style.left = link.offsetLeft + "px";
-    activeBox.current.style.width = link.offsetWidth + "px";
-    activeBox.current.style.height = link.offsetHeight + "px";
+    if (triggerDrawer) {
+      setDrawerOpen(true);
+    }
   };
 
   const navItems = [
@@ -41,51 +78,45 @@ const NavBar = ({ navOpen, setDrawerOpen }) => {
       icon: <House size={20} />,
       label: "Home",
       link: "#home",
-      className: "nav-link active",
-      ref: lastActiveLink,
+      section: "home",
     },
     {
       icon: <SquareUserRound size={20} />,
       label: "About",
       link: "#about",
-      className: "nav-link",
+      section: "about",
     },
     {
       icon: <Folder size={20} />,
       label: "Works",
-      link: "#projects",
-      className: "nav-link",
+      link: "#works",
+      section: "works",
     },
     {
       icon: <FileText size={20} />,
       label: "Resume",
       link: "#resume",
-      className: "nav-link",
+      section: "resume",
     },
     {
-      icon: <Contact  size={20} />,
+      icon: <Contact size={20} />,
       label: "Connect",
-      link: "#Home",
-      className: "nav-link",
+      link: "#home",
+      section: "connect",
       triggerDrawer: true,
     },
   ];
 
   return (
-    <nav className={`navbar ${navOpen ? " active" : " opacity-0"}`}>
+    <nav className={`navbar${navOpen ? " active" : " opacity-0"}`}>
       {navItems.map(
-        ({ link, className, ref, icon, label, triggerDrawer }, key) => (
+        ({ link, icon, label, section, triggerDrawer }, idx) => (
           <a
-            key={key}
+            key={idx}
             href={link}
-            ref={ref}
-            onClick={(e) => {
-              activeCurrentLink(e);
-              if (triggerDrawer) {
-                setDrawerOpen(true); // Only for "Connect"
-              }
-            }}
-            className={`group relative flex flex-col items-center justify-center w-16 h-16 transition-all duration-500 ${className}`}
+            data-section={section}
+            className="nav-link group relative flex flex-col items-center justify-center w-16 h-16 transition-all duration-500"
+            onClick={(e) => handleClick(e, triggerDrawer)}
           >
             {/* ICON */}
             <span className="transition-all duration-500 ease-in-out group-hover:-translate-y-4 group-hover:opacity-0 text-xs">
@@ -107,6 +138,7 @@ const NavBar = ({ navOpen, setDrawerOpen }) => {
 NavBar.propTypes = {
   navOpen: PropTypes.bool.isRequired,
   setDrawerOpen: PropTypes.func.isRequired,
+  activeSection: PropTypes.string.isRequired,
 };
 
 export default NavBar;

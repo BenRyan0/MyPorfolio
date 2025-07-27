@@ -19,26 +19,36 @@ import {
 // eslint-disable-next-line no-unused-vars
 import { motion, useAnimation } from "framer-motion";
 
-import { FaLinkedin, FaGithub, FaFacebookSquare } from "react-icons/fa";
+import {
+  FaLinkedin,
+  FaGithub,
+  FaFacebookSquare,
+  FaFacebookMessenger,
+} from "react-icons/fa";
+import { RiMessengerLine } from "react-icons/ri";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { Tooltip } from "react-tooltip";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ContactMeForm } from "./ContactMeForm";
 
+
 export function ContactMe({ open, setOpen }) {
   return (
     <Drawer open={open} onOpenChange={setOpen} className={""}>
+      
       <DrawerContent
         className={
           "container mx-auto w-11/12 md:w-8/12 lg:w-5/12 bg-[#121212] "
         }
       >
+
+       
         <div className="mx-auto w-11/12 pb-10">
           <DrawerHeader>
             <DrawerTitle>
               <div className="text-neutral-600  flex justify-center items-center  ">
-                <ul className="flex justify-end items-center gap-2 text-2xl">
+                <ul className="flex justify-end items-center gap-2 text-3xl">
                   <li className="transition-transform duration-300 hover:scale-130 hover:rotate-10">
                     <a
                       data-tooltip-id="my-tooltip"
@@ -73,7 +83,7 @@ export function ContactMe({ open, setOpen }) {
                       <FaFacebookSquare />
                     </a>
                   </li>
-                  <li className="transition-transform duration-300 hover:scale-130 hover:-rotate-9">
+                  {/* <li className="transition-transform duration-300 hover:scale-130 hover:-rotate-9">
                     <a
                       data-tooltip-id="my-tooltip"
                       data-tooltip-content="X"
@@ -83,7 +93,7 @@ export function ContactMe({ open, setOpen }) {
                     >
                       <FaSquareXTwitter />
                     </a>
-                  </li>
+                  </li> */}
                 </ul>
                 <Tooltip id="my-tooltip" />
               </div>
@@ -109,32 +119,42 @@ export function ContactMe({ open, setOpen }) {
                 >
                   <div className="w-full  text-zinc-100 flex flex-col gap-2">
                     <div className="mt-3 grid md:grid-cols-2 gap-2">
-                      <div className="border-2 rounded-md border-neutral-800 h-[150px] ">
-                        <div className="p-4 flex gap-2 border-b-2 border-neutral-800 gap-x-3  bg-gradient-to-r to-transparent from-blue-900/20">
-                          <Mail color="#4E9CFA" />
+                      <a
+                        href="mailto:benryanrinconada5@gmail.com"
+                        className="border-2 rounded-md border-neutral-800 h-[150px]"
+                      >
+                        <div className="p-4 flex gap-2 border-b-2 border-neutral-800 bg-gradient-to-r to-transparent from-purple-900/20">
+                          <Mail color="#C27AFF" />
                           <h2 className="font-bold">Email</h2>
                         </div>
                         <div className="p-3 text-sm">
-                          <h2 className="font-semibold  ">{CONTACT.email}</h2>
+                          <h2 className="font-semibold">
+                            benryanrinconada5@gmail.com
+                          </h2>
                           <p className="mt-3 text-xs text-zinc-400">
                             Send me an email directly
                           </p>
                         </div>
-                      </div>
-                      <div className="border-2 rounded-md border-neutral-800 h-[150px]  ">
-                        <div className="p-4 flex gap-2 border-b-2 border-neutral-800 gap-x-3  bg-gradient-to-r to-transparent from-purple-900/20">
-                          <Mail color="#C27AFF" />
-                          <h2 className="font-bold">Book a call</h2>
+                      </a>
+
+                      <a
+                        href="https://web.facebook.com/nebnyar69"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="border-2 rounded-md border-neutral-800 h-[150px]"
+                      >
+                        <div className="p-4 flex gap-2 border-b-2 border-neutral-800 gap-x-3  bg-gradient-to-r to-transparent from-blue-900/20 ">
+                          <RiMessengerLine size={27} color="#4E9CFA" />
+                          {/* <Mail color="#4E9CFA" /> */}
+                          <h2 className="font-bold">Messenger</h2>
                         </div>
                         <div className="p-3 text-sm text-start ">
-                          <h2 className="font-semibold ">
-                            Schedule a time slot
-                          </h2>
+                          <h2 className="font-semibold ">Ben Ryan Rinconada</h2>
                           <p className="mt-3 text-xs text-zinc-400">
-                            Book a call on my calendar
+                            Chat with me directly
                           </p>
                         </div>
-                      </div>
+                      </a>
                     </div>
 
                     <div className="w-full mt-1 rounded-md border-neutral-800 border-2 py-3 text-xs text-center font-base text-green-200 bg-gradient-to-r to-transparent from-green-900/30 flex justify-center items-center">
@@ -159,12 +179,7 @@ export function ContactMe({ open, setOpen }) {
               </TabsContent>
             </Tabs>
           </div>
-          {/* <DrawerFooter>
-            <Button>Submit</Button>
-            <DrawerClose asChild>
-              <Button variant="outline">Cancel</Button>
-            </DrawerClose>
-          </DrawerFooter> */}
+ 
         </div>
       </DrawerContent>
     </Drawer>
