@@ -27,12 +27,12 @@ import NumLabel from "../components/myComponents/NumberLabel";
 
 const Projects = () => {
   return (
-     <div id="works" className="text-zinc-200 lg:h-screen mt-36 md:px-5 h-full pb-20 ">
+     <div id="works" className="text-zinc-200 h-full mt-[400px] md:px-5 pb-20 bg-red-600">
 
-    <div className="text-slate-300 container mx-auto lg:px-7 flex justify-center flex-col items-center gap-5 h-full pt-32 ">
+    <div className="text-slate-300 container mx-auto lg:px-7 flex justify-center flex-col items-center gap-5 h-full pt-32">
      
-      <div className="w-full flex flex-col justify-center items-center ">
-         <h2 className="font-bold text-slate-200 text-3xl text-start w-full lg:px-20 ">
+      <div className="w-full h-full flex flex-col justify-center items-center ">
+         <h2 className="font-bold text-slate-200 text-3xl lg:text-5xl pb-10">
         Selected Works
       </h2>
         {PROJECTS.map((prj, index) => {
@@ -41,7 +41,7 @@ const Projects = () => {
               className="w-full flex flex-col lg:flex-row lg:justify-center gap-8 mt-5 "
               key={index}
             >
-              <div className="relative w-fit group">
+              <div className="relative w-fit group bg-re">
                 <a
                   href={prj.link}
                   target="_blank"
@@ -67,7 +67,7 @@ const Projects = () => {
                 </a>
               </div>
 
-              <div className="lg:w-6/12 ">
+              <div className="lg:w-4/12 ">
                 <h2 className="font-bold flex items-center gap-3">
                   {prj.title}
                   <div className="">

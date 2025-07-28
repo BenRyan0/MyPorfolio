@@ -6,10 +6,10 @@ import HeroModel from "./../components/HeroModel";
 import AboutMe from "./AboutMe";
 import Projects from "./Projects";
 import MyResume from "./MyResume";
+import MyPlayGround from "./MyPlayGround";
 
 // eslint-disable-next-line no-unused-vars
 import { motion, useAnimation } from "framer-motion";
-
 
 const Home = () => {
   const wrapperRef = useRef(null);
@@ -17,6 +17,21 @@ const Home = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const [activeSection, setActiveSection] = useState("home");
+  const [longSections, setLongSections] = useState({});
+
+
+  useEffect(() => {
+  const sectionEls = document.querySelectorAll("section[id]");
+  const updated = {};
+
+  sectionEls.forEach((sec) => {
+    const height = sec.offsetHeight;
+    updated[sec.id] = height > window.innerHeight * 1.5; // your "long" threshold
+  });
+
+  setLongSections(updated);
+}, [visibleCount]); // Recalculate when new sections appear
+
 
   useEffect(() => {
     const onScroll = () => {
@@ -77,36 +92,30 @@ const Home = () => {
 
   return (
     <div className="flex flex-col items-center justify-center bg-[#020617]">
-
       <div
         className="container mx-auto  px-6 md:px-22  lg:mt-6 wrapper"
         ref={wrapperRef}
       >
         <Header setDrawerOpen={setDrawerOpen} activeSection={activeSection} />
-        {sectionComponents.slice(0, visibleCount).map(({ id, element }) => (
-          <motion.section
-            key={id}
-            id={id}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 0.7,
-              ease: "easeOut",
-            }}
-            viewport={{ once: false, amount: 0.5 }} // Triggers animation when ~60% of the section is in view
-           className="min-h-screen" // Ensures it fills at least one viewport
+      {sectionComponents.slice(0, visibleCount).map(({ id, element }) => (
+  <motion.section
+    key={id}
+    id={id}
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.7, ease: "easeOut" }}
+    viewport={{ once: false, amount: longSections[id] ? 0.3 : 0.1 }}
+    className="min-h-screen"
+  >
+    {element}
+  </motion.section>
+))}
 
-          >
-            {element}
-          </motion.section>
-        ))}
-
+        {/* <MyPlayGround/> */}
         <HeaderMobile
           setDrawerOpen={setDrawerOpen}
           activeSection={activeSection}
         />
-      
-         
       </div>
     </div>
   );

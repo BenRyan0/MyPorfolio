@@ -39,7 +39,7 @@ export default function InfiniteSwipe() {
   };
 
   return (
-    <div className="relative h-[400px] w-[450px] overflow-hidden">
+    <div className="relative h-[400px] w-[450px] lg:h-[500px] lg:w-[550px] overflow-hidden">
       {cardData.map((card, idx) => {
         const stackIndex = (idx - currentIdx + len) % len;
 
@@ -94,7 +94,7 @@ function Card({ url, stackIndex, onSwipe, isFront }) {
     <motion.img
       src={url}
       alt=""
-      className="absolute left-1/2 top-8 h-[340px] w-[280px] origin-bottom rounded-lg object-cover cursor-grab active:cursor-grabbing border-2 border-zinc-700 shadow-md shadow-gray-900"
+      className="absolute left-1/2 top-8 h-[340px] w-[280px] lg:h-[390px] lg:w-[350px] origin-bottom rounded-lg object-cover cursor-grab active:cursor-grabbing border-2 border-zinc-700 shadow-md shadow-gray-900"
       style={{
         x,
         rotate,

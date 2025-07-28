@@ -8,7 +8,10 @@ import Technologies from "./Technologies";
 
 const AboutMe = () => {
   return (
-    <div id="about" className="text-zinc-200 lg:h-screen pt-28 px-3 md:px-5">
+    <div
+      id="about"
+      className="text-zinc-200 lg:h-screen pt-28 px-3 md:px-5 "
+    >
       <div className="lg:h-full flex flex-col justify-center items-center">
         <h2 className="font-bold text-3xl w-full">MORE ABOUT ME</h2>
 
@@ -36,8 +39,10 @@ const AboutMe = () => {
             </div>
           </div>
 
-          <div className="w-full lg:w-1/2 flex justify-center items-end bg-">
-            <InfiniteSwipe />
+          <div className="w-full lg:w-1/2 flex justify-start items-end">
+            <div className="">
+              <InfiniteSwipe />
+            </div>
           </div>
         </div>
       </div>
