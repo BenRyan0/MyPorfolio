@@ -27,7 +27,7 @@ import NumLabel from "../components/myComponents/NumberLabel";
 
 const Projects = () => {
   return (
-     <div id="works" className="text-zinc-200 h-full mt-[400px] md:px-5 pb-20 bg-red-600">
+     <div id="works" className="text-zinc-200 h-full mt-[400px] md:px-5 pb-20 ">
 
     <div className="text-slate-300 container mx-auto lg:px-7 flex justify-center flex-col items-center gap-5 h-full pt-32">
      
