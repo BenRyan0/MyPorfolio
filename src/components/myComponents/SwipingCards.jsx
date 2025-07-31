@@ -39,7 +39,7 @@ export default function InfiniteSwipe() {
   };
 
   return (
-    <div className="relative h-[400px] w-[450px] lg:h-[500px] lg:w-[550px] overflow-hidden">
+    <div className="relative h-[400px] w-[400px] lg:h-[500px] lg:w-[550px] overflow-hidden">
       {cardData.map((card, idx) => {
         const stackIndex = (idx - currentIdx + len) % len;
 
