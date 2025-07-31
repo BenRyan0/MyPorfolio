@@ -17,9 +17,12 @@ import { RiMessage3Fill } from "react-icons/ri";
 
 import toast, { Toaster } from "react-hot-toast";
 
+
 export function ContactMeForm({ className, ...props }) {
   // const [result, setResult] = React.useState("");
   const [isLoading, setIsLoading] = useState(false);
+  console.log(import.meta.env.EMAIL_API)
+  console.log("import.meta.env.EMAIL_API")
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -27,7 +30,7 @@ export function ContactMeForm({ className, ...props }) {
     setIsLoading(true);
     const formData = new FormData(event.target);
 
-    formData.append("access_key", "562a144a-ef23-4801-b552-cd98da0dd7f0");
+    formData.append("access_key",import.meta.env.EMAIL_API);
 
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",

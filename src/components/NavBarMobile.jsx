@@ -108,13 +108,19 @@ const NavBarMobile = ({ navOpen, setDrawerOpen, activeSection }) => {
             ${section === activeSection ? "active" : ""}`}
           onClick={(e) => handleClick(e, triggerDrawer)}
         >
-          <span className="transition-all duration-300 ease-in-out group-hover:-translate-y-4 group-hover:opacity-0">
+          <span className="transition-all mb-4 duration-300 ease-in-out  text-center flex flex-col justify-center items-center font-bold">
             {icon}
+             {label}
           </span>
+          {/* <span className="transition-all mb-4 duration-300 ease-in-out group-hover:-translate-y-4 group-hover:opacity-0 text-center flex flex-col justify-center items-center">
+            {icon}
+             {label}
+          </span> */}
+          
 
-          <span className="absolute opacity-0 transition-all duration-300 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 translate-y-4 text-base font-medium">
+          {/* <span className="absolute opacity-0 transition-all duration-300 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 translate-y-4 text-base font-medium">
             {label}
-          </span>
+          </span> */}
         </a>
       ))}
 

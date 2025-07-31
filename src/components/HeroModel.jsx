@@ -1,5 +1,4 @@
 import React from "react";
-import LaptopCanvas from "./3d/Laptop";
 import { RiMessage3Fill } from "react-icons/ri";
 import { FaChevronCircleRight } from "react-icons/fa";
 import { ArrowRight } from "lucide-react";
@@ -10,7 +9,6 @@ import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
 import { RevealLinks } from "./myComponents/RevealLinks";
 import { LogoOrigami } from "./myComponents/LogoOrigami";
-
 
 const HeroModel = ({ drawerOpen, setDrawerOpen }) => {
   // const HeroModel = ({ scrollContainer }) => {
@@ -45,11 +43,11 @@ const HeroModel = ({ drawerOpen, setDrawerOpen }) => {
   return (
     <div
       id="home"
-      className="border-b border-slate-900 text-slate-100 pb-2 h-screen"
+      className="text-slate-100 pb-2 h-screen"
     >
-      <div className="relative h-full flex flex-wrap justify-center items-center border-b-2 border-slate-700 overflow-hidden flex-col-reverse md:flex-row">
+      <div className="relative h-full flex flex-wrap justify-center items-center md:border-b-2 border-slate-700 overflow-hidden flex-col-reverse md:flex-row">
         <div className="z-10 absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
-         
+
         <div className="w-full h-full flex justify-center items-center text-center z-20 ">
           <motion.div
             initial={{ y: -200, opacity: 0 }}
@@ -60,7 +58,7 @@ const HeroModel = ({ drawerOpen, setDrawerOpen }) => {
             <h2 className="font-semibold text-2xl pl-1                                                        ">
               G'day, I'm
             </h2>
-            <RevealLinks />
+             <RevealLinks />
             {/* <h2 className="font-semibold md:text-8xl text-6xl text-start md:text-center">Ben Ryan Rinconada</h2> */}
             <div className="flex justify-center items-center gap-2 text-center mt-3">
               <h2
@@ -80,7 +78,7 @@ const HeroModel = ({ drawerOpen, setDrawerOpen }) => {
                 <div className="absolute -translate-x-4 opacity-0 transition group-hover:-translate-x-6 group-hover:opacity-100 rotate-shake">
                   <RiMessage3Fill size={25} />
                 </div>
-                <span className="pr-8 pl-1"> Let's Connect</span>
+                <span className="pr-8 pl-1 font-semibold"> Let's Connect</span>
                 <div className="absolute right-0 translate-x-0 opacity-100 transition group-hover:translate-x-4 group-hover:opacity-0 ">
                   <FaChevronCircleRight size={25} />
                 </div>
@@ -89,10 +87,8 @@ const HeroModel = ({ drawerOpen, setDrawerOpen }) => {
 
             {/* Drawer */}
             <ContactMe open={drawerOpen} setOpen={setDrawerOpen} />
-   
           </motion.div>
         </div>
-
       </div>
     </div>
   );

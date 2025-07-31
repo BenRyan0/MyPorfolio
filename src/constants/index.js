@@ -1,7 +1,8 @@
 import project1 from "../assets/projects/project-1.jpg";
 import project2 from "../assets/projects/project-2.jpg";
-import project3 from "../assets/projects/project-3.jpg";
+// import project3 from "../assets/projects/project-3.jpg";
 
+// import { FaJs } from "react-icons/fa";
 
 export const HERO_CONTENT = `I am a passionate full stack developer with a knack for crafting robust and scalable web applications. With 5 years of hands-on experience, I have honed my skills in front-end technologies like React and Next.js, as well as back-end technologies like Node.js, MySQL, PostgreSQL, and MongoDB. My goal is to leverage my expertise to create innovative solutions that drive business growth and deliver exceptional user experiences.`;
 
@@ -44,7 +45,45 @@ export const PROJECTS = [
     image: project1,
     description:
       "Harvestify is a web and mobile agri-marketplace that empowers local farmers in Davao Oriental by connecting them directly with traders, enabling fair pricing, improved market access, and sustainable agricultural trade through a secure, user-friendly platform.",
-    technologies: ["HTML", "CSS", "React", "Node.js", "MongoDB", "Tailwindcss"],
+    technologies: [
+      {
+        hover: "hover:text-[#DD4B25] hover:border-[#DD4B25]",
+        label: "HTML",
+      },
+      {
+        hover: "hover:text-[#205FAA] hover:border-[#205FAA]",
+        label: "CSS",
+      },
+      {
+        hover: "hover:text-[#61DAFB] hover:border-[#61DAFB]",
+        label: "React.js",
+      },
+      {
+        hover: "hover:text-[#569134] hover:border-[#569134]",
+        label: "Node.js",
+      },
+      {
+        hover: "hover:text-[#69A746] hover:border-[#69A746]",
+        label: "MongoDB",
+      },
+      {
+        hover: "hover:text-[#1AACB3] hover:border-[#1AACB3]",
+        label: "TailwindCSS",
+      },
+      {
+        hover: "hover:text-zinc-400 hover:border-zinc-400",
+        label: "Socket.io",
+      },
+    ],
+    keyFeatures: [
+      { label: "Real-Time Messaging", content: "Socket.io" },
+      { label: "Security Stack", content: "2FA with Passport & Speakeasy" },
+      {
+        label: "Visual & Analytical Dashboards",
+        content: "Chart.js and ApexCharts",
+      },
+      { label: "Multilingual Accessibility", content: "via i18next" },
+    ],
     FrontendRepo: "https://github.com/BenRyan0/ModMatrix",
     BackendRepo: "https://github.com/BenRyan0/Harvestify_api.git",
     SecondFrontendRepo: "https://github.com/BenRyan0/ModMatrix",
@@ -55,26 +94,101 @@ export const PROJECTS = [
     image: project2,
     description:
       "FarmFuture is a web-based platform that equips farmers in Mati, Davao Oriental with real-time market data and price trend analytics. By offering intuitive dashboards, historical pricing charts, and alert systems, FarmFuture empowers local farmers to make informed decisions, optimize profits, and promote sustainable agriculture.",
-    technologies: ["HTML", "CSS", "React", "Node.js", "MongoDB", "Tailwindcss"],
+    technologies: [
+      {
+        hover: "hover:text-[#DD4B25] hover:border-[#DD4B25]",
+        label: "HTML",
+      },
+      {
+        hover: "hover:text-[#205FAA] hover:border-[#205FAA]",
+        label: "CSS",
+      },
+      {
+        hover: "hover:text-[#61DAFB] hover:border-[#61DAFB]",
+        label: "React.js",
+      },
+      {
+        hover: "hover:text-[#569134] hover:border-[#569134]",
+        label: "Node.js",
+      },
+      {
+        hover: "hover:text-[#69A746] hover:border-[#69A746]",
+        label: "MongoDB",
+      },
+      {
+        hover: "hover:text-[#1AACB3] hover:border-[#1AACB3]",
+        label: "TailwindCSS",
+      },
+      {
+        hover: "group-hover:text-white hover:border-white",
+        label: "Socket.io",
+      },
+    ],
+    keyFeatures: [
+      { label: "Real-Time Messaging", content: "Socket.io" },
+      { label: "Security Stack", content: "2FA with Passport & Speakeasy" },
+      {
+        label: "Visual & Analytical Dashboards",
+        content: "Chart.js and ApexCharts",
+      },
+      { label: "Multilingual Accessibility", content: "via i18next" },
+    ],
     FrontendRepo: "https://github.com/BenRyan0/ModMatrix",
     BackendRepo: "",
     SecondFrontendRepo: "",
     PreviewLink: "https://farm-future-consumer.vercel.app/",
   },
-  {
-    title: "Portfolio Website",
-    image: project3,
-    description:
-      "A personal portfolio website showcasing projects, skills, and contact information.",
-    technologies: ["HTML", "CSS", "React", "Bootstrap"],
-    FrontendRepo: "https://github.com/BenRyan0/ModMatrix",
-    BackendRepo: "",
-    SecondFrontendRepo: "",
-    PreviewLink: "https://dev-benryanrinconada-p3lp.onrender.com",
-  },
- 
-];
+  // {
+  //   title: "Portfolio Website",
+  //   image: project3,
+  //   description:
+  //     "A personal portfolio website showcasing projects, skills, and contact information.",
+  //    technologies: [
+  //     {
+  //       hover: "hover:text-[#DD4B25] hover:border-[#DD4B25]",
+  //       label: "HTML",
+  //     },
+  //     {
 
+  //       hover: "hover:text-[#205FAA] hover:border-[#205FAA]",
+  //       label: "CSS",
+  //     },
+  //     {
+
+  //       hover: "hover:text-[#61DAFB] hover:border-[#61DAFB]",
+  //       label: "React.js",
+  //     },
+  //     {
+
+  //       hover: "hover:text-[#569134] hover:border-[#569134]",
+  //       label: "Node.js",
+  //     },
+  //     {
+
+  //       hover: "hover:text-[#69A746] hover:border-[#69A746]",
+  //       label: "MongoDB",
+  //     },
+  //     {
+
+  //       hover: "hover:text-[#1AACB3] hover:border-[#1AACB3]",
+  //       label: "TailwindCSS",
+  //     },
+  //     {
+
+  //       hover: "hover:text-zinc-400 hover:border-zinc-400",
+  //       label: "Socket.io",
+  //     },
+  //   ],
+  //     KeyFeatures: [
+  //     {label: "Data-Rich Dashboards", content: "Powered by Chart.js & ApexCharts Five-year trends build context, real-time price analytics drive decisions, and the intuitive UI ensures smooth navigation for all users."},
+  //     {label: "Secure Verification", content: "Email OTP via Nodemailer and UUIDv4 maintains integrity without friction."},
+  //   ],
+  //   FrontendRepo: "https://github.com/BenRyan0/ModMatrix",
+  //   BackendRepo: "",
+  //   SecondFrontendRepo: "",
+  //   PreviewLink: "https://dev-benryanrinconada-p3lp.onrender.com",
+  // },
+];
 
 export const CONTACT = {
   address: "Baganga, Davao Oriental ",
