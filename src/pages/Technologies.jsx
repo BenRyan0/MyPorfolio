@@ -6,6 +6,7 @@ import { SiMongodb, SiTailwindcss, SiSocketdotio } from "react-icons/si";
 import { FaJs } from "react-icons/fa";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
+import { UniRevealLink } from "./../components/myComponents/UniRevealLink";
 
 const icons = [
   {
@@ -26,20 +27,19 @@ const icons = [
   {
     icon: <SiMongodb />,
     hover: "group-hover:text-[#69A746] hover:border-[#69A746]",
-     label : "MongoDB"
+    label: "MongoDB",
   },
   {
     icon: <SiTailwindcss />,
     hover: "group-hover:text-[#1AACB3] hover:border-[#1AACB3]",
-    label : "TailwindCSS"
+    label: "TailwindCSS",
   },
   {
     icon: <SiSocketdotio />,
     hover: "group-hover:text-white hover:border-white",
-    label : "Socket.io"
+    label: "Socket.io",
   },
 ];
-
 
 // const iconBaseClass =
 //   "border-2 border-neutral-500 rounded-full mt-3 p-1.5 text-neutral-500 transition-transform duration-300 hover:scale-120 hover:rotate-10";
@@ -47,9 +47,13 @@ const icons = [
 const Technologies = () => {
   return (
     <div className="relative md:h-[200px] mt-4 ">
-      <h2 className="font-bold text-slate-200 text-3xl text-start">
-        Tech stack
-      </h2>
+      {/* <h2 className="font-bold text-slate-200 text-2xl text-start Syntha-Nova">
+        {"<"}Tech stack{"/>"}
+      </h2> */}
+      <div className="flex items-start text-2xl 2xl:text-3xl">
+        <UniRevealLink text={"<Tech stack/>"} location={"/#about"} />
+      </div>
+
       <p className="text-start text-sm">
         Some technologies and tools I use on daily basis.
       </p>
@@ -58,16 +62,15 @@ const Technologies = () => {
         {icons.map((item, i) => (
           <div
             key={i}
-            className={ `${item.hover} border-zinc-700 border-2 rounded-md flex px-3 py-3 justify-start items-center gap-2 group transition-all duration-300`}
+            className={`${item.hover} border-zinc-700 border-2 rounded-md flex px-3 py-3 justify-start items-center gap-2 group transition-all duration-300`}
           >
-            <span className={` ${item.hover} text-neutral-500 transition-transform duration-300 group-hover:scale-120 hover:rotate-10`}>
+            <span
+              className={` ${item.hover} text-neutral-500 transition-transform duration-300 group-hover:scale-130 hover:rotate-10`}
+            >
               {item.icon}
             </span>
-            <h2 className={`text-sm ${item.hover} `}>
-              {item.label}
-            </h2>
+            <h2 className={`text-sm ${item.hover} `}>{item.label}</h2>
           </div>
-     
         ))}
       </div>
     </div>

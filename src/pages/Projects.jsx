@@ -1,14 +1,7 @@
 import React from "react";
 import { PROJECTS } from "@/constants";
-import { FaGithub } from "react-icons/fa";
-import { HiLink } from "react-icons/hi";
-import { Link } from "react-router-dom";
-import { Tooltip } from "react-tooltip";
 import { GoDotFill } from "react-icons/go";
 import {
-  CircleCheckIcon,
-  CircleHelpIcon,
-  CircleIcon,
   DatabaseZap,
   Globe,
   MonitorSmartphone,
@@ -30,6 +23,7 @@ import { RiReactjsLine } from "react-icons/ri";
 import { IoLogoNodejs, IoLogoCss3 } from "react-icons/io";
 import { SiMongodb, SiTailwindcss, SiSocketdotio } from "react-icons/si";
 import { FaHtml5,FaChevronRight } from "react-icons/fa";
+import { UniRevealLink } from './../components/myComponents/UniRevealLink';
 
 const Projects = () => {
   const iconMap = {
@@ -76,11 +70,14 @@ const Projects = () => {
 
   return (
     <div id="works" className="text-zinc-200 h-full mt-[400px] md:px-5 pb-20 md:border-b-2 border-slate-700">
-      <div className="text-slate-300 container mx-auto lg:px-7 flex justify-center flex-col items-center gap-5 h-full pt-32">
+      <div className="text-slate-300 container mx-auto lg:px-7 flex justify-center flex-col items-center gap-5 h-full pt-22">
         <div className="w-full h-full flex flex-col justify-center items-center">
-          <h2 className="font-bold text-slate-200 text-3xl lg:text-5xl pb-10">
-            Selected Works
-          </h2>
+          {/* <h2 className="font-black text-slate-200 text-2xl lg:text-2xl pb-2 Syntha-Nova">
+            {"<"}SELECTED WORKS{"/>"}
+          </h2> */}
+            <div className="flex items-start text-3xl">
+               <UniRevealLink text={"<SELECTED WORKS/>"} location={"/#about"} />
+            </div>
           {PROJECTS.map((prj, index) => {
             return (
               <div
@@ -203,7 +200,7 @@ const Projects = () => {
                     </div>
                   </div>
                 </div>
-                <div className="lg:w-10/12 xl:w-9/12 mt-3 w-full">
+                <div className="lg:w-11/12 lg:px-3 2xl:w-9/12 mt-3 w-ful">
                   <h2 className="font-bold">Technologies Used:</h2>
                   <div className="lg:flex lg:flex-row grid grid-cols-2 justify-center gap-4 pt-1">
                     {renderTechnologies(prj.technologies)}

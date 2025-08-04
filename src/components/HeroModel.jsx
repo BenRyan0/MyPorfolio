@@ -1,7 +1,6 @@
 import React from "react";
 import { RiMessage3Fill } from "react-icons/ri";
 import { FaChevronCircleRight } from "react-icons/fa";
-import { ArrowRight } from "lucide-react";
 import { ContactMe } from "@/components/ContactMeDrawer";
 
 // eslint-disable-next-line no-unused-vars
@@ -41,28 +40,24 @@ const HeroModel = ({ drawerOpen, setDrawerOpen }) => {
   }, [controls]);
 
   return (
-    <div
-      id="home"
-      className="text-slate-100 pb-2 h-screen"
-    >
+    <div id="home" className="text-slate-100 pb-2 h-screen">
       <div className="relative h-full flex flex-wrap justify-center items-center md:border-b-2 border-slate-700 overflow-hidden flex-col-reverse md:flex-row">
-        <div className="z-10 absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+        <div className="z-10 absolute bottom-0 left-0 right-0 top-0 opacity-20 bg-[linear-gradient(to_right,#697bfd_1px,transparent_1px),linear-gradient(to_bottom,#b4b6ff_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
 
-        <div className="w-full h-full flex justify-center items-center text-center z-20 ">
+        <div className="w-full h-full flex justify-center items-center text-center z-20 pb-20 md:pb-0 ">
           <motion.div
             initial={{ y: -200, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="flex flex-col justify-center items-start md:items-center ga"
+            className="flex flex-col justify-center items-start md:items-center gap-3"
           >
-            <h2 className="font-semibold text-2xl pl-1                                                        ">
+            <h2 className="font-semibold text-2xl pl-1                                                         ">
               G'day, I'm
             </h2>
-             <RevealLinks />
-            {/* <h2 className="font-semibold md:text-8xl text-6xl text-start md:text-center">Ben Ryan Rinconada</h2> */}
-            <div className="flex justify-center items-center gap-2 text-center mt-3">
+            <RevealLinks />
+            <div className="flex justify-center items-center gap-2 text-center">
               <h2
-                className="font-bold pl-1 text-2xl text-[#353334] bg-clip-text tracking-tight
+                className="font-bold pl-1 text-2xl text-[#353334] tracking-tight
             "
               >
                 Full Stack Developer
@@ -72,7 +67,7 @@ const HeroModel = ({ drawerOpen, setDrawerOpen }) => {
 
             <button
               onClick={() => setDrawerOpen(true)}
-              className="mt-5 group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-3xl bg-purple-500 px-6 font-medium text-neutral-200 duration-500 active:scale-85"
+              className="mt-2 group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-3xl bg-purple-500 px-6 font-medium text-neutral-200 duration-500 active:scale-85"
             >
               <div className="relative inline-flex -translate-x-0 items-center transition group-hover:translate-x-6">
                 <div className="absolute -translate-x-4 opacity-0 transition group-hover:-translate-x-6 group-hover:opacity-100 rotate-shake">

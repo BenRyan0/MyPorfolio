@@ -48,7 +48,7 @@ export function ContactMeForm({ className, ...props }) {
       toast.error("Something went wrong, Please Try Again");
 
       console.log("Error", data);
-      setIsLoading(true);
+      setIsLoading(false);
       // setResult(data.message);
     }
   };

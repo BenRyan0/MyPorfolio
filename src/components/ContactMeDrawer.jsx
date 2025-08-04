@@ -76,7 +76,7 @@ export function ContactMe({ open, setOpen }) {
                     <a
                       data-tooltip-id="my-tooltip"
                       data-tooltip-content="Facebook"
-                      href="https://www.linkedin.com/in/ben-ryan-rinconada-323b25369"
+                      href="https://web.facebook.com/nebnyar69"
                       target="_blank"
                       rel="noopener noreferrer"
                     >

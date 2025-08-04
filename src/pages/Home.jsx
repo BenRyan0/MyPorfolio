@@ -90,13 +90,9 @@ const Home = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center justify-center relative bg-[#00091D]">
-      {/* <div className="relative h-full w-full bg-[#00091D overflow-hidden">
-        <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"></div>
-        <div className="absolute left-0 right-0 top-[-10%] h-[1000px] w-[1000px] rounded-full bg-[radial-gradient(circle_400px_at_50%_300px,#000D2B,#00091D)]"></div>
-      </div> */}
+    <div className="flex flex-col items-center justify-center relative bg-[#020617]">
       <div
-        className="container mx-auto  px-6 md:px-22  lg:mt-6 wrapper relative"
+        className="container mx-auto  px-6 md:px-22  md:mt-6 wrapper relative"
         ref={wrapperRef}
       >
         <Header setDrawerOpen={setDrawerOpen} activeSection={activeSection} />
@@ -104,8 +100,8 @@ const Home = () => {
           <motion.section
             key={id}
             id={id}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y:40 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
             viewport={{ once: false, amount: longSections[id] ? 0.3 : 0.1 }}
             className="min-h-screen"

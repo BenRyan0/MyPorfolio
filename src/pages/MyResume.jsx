@@ -4,6 +4,7 @@ import "@react-pdf-viewer/core/lib/styles/index.css";
 import "../assets/resume-css/index.css";
 
 import { FileDown, Minimize } from "lucide-react";
+import { UniRevealLink } from './../components/myComponents/UniRevealLink';
 
 const MyResume = () => {
   const viewerRef = useRef(null);
@@ -81,7 +82,10 @@ const MyResume = () => {
   }, []);
 
   return (
-    <div id="resume" className="h-full bg-[#00091D] flex flex-col justify-center items-center gap-4 pt-6 mt-40">
+    <div id="resume" className="h-full bg-[#00091D] flex flex-col justify-center items-center gap-4 pt-24">
+      <div className="text-3xl">
+         <UniRevealLink text={"<MY RESUME/>"} location={"/#resume"} />
+      </div>
       <div
         ref={viewerRef}
         className={`relative inset-0 w-full lg:w-[60%] py-5 rounded-xl overflow-hidden shadow-xl bg-white flex flex-row justify-center items-center text-center pt-6 ${

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export const UniRevealLink = ({text, location}) => {
   return (
-    <section className="flex flex-wrap justify-start md:justify-center gap-x-4 gap-y-2 py-2 text-zinc-50  ">
+    <section className="flex justify-start md:justify-center gap-x-4 gap-y-2 py-2 text-zinc-200 Syntha-Nova">
         <FlipLink href={location}>{text}</FlipLink>
     </section>
   );
@@ -21,9 +21,9 @@ const FlipLink = ({ children, href }) => {
       initial="initial"
       whileHover="hovered"
       href={href}
-      className="relative block overflow-hidden text-wrap md:whitespace-nowrap  font-black uppercase text-3xl  sm:text-5xl md:text-5xl lg:text-4xl xl:text-5xl  "
+      className="relative block overflow-hidden text-wrap md:whitespace-nowrap  font-black uppercase  "
       style={{
-        lineHeight: 0.75,
+        lineHeight: 0.95,
       }}
     >
       <div>

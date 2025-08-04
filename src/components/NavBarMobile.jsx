@@ -65,31 +65,31 @@ const NavBarMobile = ({ navOpen, setDrawerOpen, activeSection }) => {
 
  const navItems = [
     {
-      icon: <House size={28} />,
+      icon: <House  size={24} />,
       label: "Home",
       link: "#home",
       section: "home",
     },
     {
-      icon: <SquareUserRound size={28} />,
+      icon: <SquareUserRound  size={24} />,
       label: "About",
       link: "#about",
       section: "about",
     },
     {
-      icon: <Folder size={28} />,
+      icon: <Folder  size={24} />,
       label: "Works",
       link: "#works",
       section: "works",
     },
     {
-      icon: <FileText size={28} />,
+      icon: <FileText  size={24} />,
       label: "Resume",
       link: "#resume",
       section: "resume",
     },
     {
-      icon: <Contact size={28} />,
+      icon: <Contact size={24} />,
       label: "Connect",
       link: "#home",
       section: "connect",
@@ -108,7 +108,7 @@ const NavBarMobile = ({ navOpen, setDrawerOpen, activeSection }) => {
             ${section === activeSection ? "active" : ""}`}
           onClick={(e) => handleClick(e, triggerDrawer)}
         >
-          <span className="transition-all mb-4 duration-300 ease-in-out  text-center flex flex-col justify-center items-center font-bold">
+          <span className="transition-all mb-4 duration-300 ease-in-out  text-center flex flex-col justify-center items-center font-bold text-zinc-300">
             {icon}
              {label}
           </span>

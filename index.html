@@ -1,13 +1,33 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/images/BR-white.png" />
+    <link rel="icon" type="image/svg+xml" href="/images/BR-logo-white.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ben Ryan</title>
   </head>
+  <style>
+    .loading-screen-container {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 10%;
+    }
+    .loader-text {
+      font-weight: 900;
+      font-size: 40px;
+    }
+  </style>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div class="overflow-hidden">
+        <div class="loading-screen-container">
+          <h2 class="Syntha-Nova loader-text">BEN RYAN</h2>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

@@ -5,29 +5,26 @@ import {
   FaGithub,
   FaFacebookSquare,
 } from "react-icons/fa";
-import { FaSquareXTwitter } from "react-icons/fa6";
-import { BiLogoGmail } from "react-icons/bi";
 import { Tooltip } from "react-tooltip";
-import logo from "/images/BR-white.png";
-import { Menu } from 'lucide-react';
+// import logo from "/images/BR-logo-white.png";
 import NavBar from './NavBar';
-import { IoMdClose } from "react-icons/io";
+
 
 
 const Header = ({ setDrawerOpen , activeSection}) => {
-    // const [navOpen, setNavOpen] = useState(false)
-
-
   return (
-   <header className="fixed top-3 left-0 right-0 w-full h-20 flex items-center z-40 container mx-auto md:px-13 lg:px-28 px-6">
-    <div className="max-w-screen-2xl w-full mx-auto flex justify-between items-center md:grid md:grid-cols-3 ">
+   <header className="fixed top-0 left-0 right-0 py-3 w-full h-20 flex items-center z-40 container mx-auto md:px-13 lg:px-28 px-6 backdrop-blur-sm lg:backdrop-blur-none">
+    <div className="max-w-screen-2xl w-full mx-auto flex justify-between items-center md:grid md:grid-cols-3">
       <h1>
         <Link to="/">
-        <img
-          className="h-[50px] md:h-[47px] transition-transform duration-300 hover:scale-120 hover:rotate-9"
+        {/* <img
+          className="h-[55px] md:h-[57px] transition-transform duration-300 hover:scale-120 hover:rotate-9"
           src={logo}
           alt="Logo"
-        />
+        /> */}
+         <h2 className="text-slate-100 text-3xl Syntha-Nova font-bold pt-1">
+            RINCO
+          </h2>
       </Link>
       </h1>
 
@@ -66,7 +63,7 @@ const Header = ({ setDrawerOpen , activeSection}) => {
             <a
               data-tooltip-id="my-tooltip"
               data-tooltip-content="Facebook"
-              href="https://www.linkedin.com/in/ben-ryan-rinconada-323b25369"
+              href="https://web.facebook.com/nebnyar69"
               target="_blank"
               rel="noopener noreferrer"
             >

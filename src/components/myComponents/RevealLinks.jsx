@@ -4,13 +4,17 @@ import { motion } from "framer-motion";
 
 export const RevealLinks = () => {
   return (
-    <section className="flex flex-wrap justify-start md:justify-center gap-x-4 gap-y-2 py-2 text-zinc-50 ">
-      <div className="flex flex-row gap-4 w-full justify-start md:justify-center sm:w-auto sm:flex-row text-start">
+    <section className="flex flex-wrap justify-start md:justify-center gap-x-4 gap-y-2 text-zinc-50 Syntha-Nova ">
+      <div className="flex flex-row gap-4 w-full justify-start md:justify-center sm:w-auto sm:flex-row text-start ">
+        {/* <FlipLink href="#home">{"<"}</FlipLink> */}
+          <h2 className="hidden md:block  text-5xl font-bold uppercase sm:text-xl md:text-5xl lg:text-6xl 2xl:text-7xl">{"<"}</h2>
         <FlipLink href="#home">BEN</FlipLink>
         <FlipLink href="#home">RYAN</FlipLink>
       </div>
       <div className="flex flex-row gap-4 w-full justify-start md:justify-center sm:w-auto sm:flex-row ">
         <FlipLink href="#home">RINCONADA</FlipLink>
+      <h2 className="hidden md:block  text-5xl font-bold uppercase sm:text-xl md:text-5xl lg:text-6xl 2xl:text-7xl">{"/>"}</h2>
+        {/* <FlipLink className="hidden opacity-0" href="#home">{"/>"}</FlipLink> */}
       </div>
     </section>
   );
@@ -27,9 +31,9 @@ const FlipLink = ({ children, href }) => {
       initial="initial"
       whileHover="hovered"
       href={href}
-      className="relative block overflow-hidden text-wrap md:whitespace-nowrap text-5xl font-black uppercase sm:text-6xl md:text-5xl lg:text-7xl"
+      className="relative block overflow-hidden text-wrap md:whitespace-nowrap text-5xl font-bold uppercase  md:text-5xl lg:text-6xl 2xl:text-7xl"
       style={{
-        lineHeight: 0.75,
+        lineHeight: .99,
       }}
     >
       <div>
