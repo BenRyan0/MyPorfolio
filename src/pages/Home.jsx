@@ -92,7 +92,7 @@ const Home = () => {
   return (
     <div className="flex flex-col items-center justify-center relative bg-[#020617]">
       <div
-        className="container mx-auto  px-6 md:px-22  md:mt-6 wrapper relative"
+        className="container mx-auto  px-6 md:px-22  wrapper relative"
         ref={wrapperRef}
       >
         <Header setDrawerOpen={setDrawerOpen} activeSection={activeSection} />
@@ -101,7 +101,7 @@ const Home = () => {
             key={id}
             id={id}
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y:40 }}
+            whileInView={{ opacity: 1, y:0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
             viewport={{ once: false, amount: longSections[id] ? 0.3 : 0.1 }}
             className="min-h-screen"

@@ -75,7 +75,7 @@ const Projects = () => {
   return (
     <div
       id="works"
-      className="text-zinc-200 h-full mt-[400px] md:px-5 pb-20 md:border-b-2 border-slate-700"
+      className="text-zinc-200 h-full pt-6  md:px-5 pb-20 md:border-b-2 border-slate-700 "
     >
       <div className="text-slate-300 container mx-auto lg:px-7 flex justify-center flex-col items-center gap-5 h-full pt-22">
         <div className="w-full h-full flex flex-col justify-center items-center">
