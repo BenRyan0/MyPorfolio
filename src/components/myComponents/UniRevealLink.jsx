@@ -2,18 +2,16 @@ import React from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 
-export const UniRevealLink = ({text, location}) => {
+export const UniRevealLink = ({ text, location }) => {
   return (
     <section className="flex justify-start md:justify-center gap-x-4 gap-y-2 py-2 text-zinc-200 Syntha-Nova">
-        <FlipLink href={location}>{text}</FlipLink>
+      <FlipLink href={location}>{text}</FlipLink>
     </section>
   );
 };
 
-
-
-const DURATION = 0.40;
-const STAGGER = 0.040;
+const DURATION = 0.4;
+const STAGGER = 0.04;
 
 const FlipLink = ({ children, href }) => {
   return (
@@ -21,54 +19,47 @@ const FlipLink = ({ children, href }) => {
       initial="initial"
       whileHover="hovered"
       href={href}
-      className="relative block overflow-hidden text-wrap md:whitespace-nowrap  font-black uppercase  "
-      style={{
-        lineHeight: 0.95,
-      }}
+      className="relative block overflow-hidden font-black uppercase tracking-wide"
+      style={{ lineHeight: 0.99 }}
     >
+      {/* Top Layer: Slide Out */}
       <div>
-        {children.split("").map((l, i) => (
+        {Array.from(children).map((char, i) => (
           <motion.span
+            key={`top-${i}`}
+            className="inline-block"
             variants={{
-              initial: {
-                y: 0,
-              },
-              hovered: {
-                y: "-100%",
-              },
+              initial: { y: 0 },
+              hovered: { y: "-100%" },
             }}
             transition={{
               duration: DURATION,
               ease: "easeInOut",
               delay: STAGGER * i,
             }}
-            className="inline-block"
-            key={i}
           >
-            {l}
+            {char === " " ? "\u00A0" : char}
           </motion.span>
         ))}
       </div>
+
+      {/* Bottom Layer: Slide In */}
       <div className="absolute inset-0">
-        {children.split("").map((l, i) => (
+        {Array.from(children).map((char, i) => (
           <motion.span
+            key={`bottom-${i}`}
+            className="inline-block"
             variants={{
-              initial: {
-                y: "100%",
-              },
-              hovered: {
-                y: 0,
-              },
+              initial: { y: "100%" },
+              hovered: { y: 0 },
             }}
             transition={{
               duration: DURATION,
               ease: "easeInOut",
               delay: STAGGER * i,
             }}
-            className="inline-block"
-            key={i}
           >
-            {l}
+            {char === " " ? "\u00A0" : char}
           </motion.span>
         ))}
       </div>
