@@ -10,7 +10,7 @@ const AboutMe = () => {
       className="text-zinc-200 lg:h-screen pt-28 md:pt-40 bg-red md:px-5 relative w-full "
     >
       {/* <div class="absolute inset-0 -z-10 h-full w-full  bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"></div> */}
-      <div className="md:h-full flex flex-col justify-center items-center md:border-b-2 border-slate-700 ">
+      <div className="md:h-full flex flex-col justify-center items-center ">
         {/* <h2 className="font-bold text-2xl w-full Syntha-Nova">{"<"}MORE ABOUT ME{"/>"}</h2> */}
         <div className="flex items-start w-full text-2xl 2xl:text-3xl">
           <UniRevealLink text={"<MORE ABOUT ME/>"} location={"/#about"} />
