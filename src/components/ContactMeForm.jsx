@@ -12,45 +12,70 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Send } from "lucide-react";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { RiMessage3Fill } from "react-icons/ri";
+import emailjs from '@emailjs/browser';
 
 import toast, { Toaster } from "react-hot-toast";
-
 
 export function ContactMeForm({ className, ...props }) {
   // const [result, setResult] = React.useState("");
   const [isLoading, setIsLoading] = useState(false);
-  
-
-  const onSubmit = async (event) => {
-    event.preventDefault();
-    // setResult("Sending....");
+  const form = useRef();
+  const sendEmail = (e) => {
+    e.preventDefault();
     setIsLoading(true);
-    const formData = new FormData(event.target);
 
-    formData.append("access_key",import.meta.env.VITE_EMAIL_API);
+    emailjs
+      .sendForm(import.meta.env.VITE_SERVICE_ID, import.meta.env.VITE_TEMPLATE_ID, form.current, {
+        publicKey: import.meta.env.VITE_PUBLIC_KEY,
+      })
+      .then(
+        () => {
+          // console.log('SUCCESS!');
+          toast.success("Message Submitted Successfully");
+          setIsLoading(false)
+           form.current.reset(); 
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
 
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData,
-    });
-
-    const data = await response.json();
-
-    if (data.success) {
-      // setResult("Form Submitted Successfully");
-      toast.success("Message Submitted Successfully");
-      setIsLoading(false);
-      event.target.reset();
-    } else {
-      toast.error("Something went wrong, Please Try Again");
-
-      console.log("Error", data);
-      setIsLoading(false);
-      // setResult(data.message);
-    }
+          toast.error("Something went wrong, Please Try Again");
+          setIsLoading(false)
+        },
+      );
   };
+
+
+  // const onSubmit = async (event) => {
+  //   event.preventDefault();
+  //   setIsLoading(true);
+  //   const formData = new FormData(event.target);
+
+  //   formData.append("access_key", import.meta.env.VITE_EMAIL_API);
+
+  //   console.log(formData);
+
+  //   const response = await fetch("https://api.web3forms.com/submit", {
+  //     method: "POST",
+  //     body: formData,
+  //   });
+
+  //   const data = await response.json();
+
+  //   if (data.success) {
+  //     // setResult("Form Submitted Successfully");
+  //     toast.success("Message Submitted Successfully");
+  //     setIsLoading(false);
+  //     event.target.reset();
+  //   } else {
+  //     toast.error("Something went wrong, Please Try Again");
+
+  //     console.log("Error", data);
+  //     setIsLoading(false);
+  //     // setResult(data.message);
+  //   }
+  // };
 
   return (
     <div className={cn("flex flex-col gap-6  ", className)} {...props}>
@@ -62,14 +87,14 @@ export function ContactMeForm({ className, ...props }) {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form onSubmit={onSubmit}>
+          <form ref={form} onSubmit={sendEmail}>
             <div className="flex flex-col gap-6">
               <div className="flex flex-col md:flex-row justify-between items-end gap-3">
                 <div className="grid gap-3 md:w-5/12 w-full">
                   <Label htmlFor="email">Name</Label>
                   <Input
                     id="name"
-                    name="name"
+                    name="user_name"
                     type="text"
                     placeholder="Your Name"
                     required
@@ -80,7 +105,7 @@ export function ContactMeForm({ className, ...props }) {
                   <Label htmlFor="email">Email</Label>
                   <Input
                     id="email"
-                    name="email"
+                    name="user_email"
                     type="email"
                     placeholder="m@example.com"
                     required
@@ -103,7 +128,7 @@ export function ContactMeForm({ className, ...props }) {
               </div>
 
               <div className="flex flex-col gap-3">
-                <Button type="submit" className="w-full">
+                <Button type="submit" className="w-full" disabled={isLoading}>
                   {isLoading ? (
                     <div className="flex gap-1 justify-center items-center">
                       <div className="rotate-shake text-lg">
