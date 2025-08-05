@@ -21,8 +21,7 @@ import toast, { Toaster } from "react-hot-toast";
 export function ContactMeForm({ className, ...props }) {
   // const [result, setResult] = React.useState("");
   const [isLoading, setIsLoading] = useState(false);
-  console.log(import.meta.env.EMAIL_API)
-  console.log("import.meta.env.EMAIL_API")
+  
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -30,7 +29,7 @@ export function ContactMeForm({ className, ...props }) {
     setIsLoading(true);
     const formData = new FormData(event.target);
 
-    formData.append("access_key",import.meta.env.EMAIL_API);
+    formData.append("access_key",import.meta.env.VITE_EMAIL_API);
 
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
