@@ -7,13 +7,13 @@ export const RevealLinks = () => {
     <section className="flex flex-wrap justify-start md:justify-center gap-x-4 gap-y-2 text-zinc-50 Syntha-Nova ">
       <div className="flex flex-row gap-4 w-full justify-start md:justify-center sm:w-auto sm:flex-row text-start ">
         {/* <FlipLink href="#home">{"<"}</FlipLink> */}
-          <h2 className="hidden md:block  text-5xl font-bold uppercase sm:text-xl md:text-5xl lg:text-6xl 2xl:text-7xl">{"<"}</h2>
+        <h2 className="hidden md:block  text-lg font-bold uppercase sm:text-lg md:text-5xl lg:text-6xl 2xl:text-7xl">{"<"}</h2>
         <FlipLink href="#home">BEN</FlipLink>
         <FlipLink href="#home">RYAN</FlipLink>
       </div>
       <div className="flex flex-row gap-4 w-full justify-start md:justify-center sm:w-auto sm:flex-row ">
         <FlipLink href="#home">RINCONADA</FlipLink>
-      <h2 className="hidden md:block  text-5xl font-bold uppercase sm:text-xl md:text-5xl lg:text-6xl 2xl:text-7xl">{"/>"}</h2>
+      <h2 className="hidden md:block  text-lg font-bold uppercase sm:text-lg md:text-5xl lg:text-6xl 2xl:text-7xl">{"/>"}</h2>
         {/* <FlipLink className="hidden opacity-0" href="#home">{"/>"}</FlipLink> */}
       </div>
     </section>
@@ -31,7 +31,7 @@ const FlipLink = ({ children, href }) => {
       initial="initial"
       whileHover="hovered"
       href={href}
-      className="relative block overflow-hidden text-wrap md:whitespace-nowrap text-5xl font-bold uppercase  md:text-5xl lg:text-6xl 2xl:text-7xl"
+      className="relative block overflow-hidden text-wrap md:whitespace-nowrap  font-bold uppercase text-4xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl"
       style={{
         lineHeight: .99,
       }}
