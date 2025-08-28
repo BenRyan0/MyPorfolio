@@ -8,6 +8,8 @@ import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
 import { RevealLinks } from "./myComponents/RevealLinks";
 import { LogoOrigami } from "./myComponents/LogoOrigami";
+import { ChangingTexts } from './myComponents/ChangingTexts';
+import { DevShowcase } from './myComponents/DevShowcase';
 
 const HeroModel = ({ drawerOpen, setDrawerOpen }) => {
   // const HeroModel = ({ scrollContainer }) => {
@@ -55,17 +57,36 @@ const HeroModel = ({ drawerOpen, setDrawerOpen }) => {
               G'day, I'm
             </h2>
             <RevealLinks />
-            <div className="flex justify-center items-center gap-2 text-center">
+            <div className="flex justify-center items-center gap-1 text-center">
               <h2
-                className="font-bold pl-1 text-2xl text-[#353334] tracking-tight
+                className="font-bold pl-1 text-xl text-gray-400 tracking-tight
             "
               >
                 Full Stack Developer
               </h2>
-              <LogoOrigami />
+                {/* <DevShowcase/> */}
+                {/* <ChangingTexts/> */}
+                <LogoOrigami />
             </div>
 
-            <button
+            <div className="flex justify-center items-center gap-3 0">
+                 <button
+              onClick={() => setDrawerOpen(true)}
+              className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-3xl bg-purple-500 px-6 font-medium text-neutral-200 duration-500 active:scale-85"
+            >
+              <div className="relative inline-flex -translate-x-0 items-center transition group-hover:translate-x-6">
+                <div className="absolute -translate-x-4 opacity-0 transition group-hover:-translate-x-6 group-hover:opacity-100 rotate-shake">
+                  <RiMessage3Fill size={25} />
+                </div>
+                <span className="pr-8 pl-1 font-semibold"> Let's Connect</span>
+                <div className="absolute right-0 translate-x-0 opacity-100 transition group-hover:translate-x-4 group-hover:opacity-0 ">
+                  <FaChevronCircleRight size={25} />
+                </div>
+              </div>
+            </button>
+            </div>
+
+            {/* <button
               onClick={() => setDrawerOpen(true)}
               className="mt-2 group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-3xl bg-purple-500 px-6 font-medium text-neutral-200 duration-500 active:scale-85"
             >
@@ -78,7 +99,7 @@ const HeroModel = ({ drawerOpen, setDrawerOpen }) => {
                   <FaChevronCircleRight size={25} />
                 </div>
               </div>
-            </button>
+            </button> */}
 
             {/* Drawer */}
             <ContactMe open={drawerOpen} setOpen={setDrawerOpen} />

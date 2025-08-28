@@ -61,7 +61,7 @@ const LogoRolodex = ({ items }) => {
         transform: "rotateY(-20deg)",
         transformStyle: "preserve-3d",
       }}
-      className="relative z-0 h-10 w-16 shrink-0 rounded-xl border border-neutral-700 bg-neutral-800"
+      className="relative z-0 h-10 w-17 shrink-0 rounded-lg border border-neutral-700 bg-neutral-800/70"
     >
       <AnimatePresence mode="sync">
         <motion.div
@@ -120,7 +120,7 @@ const LogoItem = ({ children, className }) => {
   return (
     <div
       className={twMerge(
-        "grid h-8 w-14 place-content-center rounded-lg  text-2xl text-neutral-50",
+        "grid h-8 w-15 place-content-center rounded-lg  text-2xl text-neutral-50",
         className
       )}
     >

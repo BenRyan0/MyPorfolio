@@ -2,6 +2,7 @@ import React from "react";
 import InfiniteSwipe from "./../components/myComponents/SwipingCards";
 import Technologies from "./Technologies";
 import { UniRevealLink } from "./../components/myComponents/UniRevealLink";
+import { ChangingTexts } from './../components/myComponents/ChangingTexts';
 
 const AboutMe = () => {
   return (
@@ -35,7 +36,9 @@ const AboutMe = () => {
 
           <div className="w-full lg:w-5/12 flex justify-center lg:justify-end items-end lg:pl-10">
             <div className="">
+              <ChangingTexts />
               <InfiniteSwipe />
+             
             </div>
           </div>
         </div>
