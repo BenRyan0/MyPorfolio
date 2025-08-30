@@ -7,6 +7,7 @@ import { twMerge } from "tailwind-merge";
 import { RiReactjsLine } from "react-icons/ri";
 import { IoLogoNodejs } from "react-icons/io";
 import { SiMongodb, SiTailwindcss, SiSocketdotio } from "react-icons/si";
+import { SiShadcnui } from "react-icons/si";
 
 export const LogoOrigami = () => {
   return (
@@ -24,12 +25,14 @@ export const LogoOrigami = () => {
           </LogoItem>,
           <LogoItem key={4} className="text-zinc-50 bg-[#1AACB3]">
             <SiTailwindcss />
-            {/* <SiGithub /> */}
           </LogoItem>,
           <LogoItem key={5} className="text-zinc-50 bg-black">
+            <SiShadcnui size={18} />
+          </LogoItem>,
+          <LogoItem key={6} className="text-zinc-50 bg-black">
             <SiSocketdotio />
           </LogoItem>,
-          <LogoItem key={4} className="text-zinc-50 bg-black">
+          <LogoItem key={7} className="text-zinc-50 bg-black">
             <SiGithub />
           </LogoItem>,
         ]}

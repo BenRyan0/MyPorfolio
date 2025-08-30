@@ -246,7 +246,7 @@ body::-webkit-scrollbar-thumb {
 
 @theme {
   --primary: #ff0000; /* Replace with your desired color */
-  --color-main: #0A0A0A;
+  --color-main: #000000;
 }
 
 @layer utilities {
@@ -324,3 +324,19 @@ body::-webkit-scrollbar-thumb {
 
 
 
+@theme inline {
+  --animate-cell-ripple: cell-ripple var(--duration, 200ms) ease-out none 1
+  var(--delay, 0ms);
+
+  @keyframes cell-ripple {
+    0% {
+      opacity: 0.4;
+    }
+    50% {
+      opacity: 0.8;
+    }
+    100% {
+      opacity: 0.4;
+    }
+  }
+}

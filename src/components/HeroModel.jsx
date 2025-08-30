@@ -8,13 +8,12 @@ import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
 import { RevealLinks } from "./myComponents/RevealLinks";
 import { LogoOrigami } from "./myComponents/LogoOrigami";
-import { ChangingTexts } from './myComponents/ChangingTexts';
-import { DevShowcase } from './myComponents/DevShowcase';
+import { ChangingTexts } from "./myComponents/ChangingTexts";
+import { DevShowcase } from "./myComponents/DevShowcase";
 
 // "use client";
 import { BackgroundBeams } from "../components/ui/background-beams";
-// import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
-
+import { BackgroundRippleEffect } from "../components/ui/background-ripple-effect";
 
 const HeroModel = ({ drawerOpen, setDrawerOpen }) => {
   // const HeroModel = ({ scrollContainer }) => {
@@ -52,11 +51,12 @@ const HeroModel = ({ drawerOpen, setDrawerOpen }) => {
         {/* <div className="z-10 absolute bottom-0 left-0 right-0 -top-30 opacity-20 bg-[linear-gradient(to_right,#697bfd_1px,transparent_1px),linear-gradient(to_bottom,#b4b6ff_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div> */}
 
         <div className="w-full h-full flex justify-center items-center text-center z-20 pb-20 md:pb-0 ">
+          <BackgroundRippleEffect />
           <motion.div
             initial={{ y: -200, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="flex flex-col justify-center items-start md:items-center gap-3"
+            className="flex flex-col justify-center items-start md:items-center gap-3 z-30"
           >
             <h2 className="font-semibold text-2xl pl-1                                                         ">
               G'day, I'm
@@ -69,48 +69,32 @@ const HeroModel = ({ drawerOpen, setDrawerOpen }) => {
               >
                 Full Stack Developer
               </h2>
-                {/* <DevShowcase/> */}
-                {/* <ChangingTexts/> */}
-                <LogoOrigami />
+              <LogoOrigami />
             </div>
 
             <div className="flex justify-center items-center gap-3 0">
-                 <button
-              onClick={() => setDrawerOpen(true)}
-              className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-3xl bg-purple-500 px-6 font-medium text-neutral-200 duration-500 active:scale-85"
-            >
-              <div className="relative inline-flex -translate-x-0 items-center transition group-hover:translate-x-6">
-                <div className="absolute -translate-x-4 opacity-0 transition group-hover:-translate-x-6 group-hover:opacity-100 rotate-shake">
-                  <RiMessage3Fill size={25} />
+              <button
+                onClick={() => setDrawerOpen(true)}
+                className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-3xl bg-purple-500 px-6 font-medium text-neutral-200 duration-500 active:scale-85"
+              >
+                <div className="relative inline-flex -translate-x-0 items-center transition group-hover:translate-x-6">
+                  <div className="absolute -translate-x-4 opacity-0 transition group-hover:-translate-x-6 group-hover:opacity-100 rotate-shake">
+                    <RiMessage3Fill size={25} />
+                  </div>
+                  <span className="pr-8 pl-1 font-semibold">
+                    {" "}
+                    Let's Connect
+                  </span>
+                  <div className="absolute right-0 translate-x-0 opacity-100 transition group-hover:translate-x-4 group-hover:opacity-0 ">
+                    <FaChevronCircleRight size={25} />
+                  </div>
                 </div>
-                <span className="pr-8 pl-1 font-semibold"> Let's Connect</span>
-                <div className="absolute right-0 translate-x-0 opacity-100 transition group-hover:translate-x-4 group-hover:opacity-0 ">
-                  <FaChevronCircleRight size={25} />
-                </div>
-              </div>
-            </button>
+              </button>
             </div>
-
-            {/* <button
-              onClick={() => setDrawerOpen(true)}
-              className="mt-2 group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-3xl bg-purple-500 px-6 font-medium text-neutral-200 duration-500 active:scale-85"
-            >
-              <div className="relative inline-flex -translate-x-0 items-center transition group-hover:translate-x-6">
-                <div className="absolute -translate-x-4 opacity-0 transition group-hover:-translate-x-6 group-hover:opacity-100 rotate-shake">
-                  <RiMessage3Fill size={25} />
-                </div>
-                <span className="pr-8 pl-1 font-semibold"> Let's Connect</span>
-                <div className="absolute right-0 translate-x-0 opacity-100 transition group-hover:translate-x-4 group-hover:opacity-0 ">
-                  <FaChevronCircleRight size={25} />
-                </div>
-              </div>
-            </button> */}
-
-            {/* Drawer */}
             <ContactMe open={drawerOpen} setOpen={setDrawerOpen} />
           </motion.div>
         </div>
-        <BackgroundBeams />
+        {/* <BackgroundBeams /> */}
       </div>
     </div>
   );
