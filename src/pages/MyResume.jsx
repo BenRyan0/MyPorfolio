@@ -139,7 +139,7 @@ const MyResume = () => {
         <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.9.179/build/pdf.worker.min.js">
           <Viewer
             key={scale} // 🔁 forces re-mount when scale changes
-            fileUrl="/pdf/Ben-Ryan-Rinconada-WebDeveloper-R2.pdf"
+            fileUrl="/pdf/Ben-Ryan-Rinconada-WebDeveloper.pdf"
             defaultScale={
               isFullscreen
                 ? window.innerWidth >= 1024
@@ -153,7 +153,7 @@ const MyResume = () => {
 
       {/* Download Button */}
       <a
-        href="/pdf/Ben-Ryan-Rinconada-WebDeveloper-R2.pdf"
+        href="/pdf/Ben-Ryan-Rinconada-WebDeveloper.pdf"
         download
         className="px-4 py-2 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition-colors duration-200 flex gap-1"
       >
