@@ -157,7 +157,7 @@ const Projects = () => {
   return (
     <div
       id="works"
-      className="text-zinc-200 h-full pt-20 lg:pt-6  md:px-5 pb-20 md:border-b-2 border-slate-700 "
+      className="text-zinc-200 h-full pt-40 lg:pt-6  md:px-5 pb-20 md:border-b-2 border-slate-700 bg-red-800 "
     >
       <div className="w-full h-screen py-4 flex justify-center items-center">
         <StickyScroll content={content} />
