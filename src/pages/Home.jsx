@@ -8,6 +8,8 @@ import Projects from "./Projects";
 import MyResume from "./MyResume";
 import Footer from "./../components/Footer";
 
+import { BackgroundBeams } from "../components/ui/background-beams";
+
 
 // eslint-disable-next-line no-unused-vars
 import { motion, useAnimation } from "framer-motion";
@@ -119,6 +121,8 @@ const Home = () => {
 
         <Footer  drawerOpen={drawerOpen}
           setDrawerOpen={setDrawerOpen}/>
+
+              {/* <BackgroundBeams /> */}
       </div>
     </div>
   );
