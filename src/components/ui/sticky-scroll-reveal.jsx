@@ -58,8 +58,8 @@ export const StickyScroll = ({ content, contentClassName }) => {
 
   // Replace gradients with image URLs
   const images = [
-    "/src/assets/projects/project-1.jpg",
-    "/src/assets/projects/project-2.jpg",
+    "/projects/project-1.jpg",
+    "/projects/project-2.jpg",
   ];
 
   const [backgroundImage, setBackgroundImage] = useState(`url(${images[0]})`);
