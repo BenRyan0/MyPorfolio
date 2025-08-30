@@ -4,6 +4,8 @@ import Technologies from "./Technologies";
 import { UniRevealLink } from "./../components/myComponents/UniRevealLink";
 import { ChangingTexts } from './../components/myComponents/ChangingTexts';
 
+
+
 const AboutMe = () => {
   return (
     <div
@@ -33,12 +35,12 @@ const AboutMe = () => {
               <Technologies />
             </div>
           </div>
+          {/* <div className=""></div> */}
 
-          <div className="w-full lg:w-5/12 flex justify-center lg:justify-end items-end lg:pl-10">
+          <div className="w-full lg:w-5/12 flex justify-center lg:justify-end items-end lg:pl-10 ">
             <div className="">
-              <ChangingTexts />
+              {/* <ChangingTexts /> */}
               <InfiniteSwipe />
-             
             </div>
           </div>
         </div>

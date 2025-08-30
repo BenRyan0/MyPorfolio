@@ -82,7 +82,7 @@ const MyResume = () => {
   }, []);
 
   return (
-    <div id="resume" className="h-full bg-[#020617] flex flex-col justify-center items-center gap-4 pt-28">
+    <div id="resume" className="h-full bg-main flex flex-col justify-center items-center gap-4 pt-28">
       <div className="text-3xl">
          <UniRevealLink text={"<MY RESUME/>"} location={"/#resume"} />
       </div>

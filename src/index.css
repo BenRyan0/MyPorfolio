@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 
 @import "tailwindcss";
 @import "tw-animate-css";
@@ -134,7 +134,7 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: #151312; /* gray-300 */
+  background-color: #0A0A0A; /* gray-300 */
   border-right: 4px solid transparent; /* Simulate right padding */
   background-clip: padding-box; /* Keeps background inside the border */
 }
@@ -142,7 +142,7 @@ body::-webkit-scrollbar-thumb {
 /* Scrollbar styles for dark mode */
 @media (prefers-color-scheme: dark) {
   body::-webkit-scrollbar-track {
-    background-color: #020617; /* neutral-700 */
+    background-color: #0A0A0A; /* neutral-700 */
   }
 
   body::-webkit-scrollbar-thumb {
@@ -157,16 +157,70 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
+/* Scrollbar styles for a container */
+.my-scroll-container::-webkit-scrollbar {
+  width: 0.7rem;
+}
+
+.my-scroll-container::-webkit-scrollbar-track {
+  background-color: #f3f4f6; /* gray-100 */
+}
+
+.my-scroll-container::-webkit-scrollbar-thumb {
+  background-color: #0A0A0A; /* gray-300 */
+  border-right: 4px solid transparent;
+  background-clip: padding-box;
+}
+
+/* Scrollbar styles for dark mode */
+@media (prefers-color-scheme: dark) {
+  .my-scroll-container::-webkit-scrollbar-track {
+    background-color: #0A0A0A; /* neutral-700 */
+  }
+
+  .my-scroll-container::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background-color: #9810fa;
+    border: 4px solid transparent;
+    background-clip: padding-box;
+  }
+
+  .my-scroll-container::-webkit-scrollbar-thumb:hover {
+    background-color: #8200db;
+  }
+}
+
+/* Scrollbar styles for dark mode */
+@media (prefers-color-scheme: dark) {
+  body1::-webkit-scrollbar-track {
+    background-color: #020617; /* neutral-700 */
+  }
+
+  body1::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background-color: #9810fa;
+    border: 4px solid transparent;
+    background-clip: padding-box;
+  }
+
+  body1::-webkit-scrollbar-thumb:hover {
+    background-color: #8200db;
+  }
+}
+
+
+
+
 /* nav */
 .navbar {
-  @apply top-full right-0 min-w-30 p-2 bg-[#020617] rounded-xl scale-90 isolate invisible hidden transition-all static md:flex items-center mt-0 opacity-100 md:blur-none md:visible md:scale-100 md:bottom-0 border-2 border-zinc-50 gap-3 px-5 pr-6 py-1 text-center;
+  @apply top-full right-0 min-w-30 p-2 bg-[#0A0A0A] rounded-xl scale-90 isolate invisible hidden transition-all static md:flex items-center mt-0 opacity-100 md:blur-none md:visible md:scale-100 md:bottom-0 border-2 border-zinc-50 gap-3 px-5 pr-6 py-1 text-center;
 }
 .navbarSide {
-  @apply top-full right-0 min-w-40 p-2 bg-[#020617] rounded-2xl scale-90 isolate  invisible hidden transition-all static md:flex items-center mt-0 opacity-100 md:blur-none md:visible md:scale-100 md:bottom-0 border-2 border-zinc-50;
+  @apply top-full right-0 min-w-40 p-2 bg-[#0A0A0A] rounded-2xl scale-90 isolate  invisible hidden transition-all static md:flex items-center mt-0 opacity-100 md:blur-none md:visible md:scale-100 md:bottom-0 border-2 border-zinc-50;
 }
 
 .navbarMobile {
-  @apply top-full w-full h-full px-6 bg-[#020617] pt-5  isolate md:hidden transition-all static flex items-center justify-between gap-5 opacity-100 blur-none md:visible md:scale-100 bottom-0 border-t border-zinc-100 backdrop-blur-2xl;
+  @apply top-full w-full h-full px-6 bg-[#0A0A0A] pt-5  isolate md:hidden transition-all static flex items-center justify-between gap-5 opacity-100 blur-none md:visible md:scale-100 bottom-0 border-t border-zinc-100 backdrop-blur-2xl;
 }
 /* .navbarMobile {
   @apply top-full w-fit bg-[#020617] py-2 px-6  rounded-2xl isolate md:hidden transition-all static flex items-center justify-center gap-5 opacity-100 blur-none md:visible md:scale-100 bottom-22 border-2 border-zinc-50 backdrop-blur-2xl;
@@ -192,13 +246,23 @@ body::-webkit-scrollbar-thumb {
 
 @theme {
   --primary: #ff0000; /* Replace with your desired color */
+  --color-main: #0A0A0A;
 }
 
 @layer utilities {
   @keyframes rotate-shake {
-    0%, 100% { transform: rotate(0deg); }
-    20%, 60% { transform: rotate(-10deg); }
-    40%, 80% { transform: rotate(10deg); }
+    0%,
+    100% {
+      transform: rotate(0deg);
+    }
+    20%,
+    60% {
+      transform: rotate(-10deg);
+    }
+    40%,
+    80% {
+      transform: rotate(10deg);
+    }
   }
 
   .rotate-shake {
@@ -207,9 +271,18 @@ body::-webkit-scrollbar-thumb {
 }
 
 @keyframes dotPulse {
-  0% { opacity: 0.2; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.3); }
-  100% { opacity: 0.2; transform: scale(1); }
+  0% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+  100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
 }
 
 .dots-animate {
@@ -234,7 +307,20 @@ body::-webkit-scrollbar-thumb {
   src: url(/fonts/Syntha\ Nova\ Black.ttf);
 }
 
-.Syntha-Nova{
-  font-family:Syntha-Nova, sans-serif; 
-
+.Syntha-Nova {
+  font-family: Syntha-Nova, sans-serif;
 }
+
+
+@theme inline {
+  --animate-scroll: scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite;
+ 
+  @keyframes scroll {
+    to {
+      transform: translate(calc(-50% - 0.5rem));
+    }
+  }
+}
+
+
+

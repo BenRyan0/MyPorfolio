@@ -90,7 +90,7 @@ const Home = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center justify-center relative bg-[#020617]">
+    <div className="flex flex-col items-center justify-center relative bg-main">
       <div
         className="container mx-auto  px-6 md:px-22  wrapper relative"
         ref={wrapperRef}

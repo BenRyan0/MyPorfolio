@@ -8,7 +8,7 @@
   </head>
   <style>
     .main-container {
-      background-color: #020617;
+      background-color: #0A0A0A;
     }
     .loading-screen-container {
       width: 100%;
@@ -16,24 +16,32 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-flow: column;
       /* opacity: 70%; */
     }
     .loader-text {
       font-weight: 900;
       font-size: 40px;
+      color: #fff;
     }
 
     .loader {
-      width: 60px;
-      aspect-ratio: 1;
-      border-radius: 50%;
-      border: 8px solid;
-      border-color: #fff #0000;
-      animation: l1 1s infinite;
+      height: 4px;
+      width: 130px;
+      --c: no-repeat linear-gradient(#6100ee 0 0);
+      background: var(--c), var(--c), #fff;
+      background-size: 60% 100%;
+      animation: l16 3s infinite;
     }
-    @keyframes l1 {
-      to {
-        transform: rotate(0.5turn);
+    @keyframes l16 {
+      0% {
+        background-position: -150% 0, -150% 0;
+      }
+      66% {
+        background-position: 250% 0, -150% 0;
+      }
+      100% {
+        background-position: 250% 0, 250% 0;
       }
     }
   </style>
@@ -41,8 +49,8 @@
     <div id="root">
       <div class="overflow-hidden main-container">
         <div class="loading-screen-container">
+          <h2 class="Syntha-Nova loader-text">&lt;RINCO/&gt;</h2>
           <div class="loader"></div>
-          <!-- <h2 class="Syntha-Nova loader-text">&lt;RINCO/&gt;</h2> -->
         </div>
       </div>
     </div>
