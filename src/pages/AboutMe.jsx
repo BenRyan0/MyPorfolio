@@ -19,7 +19,7 @@ const AboutMe = () => {
           "[background-image:linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)] opacity-70 "
         )}
       />
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] bg-black backdrop-blur-3xl"></div>
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] bg-main backdrop-blur-3xl"></div>
       <div className="md:h-full flex flex-col justify-center items-center  relative z-20">
         <div className="flex items-start w-full text-2xl 2xl:text-3xl">
           <UniRevealLink text={"<MORE ABOUT ME/>"} location={"/#about"} />

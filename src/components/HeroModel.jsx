@@ -14,6 +14,7 @@ import { DevShowcase } from "./myComponents/DevShowcase";
 // "use client";
 import { BackgroundBeams } from "../components/ui/background-beams";
 import { BackgroundRippleEffect } from "../components/ui/background-ripple-effect";
+import { cn } from "../lib/utils";
 
 const HeroModel = ({ drawerOpen, setDrawerOpen }) => {
   // const HeroModel = ({ scrollContainer }) => {
@@ -49,9 +50,16 @@ const HeroModel = ({ drawerOpen, setDrawerOpen }) => {
     <div id="home" className="text-slate-100 pb-2 h-screen">
       <div className="relative h-full flex flex-wrap justify-center items-center  overflow-hidden flex-col-reverse md:flex-row">
         {/* <div className="z-10 absolute bottom-0 left-0 right-0 -top-30 opacity-20 bg-[linear-gradient(to_right,#697bfd_1px,transparent_1px),linear-gradient(to_bottom,#b4b6ff_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div> */}
-
+<div
+        className={cn(
+          "absolute inset-0",
+          "[background-size:40px_40px]",
+          "[background-image:linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)] opacity-70 "
+        )}
+      />
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_5%,black)] bg-main backdrop-blur-3xl"></div>
         <div className="w-full h-full flex justify-center items-center text-center z-20 pb-20 md:pb-0 ">
-          <BackgroundRippleEffect />
+          {/* <BackgroundRippleEffect /> */}
           <motion.div
             initial={{ y: -200, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}

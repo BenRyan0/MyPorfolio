@@ -246,7 +246,7 @@ body::-webkit-scrollbar-thumb {
 
 @theme {
   --primary: #ff0000; /* Replace with your desired color */
-  --color-main: #000000;
+  --color-main: #121212;
 }
 
 @layer utilities {
