@@ -116,7 +116,7 @@ export const StickyScroll = ({ content, contentClassName }) => {
 
   return (
     <motion.div
-      className="relative flex md:h-[30rem] h-[50rem] w-full justify-center lg:space-x-10 overflow-y-auto rounded-md md:p-10 p-2 my-scroll-container "
+      className="relative flex lg:h-[30rem] h-[50rem] w-full justify-center lg:space-x-10 overflow-y-scroll overflow-x-hidden rounded-md md:p-10 p-2 my-scroll-container "
       ref={ref}
     >
       <div className="div relative flex items-start px-4">
@@ -267,7 +267,7 @@ export const StickyScroll = ({ content, contentClassName }) => {
         </div>
       </div>
 
-      <div className="lg:flex flex-col justify-between w-[500px] sticky top-10 bottom-0 h-fit hidden">
+      <div className="lg:flex flex-col justify-between w-[400px] xl:w-[500px] sticky top-10 bottom-0 h-fit hidden">
         <div
           style={{
             backgroundImage: backgroundImage,
