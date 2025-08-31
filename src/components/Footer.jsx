@@ -31,15 +31,12 @@ const Footer = ({ drawerOpen, setDrawerOpen }) => {
             <span className="pr-7 pl-1 font-semibold translate-x-0 opacity-100 transition group-hover:translate-x-4 group-hover:opacity-0">
               Let's Connect
             </span>
-
-            {/* Right arrow */}
             <div className="absolute right-0 translate-x-0 opacity-100 transition group-hover:translate-x-4 group-hover:opacity-0">
               <TiChevronRight size={25} />
             </div>
           </div>
         </button>
 
-        {/* Drawer */}
         <ContactMe open={drawerOpen} setOpen={setDrawerOpen} />
 
         <div className="text-slate-100 mt-10 py-4">
