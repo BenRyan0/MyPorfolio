@@ -5,6 +5,7 @@ import { UniRevealLink } from "./../components/myComponents/UniRevealLink";
 import { ChangingTexts } from "./../components/myComponents/ChangingTexts";
 
 import { cn } from "../lib/utils";
+import MyTools from './MyTools';
 
 const AboutMe = () => {
   return (
@@ -38,6 +39,7 @@ const AboutMe = () => {
             </p>
             <div className="w-full ">
               <Technologies />
+              <MyTools/>
             </div>
           </div>
           <div className="w-full lg:w-5/12 flex justify-center lg:justify-end items-end lg:pl-10">

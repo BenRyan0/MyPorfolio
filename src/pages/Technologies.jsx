@@ -63,7 +63,7 @@ const Technologies = () => {
   }, []);
 
   return (
-    <div className="relative md:h-[200px] mt-4 ">
+    <div className="relative md:h-fit mt-4">
       <div className="flex items-start text-2xl 2xl:text-3xl">
         <UniRevealLink text={"<Tech stack/>"} location={"/#about"} />
       </div>
