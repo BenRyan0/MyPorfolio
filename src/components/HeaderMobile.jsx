@@ -18,8 +18,8 @@ const HeaderMobile = ({ setDrawerOpen, activeSection }) => {
   // const [navOpen, setNavOpen] = useState(false)
 
   return (
-    <header className="fixed bottom-0 left-0 right-0 w-full h-19 flex items-center z-50 pt-1 ">
-      <div className="w-full flex justify-end items-end h-full">
+    <header className="fixed bottom-0 left-0 right-0 w-full h-fit flex items-center z-50 ">
+      <div className="w-full flex justify-end items-end h-full ">
         <NavBarMobile setDrawerOpen={setDrawerOpen} activeSection={activeSection} />
       </div>
     </header>
