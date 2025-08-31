@@ -3,13 +3,15 @@ import { Worker, Viewer, SpecialZoomLevel } from "@react-pdf-viewer/core";
 import "@react-pdf-viewer/core/lib/styles/index.css";
 import "../assets/resume-css/index.css";
 
-import { FileDown, Minimize } from "lucide-react";
-import { UniRevealLink } from './../components/myComponents/UniRevealLink';
+import { Minimize, Download } from "lucide-react";
+import { UniRevealLink } from "./../components/myComponents/UniRevealLink";
+
+import { cn } from "../lib/utils";
 
 const MyResume = () => {
   const viewerRef = useRef(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const [scale, setScale] = useState(SpecialZoomLevel.PageFit); // 🟢
+  const [scale, setScale] = useState(SpecialZoomLevel.PageFit);
 
   const handleFullscreen = () => {
     const container = viewerRef.current;
@@ -82,20 +84,30 @@ const MyResume = () => {
   }, []);
 
   return (
-    <div id="resume" className="h-full bg-main flex flex-col justify-center items-center gap-4 pt-28">
+    <div
+      id="resume"
+      className="h-full bg-main flex flex-col justify-center items-center gap-4 pt-28"
+    >
+      <div
+        className={cn(
+          "absolute inset-0",
+          "[background-size:40px_40px]",
+          "[background-image:linear-gradient(to_right,#ffff_1px,transparent_1px),linear-gradient(to_bottom,#ffff_1px,transparent_1px)] opacity-10 "
+        )}
+      />
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_5%,black)] bg-main backdrop-blur-3xl z-0"></div>
       <div className="text-3xl">
-         <UniRevealLink text={"<MY RESUME/>"} location={"/#resume"} />
+        <UniRevealLink text={"<MY RESUME/>"} location={"/#resume"} />
       </div>
       <div
         ref={viewerRef}
-        className={`relative inset-0 w-full lg:w-[60%] py-5 rounded-xl overflow-hidden shadow-xl bg-white flex flex-row justify-center items-center text-center pt-6 ${
+        className={`relative inset-0 w-full lg:w-[60%] py-5 rounded-xl overflow-hidden shadow-xl bg-white flex flex-row justify-center items-center text-center pt-6  ${
           isFullscreen
-            ? "flex justify-center items-center h-screen pt-[140px] md:pt-8 w-screen py-10  bg-red-600"
+            ? "flex justify-center items-center h-screen pt-[140px] md:pt-8 w-screen py-10 "
             : ""
         } cursor-pointer group`}
         onClick={handleFullscreen}
       >
-        {/* Hover Text Prompt: hidden when fullscreen */}
         {!isFullscreen && (
           <div className="absolute inset-0 flex items-center justify-center text-center z-10 text-white bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <span className="text-lg font-semibold">
@@ -151,13 +163,18 @@ const MyResume = () => {
         </Worker>
       </div>
 
-      {/* Download Button */}
       <a
         href="/pdf/Ben-Ryan-Rinconada-WebDeveloper.pdf"
         download
-        className="px-4 py-2 bg-purple-600 text-white font-semibold rounded-lg hover:bg-purple-700 transition-colors duration-200 flex gap-1"
+        className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md px-6 md:px-14 font-medium text-zinc-50 active:scale-85 border-accent border-2 transition-all duration-500 bg-transparent bg-gradient-to-t to-transparent hover:scale-105 ease-in-out from-accent/20 hover:from-accent/30 "
       >
-        Download My Resume <FileDown />
+        <div className="relative inline-flex -translate-x-0 items-center transition ">
+          <span className="pr-7 pl-1 font-semibold">Download My Resume</span>
+          <div className="absolute right-0 translate-x-0 opacity-100 transition  ">
+            {/* <TiChevronRight size={25} /> */}
+            <Download size={17} />
+          </div>
+        </div>
       </a>
     </div>
   );

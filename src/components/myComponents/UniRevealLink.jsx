@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export const UniRevealLink = ({ text, location }) => {
   return (
-    <section className="flex justify-start md:justify-center gap-x-4 gap-y-2 py-2 text-zinc-200 Syntha-Nova">
+    <section className="flex justify-start md:justify-center gap-x-4 gap-y-2 py-2 text-zinc-50 Syntha-Nova">
       <FlipLink href={location}>{text}</FlipLink>
     </section>
   );

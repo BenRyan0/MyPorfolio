@@ -1,15 +1,14 @@
 import React from "react";
 import { ContactMe } from "@/components/ContactMeDrawer";
 import { RiMessage3Fill } from "react-icons/ri";
-import { FaChevronCircleRight } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import { FaLinkedin, FaGithub, FaFacebookSquare } from "react-icons/fa";
 import { Tooltip } from "react-tooltip";
+import { TiChevronRight } from "react-icons/ti";
 
 const Footer = ({ drawerOpen, setDrawerOpen }) => {
   return (
     <div className="h-fit mt-20 md:mt-40 mb-22 md:mb-2 static bottom-0 right-0 left-0  text-zinc-100 flex flex-col justify-center items-center">
-      <div className="w-full text-center">
+      <div className="w-full text-center z-40 relative">
         <h2 className="font-black text-4xl bg-gradient-to-r from-fuchsia-600 to-purple-600 bg-clip-text text-transparent">
           Let's Connect
         </h2>
@@ -19,15 +18,23 @@ const Footer = ({ drawerOpen, setDrawerOpen }) => {
         </p>
         <button
           onClick={() => setDrawerOpen(true)}
-          className="mt-5 group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-3xl bg-purple-500 px-6 font-medium text-neutral-200 duration-500 active:scale-85"
+          className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-gradient-to-tr from-indigo-600 to-purple-500 px-6 md:px-10 font-medium text-zinc-50 duration-500 active:scale-95 mt-7"
         >
           <div className="relative inline-flex -translate-x-0 items-center transition group-hover:translate-x-6">
-            <div className="absolute -translate-x-4 opacity-0 transition group-hover:-translate-x-6 group-hover:opacity-100 rotate-shake">
-              <RiMessage3Fill size={25} />
+            {/* Left icon + text */}
+            <div className="absolute flex items-center gap-1 -translate-x-2 opacity-0 transition group-hover:-translate-x-6 group-hover:opacity-100">
+              <RiMessage3Fill size={20} />
+              <span className="pl-2 font-semibold ">What's up?</span>
             </div>
-            <span className="pr-8 pl-1 font-semibold "> Let's Connect</span>
-            <div className="absolute right-0 translate-x-0 opacity-100 transition group-hover:translate-x-4 group-hover:opacity-0 ">
-              <FaChevronCircleRight size={25} />
+
+            {/* Main button text */}
+            <span className="pr-7 pl-1 font-semibold translate-x-0 opacity-100 transition group-hover:translate-x-4 group-hover:opacity-0">
+              Let's Connect
+            </span>
+
+            {/* Right arrow */}
+            <div className="absolute right-0 translate-x-0 opacity-100 transition group-hover:translate-x-4 group-hover:opacity-0">
+              <TiChevronRight size={25} />
             </div>
           </div>
         </button>
@@ -76,7 +83,7 @@ const Footer = ({ drawerOpen, setDrawerOpen }) => {
         </div>
       </div>
       <div className="mt-10">
-        <p className="text-xs">
+        <p className="text-xs text-zinc-50">
           © {new Date().getFullYear()} Ben Ryan Rinconada
         </p>
       </div>

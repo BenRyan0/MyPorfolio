@@ -3,7 +3,7 @@ import InfiniteSwipe from "./../components/myComponents/SwipingCards";
 import Technologies from "./Technologies";
 import { UniRevealLink } from "./../components/myComponents/UniRevealLink";
 import { ChangingTexts } from "./../components/myComponents/ChangingTexts";
-// import { cn } from "../";
+
 import { cn } from "../lib/utils";
 
 const AboutMe = () => {
@@ -16,10 +16,10 @@ const AboutMe = () => {
         className={cn(
           "absolute inset-0",
           "[background-size:40px_40px]",
-          "[background-image:linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)] opacity-70 "
+          "[background-image:linear-gradient(to_right,#ffff_1px,transparent_1px),linear-gradient(to_bottom,#ffff_1px,transparent_1px)] opacity-10 "
         )}
       />
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] bg-main backdrop-blur-3xl"></div>
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_5%,black)] bg-main backdrop-blur-3xl"></div>
       <div className="md:h-full flex flex-col justify-center items-center  relative z-20">
         <div className="flex items-start w-full text-2xl 2xl:text-3xl">
           <UniRevealLink text={"<MORE ABOUT ME/>"} location={"/#about"} />

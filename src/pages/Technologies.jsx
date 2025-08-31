@@ -72,7 +72,7 @@ const Technologies = () => {
         Some technologies and tools I use on daily basis.
       </p>
 
-      <div className="text-2xl transition-transform duration-300 mt-5 grid grid-cols-2 md:grid-cols-3 gap-3 md:w-8/12">
+      <div className="text-2xl transition-transform duration-300 mt-5 grid grid-cols-2 md:grid-cols-2 xl:grid-cols-3 gap-3 md:w-8/12">
         {icons.map((item, i) => {
           const isActive = i === activeIndex;
           return (

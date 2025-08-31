@@ -88,7 +88,7 @@ export const InfiniteMovingCards = ({
       return (
         <div
           key={i}
-          className={`flex flex-row items-center font-semibold transition-colors duration-200 px-3 py-2 gap-2  text-slate-600 justify-center text-lg ${tech.hover}`}
+          className={`flex flex-row items-center font-semibold transition-colors duration-200 px-3 py-2 gap-2 text-zinc-50  justify-center text-lg ${tech.hover}`}
         >
           <span className="text-xl font-bold">
             {IconComponent ? <IconComponent /> : ""}
@@ -106,7 +106,7 @@ export const InfiniteMovingCards = ({
         className
       )}
     >
-      <h2 className="mt-3 font-bold text-base text-slate-500">Tech Stack:</h2>
+      <h2 className="mt-3 font-bold text-base text-zinc-50 ">Tech Stack:</h2>
       <ul
         ref={scrollerRef}
         className={cn(
@@ -117,7 +117,7 @@ export const InfiniteMovingCards = ({
       >
         {items.map((item, index) => (
           <li
-            className="relative w-fit shrink-0 text-slate-600 "
+            className="relative w-fit shrink-0"
             key={index}
           >
             {renderTechnologies([item])}

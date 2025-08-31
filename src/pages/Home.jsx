@@ -10,7 +10,6 @@ import Footer from "./../components/Footer";
 
 import { BackgroundBeams } from "../components/ui/background-beams";
 
-
 // eslint-disable-next-line no-unused-vars
 import { motion, useAnimation } from "framer-motion";
 
@@ -103,7 +102,7 @@ const Home = () => {
             key={id}
             id={id}
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y:0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
             viewport={{ once: false, amount: longSections[id] ? 0.3 : 0.1 }}
             className="min-h-screen"
@@ -111,18 +110,13 @@ const Home = () => {
             {element}
           </motion.section>
         ))}
-   
-        
-          <HeaderMobile
-            setDrawerOpen={setDrawerOpen}
-            activeSection={activeSection}
-          />
 
+        <HeaderMobile
+          setDrawerOpen={setDrawerOpen}
+          activeSection={activeSection}
+        />
 
-        <Footer  drawerOpen={drawerOpen}
-          setDrawerOpen={setDrawerOpen}/>
-
-              {/* <BackgroundBeams /> */}
+        <Footer drawerOpen={drawerOpen} setDrawerOpen={setDrawerOpen} />
       </div>
     </div>
   );
