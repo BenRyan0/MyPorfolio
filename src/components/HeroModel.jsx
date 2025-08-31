@@ -51,7 +51,6 @@ const HeroModel = ({ drawerOpen, setDrawerOpen }) => {
         />
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_5%,black)] bg-main backdrop-blur-3xl"></div>
         <div className="w-full h-full flex justify-center items-center text-center z-20 pb-20 md:pb-0 ">
-          {/* <BackgroundRippleEffect /> */}
           <motion.div
             initial={{ y: -200, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -72,7 +71,7 @@ const HeroModel = ({ drawerOpen, setDrawerOpen }) => {
               <LogoOrigami />
             </div>
 
-            <div className="flex justify-center items-start sm:items-center gap-3 mt-6 sm:flex-row flex-col">
+            <div className="flex justify-center items-start xs:items-center gap-3 mt-6 flex-row ">
               <button
                 onClick={() => setDrawerOpen(true)}
                 className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-gradient-to-tr from-indigo-600 to-purple-500 px-6 md:px-10 font-medium text-zinc-50 duration-500 active:scale-95"

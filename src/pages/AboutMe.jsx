@@ -21,12 +21,11 @@ const AboutMe = () => {
       />
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_5%,black)] bg-main backdrop-blur-3xl"></div>
       <div className="md:h-full flex flex-col justify-center items-center  relative z-20">
-        <div className="flex items-start w-full text-2xl 2xl:text-3xl">
-          <UniRevealLink text={"<MORE ABOUT ME/>"} location={"/#about"} />
-        </div>
-
-        <div className="flex  flex-wrap items-center w-full">
+        <div className="flex  items-center flex-col-reverse lg:flex-row w-full">
           <div className="w-full lg:w-7/12 h-full flex flex-col gap-3 text-base">
+            <div className="flex items-start w-full text-2xl 2xl:text-3xl">
+              <UniRevealLink text={"<MORE ABOUT ME/>"} location={"/#about"} />
+            </div>
             <p className="pt-2 pl-1  ">
               I'm Ben Ryan Rinconada, a full-stack developer passionate about
               building dynamic web experiences with React, TailwindCss, Node.js,
@@ -41,7 +40,7 @@ const AboutMe = () => {
               <Technologies />
             </div>
           </div>
-          <div className="w-full lg:w-5/12 flex justify-center lg:justify-end items-end lg:pl-10 ">
+          <div className="w-full lg:w-5/12 flex justify-center lg:justify-end items-end lg:pl-10">
             <div className="">
               <InfiniteSwipe />
             </div>
