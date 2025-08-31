@@ -220,7 +220,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .navbarMobile {
-  @apply top-full w-full h-full px-6 bg-[#121212] pt-5  isolate md:hidden transition-all static flex items-center justify-between gap-5 opacity-100 blur-none md:visible md:scale-100 bottom-0 border-t border-zinc-100 backdrop-blur-2xl;
+  @apply top-full w-full h-full px-6 bg-[#121212] pt-5  isolate md:hidden transition-all static flex items-center justify-between gap-5 opacity-100 blur-none md:visible md:scale-100 bottom-0  backdrop-blur-2xl;
 }
 /* .navbarMobile {
   @apply top-full w-fit bg-[#020617] py-2 px-6  rounded-2xl isolate md:hidden transition-all static flex items-center justify-center gap-5 opacity-100 blur-none md:visible md:scale-100 bottom-22 border-2 border-zinc-50 backdrop-blur-2xl;

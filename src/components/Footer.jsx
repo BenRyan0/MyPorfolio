@@ -8,7 +8,7 @@ import { TiChevronRight } from "react-icons/ti";
 const Footer = ({ drawerOpen, setDrawerOpen }) => {
   return (
     <div className="h-fit mt-20 md:mt-40 mb-22 md:mb-2 static bottom-0 right-0 left-0  text-zinc-100 flex flex-col justify-center items-center">
-      <div className="w-full text-center z-40 relative">
+      <div className="w-full text-center z-30 relative">
         <h2 className="font-black text-4xl bg-gradient-to-r from-fuchsia-600 to-purple-600 bg-clip-text text-transparent">
           Let's Connect
         </h2>
