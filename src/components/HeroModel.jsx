@@ -35,18 +35,17 @@ const slideRight = {
 
 const HeroModel = ({ drawerOpen, setDrawerOpen }) => {
   return (
-    <div id="home" className="text-zinc-50 pb-2 h-screen">
-      <div className="relative h-full flex flex-wrap justify-center items-center overflow-hidden flex-col-reverse md:flex-row">
-        {/* Grid background */}
-        <div
-          className={cn(
-            "absolute inset-0",
-            "[background-size:40px_40px]",
-            "[background-image:linear-gradient(to_right,#ffff_1px,transparent_1px),linear-gradient(to_bottom,#ffff_1px,transparent_1px)] opacity-10 "
-          )}
-        />
-        <div className="pointer-events-none absolute inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_5%,black)] bg-main backdrop-blur-3xl"></div>
-        <div className="w-full h-full flex justify-start items-center z-20 pb-20 md:pb-0 md:px-10">
+    <div id="home" className="text-zinc-50 pb-2 h-screen w-full relative">
+      <div className="relative h-full flex flex-wrap justify-center items-center overflow-hidden flex-col-reverse md:flex-row ">
+       <div
+        className={cn(
+          "absolute inset-0",
+          "[background-size:40px_40px]",
+          "[background-image:linear-gradient(to_right,#ffff_1px,transparent_1px),linear-gradient(to_bottom,#ffff_1px,transparent_1px)] opacity-10 "
+        )}
+      />
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_5%,black)] bg-main backdrop-blur-3xl"></div>
+        <div className="md:w-full h-full flex justify-start items-center z-20 pb-20 md:pb-0 md:px-10 ">
           <motion.div
             variants={containerVariants}
             initial="hidden"

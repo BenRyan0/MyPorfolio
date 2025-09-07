@@ -112,7 +112,7 @@ const Technologies = () => {
 
   return (
     <div className="relative md:h-fit">
-      <div className="text-base transition-transform duration-300  grid grid-cols-3 md:grid-cols-4 gap-1 md:w-11/12">
+      <div className="text-base transition-transform duration-300  grid grid-cols-2 md:grid-cols-4 gap-1 md:w-11/12">
         {icons.map((item, i) => {
           const isActive = i === activeIndex;
           return (

@@ -210,7 +210,7 @@ body::-webkit-scrollbar-thumb {
 
 /* nav */
 .navbar {
-  @apply top-full right-0 min-w-30 p-2 isolate invisible hidden transition-all static md:flex  items-center mt-0 opacity-100 md:blur-none md:visible md:bottom-0  border-zinc-50 gap-4 px-5 pr-6 py-1 text-center z-50;
+  @apply top-full right-0 min-w-30 p-2 isolate invisible hidden transition-all static md:flex items-center mt-0 opacity-100 md:blur-none md:visible md:bottom-0  border-zinc-50 gap-4 px-5 pr-6 py-1 text-center z-50;
 }
 /* .navbar {
   @apply top-full right-0 min-w-30 p-2 bg-[#121212] rounded-xl scale-90 isolate invisible hidden transition-all static md:flex items-center mt-0 opacity-100 md:blur-none md:visible md:scale-100 md:bottom-0 border-2 border-zinc-50 gap-3 px-5 pr-6 py-1 text-center;

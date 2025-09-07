@@ -1,12 +1,7 @@
 import React from "react";
 import InfiniteSwipe from "./../components/myComponents/SwipingCards";
 import Technologies from "./Technologies";
-import { UniRevealLink } from "./../components/myComponents/UniRevealLink";
-import { ChangingTexts } from "./../components/myComponents/ChangingTexts";
-
 import { cn } from "../lib/utils";
-import MyTools from './MyTools';
-
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 
@@ -49,8 +44,9 @@ const AboutMe = () => {
   return (
     <div
       id="about"
-      className="text-zinc-200 lg:h-screen pt-28 md:pt-40 bg-red md:px-5 relative w-full overflow-hidden"
+      className="text-zinc-200 h-screen pt-28 md:pt-20 md:px-5 relative w-full"
     >
+      {/* Background grid */}
       <div
         className={cn(
           "absolute inset-0",
@@ -58,9 +54,11 @@ const AboutMe = () => {
           "[background-image:linear-gradient(to_right,#ffff_1px,transparent_1px),linear-gradient(to_bottom,#ffff_1px,transparent_1px)] opacity-10 "
         )}
       />
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_5%,black)] bg-main backdrop-blur-3xl"></div>
-       <motion.div
-        className="md:h-full w-full flex flex-col justify-center items-center relative z-20 md:pl-7"
+      {/* <div className="pointer-events-none absolute inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_5%,black)] bg-main backdrop-blur-3xl"></div> */}
+
+      {/* Content */}
+      <motion.div
+        className="md:h-full w-full flex flex-col justify-center items-center relative z-20 pl-7"
         variants={containerVariants}
         initial="hidden"
         whileInView="show"
@@ -102,7 +100,7 @@ const AboutMe = () => {
           {/* Right Swiping Cards */}
           <motion.div
             variants={fadeDown}
-            className="w-full lg:w-5/12 flex justify-center lg:justify-end items-center lg:items-end lg:pl-10"
+            className="w-full lg:w-5/12 flex justify-center lg:justify-end items-end lg:pl-10"
           >
             <InfiniteSwipe />
           </motion.div>

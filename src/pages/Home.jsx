@@ -109,7 +109,6 @@ const Home = () => {
           setDrawerOpen={setDrawerOpen}
           activeSection={activeSection}
         />
-
         <Footer drawerOpen={drawerOpen} setDrawerOpen={setDrawerOpen} />
       </div>
     </div>

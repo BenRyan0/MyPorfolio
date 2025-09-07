@@ -8,11 +8,11 @@ const Header = ({ setDrawerOpen, activeSection }) => {
   return (
     <header className="fixed top-2 left-0 right-0 py-3 w-full h-20 flex items-center z-40 container mx-auto md:px-13 lg:px-28 sm:px-6 px-2">
       <div className=" max-w-screen-2xl w-full mx-auto flex justify-between items-center md:grid md:grid-cols-3 px-5 py-2 rounded-md backdrop-blur-2xl">
-        <div className="text-slate-100 text-5xl md:text-4xl font-bold w-[50px] h-[50px] flex justify-center items-center text-center transition-all duration-600 hover:text-black hover:bg-white pt-3 hover:pt-5 relative group overflow-hidden">
+        <div className="text-slate-100 text-5xl md:text-4xl font-bold w-[50px] h-[50px] flex justify-center items-center text-center transition-all duration-600 hover:text-black hover:bg-white pt-3 relative group overflow-hidden">
           <a href="/#home" className="iBrand">br</a>
 
           {/* Numbers cycling in the same spot */}
-          <div className="absolute top-[3px] right-[15px] text-[11px] text-black font-semibold">
+          <div className="absolute top-[3px] right-[15px] text-[11px] group-hover:text-black text-white font-semibold">
             <span className="block opacity-0 group-hover:opacity-100 animate-cycle">
               03
             </span>
