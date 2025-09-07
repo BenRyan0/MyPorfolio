@@ -74,14 +74,14 @@ export const StickyScroll = ({ content, contentClassName }) => {
           key={i}
           className={`flex flex-row items-center transition-colors duration-200 px-3 pt-1 gap-2 text-sm`}
         >
-          <p className="flex justify-center items-center gap-1">
+          <div className="flex justify-center items-center gap-1">
             <span>
               <GoDotFill />
             </span>
             <h2 className="text-sm">
               {feature.label} <span className="pl-1">({feature.content})</span>{" "}
             </h2>
-          </p>
+          </div>
         </div>
       );
     });

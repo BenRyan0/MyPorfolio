@@ -1,4 +1,4 @@
-"use client";;
+"use client";
 import { cn } from "@/lib/utils";
 import { motion, useInView } from "motion/react";
 import {
@@ -11,12 +11,50 @@ import {
   useState,
 } from "react";
 
+import { PiCopy } from "react-icons/pi";
+import { IoClose } from "react-icons/io5";
+import { FiMinus } from "react-icons/fi";
+
 const SequenceContext = createContext(null);
-
 const useSequence = () => useContext(SequenceContext);
-
 const ItemIndexContext = createContext(null);
 const useItemIndex = () => useContext(ItemIndexContext);
+// 1. After your existing exports, add:
+export const AnimatedLinkSpan = ({
+  label, // e.g. "Local:"
+  href,
+  target = "_blank", // optional anchor props
+  rel = "noopener noreferrer",
+  children, // link text
+  className, // wrapper classes
+  labelClassName, // label styling
+  linkClassName, // anchor styling
+  delay, // forwarded to AnimatedSpan
+  startOnView, // forwarded to AnimatedSpan
+}) => {
+  return (
+    <AnimatedSpan
+      delay={delay}
+      startOnView={startOnView}
+      className={cn("inline-flex items-baseline gap-x-2", className)}
+    >
+      {/* static label */}
+      {label && (
+        <span className={cn("text-gray-500", labelClassName)}>{label}</span>
+      )}
+
+      {/* clickable link */}
+      <a
+        href={href}
+        target={target}
+        rel={rel}
+        className={cn("text-blue-400 underline", linkClassName)}
+      >
+        {children}
+      </a>
+    </AnimatedSpan>
+  );
+};
 
 export const AnimatedSpan = ({
   children,
@@ -57,7 +95,8 @@ export const AnimatedSpan = ({
         if (itemIndex === null) return;
         sequence.completeItem(itemIndex);
       }}
-      {...props}>
+      {...props}
+    >
       {children}
     </motion.div>
   );
@@ -66,20 +105,24 @@ export const AnimatedSpan = ({
 export const TypingAnimation = ({
   children,
   className,
-  duration = 60,
-  delay = 0,
+  duration,
+  delay,
   as: Component = "span",
   startOnView = true,
+  containerBefore = null,
   ...props
 }) => {
   if (typeof children !== "string") {
     throw new Error("TypingAnimation: children must be a string. Received:");
   }
 
-  const MotionComponent = useMemo(() =>
-    motion.create(Component, {
-      forwardMotionProps: true,
-    }), [Component]);
+  const MotionComponent = useMemo(
+    () =>
+      motion.create(Component, {
+        forwardMotionProps: true,
+      }),
+    [Component]
+  );
 
   const [displayedText, setDisplayedText] = useState("");
   const [started, setStarted] = useState(false);
@@ -143,12 +186,17 @@ export const TypingAnimation = ({
   }, [children, duration, started]);
 
   return (
-    <MotionComponent
-      ref={elementRef}
-      className={cn("text-sm font-normal tracking-tight my-sc", className)}
-      {...props}>
-      {displayedText}
-    </MotionComponent>
+    <>
+      {started && containerBefore}
+
+      <MotionComponent
+        ref={elementRef}
+        className={cn("text-sm font-normal tracking-tight my-sc", className)}
+        {...props}
+      >
+        {displayedText}
+      </MotionComponent>
+    </>
   );
 };
 
@@ -157,8 +205,8 @@ export const Terminal = ({
   className,
   sequence = true,
   startOnView = true,
-  loop = true, // 🔽 new prop
-  loopDelay = 1500 // delay before restart
+  loop = false, // 🔽 new prop
+  loopDelay = 1500, // delay before restart
 }) => {
   const containerRef = useRef(null);
   const scrollRef = useRef(null);
@@ -224,23 +272,38 @@ export const Terminal = ({
     <div
       ref={containerRef}
       className={cn(
-        "z-0 h-[250px] w-full max-w-lg rounded-xl border border-border bg-background",
+        "z-0 h-[290px] w-full max-w-lg rounded-md border border-border react-bg  ",
         className
       )}
     >
       {/* header bar */}
-      <div className="flex flex-col gap-y-2 border-b border-border p-4">
-        <div className="flex flex-row gap-x-2">
-          <div className="h-2 w-2 rounded-full bg-red-500"></div>
+      <div className="flex flex-row gap-y-2  h-[30px] justify-between bg-[#2F2F2F] pt-1 rounded-t-md">
+        <div className="flex flex-row gap-x-2 ml-2 pt-[7px] items-end">
+          <div className="bg-[#181818] py-[2px] px-2 rounded-t-sm">
+            <p className="text-xs text-end">benryan @hp15s</p>
+          </div>
+          {/* <div className="h-2 w-2 rounded-full bg-red-500"></div>
           <div className="h-2 w-2 rounded-full bg-yellow-500"></div>
-          <div className="h-2 w-2 rounded-full bg-green-500"></div>
+          <div className="h-2 w-2 rounded-full bg-green-500"></div> */}
+        </div>
+
+        <div className="flex text-neutral-500">
+          <span className="hover:bg-neutral-600/50 hover:text-white h-full flex items-center justify-center px-2">
+            <FiMinus />
+          </span>
+          <span className="hover:bg-neutral-600/50 hover:text-white h-full flex items-center justify-center px-2">
+            <PiCopy />
+          </span>
+          <span className="hover:bg-red-600 hover:text-white h-full flex items-center justify-center px-2 rounded-tr-lg">
+            <IoClose />
+          </span>
         </div>
       </div>
 
       {/* scrollable output */}
       <pre
         ref={scrollRef}
-        className="my-scroll-container p-4 overflow-y-auto h-[calc(100%-40px)]"
+        className="my-scroll-container pt-5 p-4 overflow-y-scroll h-[calc(100%-10%)] "
       >
         <code className="grid gap-y-1">{wrappedChildren}</code>
       </pre>
@@ -255,5 +318,3 @@ export const Terminal = ({
     </SequenceContext.Provider>
   );
 };
-
-

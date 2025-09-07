@@ -389,3 +389,24 @@ body::-webkit-scrollbar-thumb {
   animation-delay: 4s;
 }
 
+.react-bg {
+  position: relative;
+  overflow: hidden; /* prevents blur from overflowing */
+}
+
+.react-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: center / cover no-repeat url("/images/react.webp");
+  filter: blur(3px); /* blur only the background image */
+  transform: scale(1.1); /* prevents edge cut-off from blur */
+  z-index: 0;
+}
+
+.react-bg > * {
+  position: relative;
+  z-index: 1; /* keep content sharp above blurred bg */
+}
+
+

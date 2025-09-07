@@ -8,6 +8,7 @@ import { LogoOrigami } from "./myComponents/LogoOrigami";
 import { cn } from "../lib/utils";
 import TerminalSim from "./myComponents/TerminalSim";
 
+
 const containerVariants = {
   hidden: { opacity: 0 },
   show: {
