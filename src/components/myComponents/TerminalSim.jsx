@@ -11,7 +11,7 @@ import TerminalHeader from "./TerminalHeader";
 const TerminalSim = () => {
   return (
     <div className="w-[470px] ">
-      <Terminal sequence>
+      <Terminal sequence loop>
         <TypingAnimation
           duration={250}
           delay={500}
