@@ -56,7 +56,7 @@ const HeroModel = ({ drawerOpen, setDrawerOpen }) => {
             variants={containerVariants}
             initial="hidden"
             animate="show"
-            className="flex flex-col md:w-8/12 w-full items-start text-start gap-1 z-30"
+            className="flex flex-col lg:w-8/12 w-full items-start text-start gap-1 z-30"
           >
             <motion.h2
               variants={slideLeft}
@@ -126,7 +126,7 @@ const HeroModel = ({ drawerOpen, setDrawerOpen }) => {
             variants={containerVariants}
             initial="hidden"
             animate="show"
-            className="flex-col items-start text-start gap-1 z-30 hidden md:flex"
+            className="flex-col items-start text-start gap-1 z-30 hidden lg:flex"
           >
             <motion.div variants={slideRightTerminal} className="">
               <TerminalSim />

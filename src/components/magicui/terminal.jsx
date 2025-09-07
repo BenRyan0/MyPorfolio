@@ -14,6 +14,8 @@ import {
 import { PiCopy } from "react-icons/pi";
 import { IoClose } from "react-icons/io5";
 import { FiMinus } from "react-icons/fi";
+import { FaPlus } from "react-icons/fa6";
+import { IoChevronDown } from "react-icons/io5";
 
 const SequenceContext = createContext(null);
 const useSequence = () => useContext(SequenceContext);
@@ -278,13 +280,16 @@ export const Terminal = ({
     >
       {/* header bar */}
       <div className="flex flex-row gap-y-2  h-[30px] justify-between bg-[#2F2F2F] pt-1 rounded-t-md">
-        <div className="flex flex-row gap-x-2 ml-2 pt-[7px] items-end">
-          <div className="bg-[#181818] py-[2px] px-2 rounded-t-sm">
+        <div className="flex flex-row ml-2 pt-[7px] items-end">
+          <div className="bg-[#222128] py-[5px] px-4 rounded-t-sm">
             <p className="text-xs text-end">benryan @hp15s</p>
           </div>
-          {/* <div className="h-2 w-2 rounded-full bg-red-500"></div>
-          <div className="h-2 w-2 rounded-full bg-yellow-500"></div>
-          <div className="h-2 w-2 rounded-full bg-green-500"></div> */}
+          <div className="py-[6px] text-sm px-2 rounded-t-sm hover:bg-[#222128]">
+            <span><FaPlus /></span> 
+          </div>
+          <div className="py-[6px] text-sm px-2 rounded-t-sm hover:bg-[#222128]">
+            <span><IoChevronDown /></span>
+          </div>
         </div>
 
         <div className="flex text-neutral-500">
