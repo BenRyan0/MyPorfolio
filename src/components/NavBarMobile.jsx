@@ -82,12 +82,12 @@ const NavBarMobile = ({ navOpen, setDrawerOpen, activeSection }) => {
       link: "#works",
       section: "works",
     },
-    {
-      icon: <FileText  size={24} />,
-      label: "Resume",
-      link: "#resume",
-      section: "resume",
-    },
+    // {
+    //   icon: <FileText  size={24} />,
+    //   label: "Resume",
+    //   link: "#resume",
+    //   section: "resume",
+    // },
     {
       icon: <Contact size={24} />,
       label: "Connect",

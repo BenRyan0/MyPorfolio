@@ -4,16 +4,16 @@ import { motion } from "framer-motion";
 
 export const RevealLinks = () => {
   return (
-    <section className="flex flex-wrap justify-start md:justify-center gap-x-4 gap-y-2 text-zinc-50 Syntha-Nova ">
+    <section className="flex flex-wrap justify-start md:justify-center gap-x-4 gap-y-2 text-zinc-50">
       <div className="flex flex-row gap-4 w-full justify-start md:justify-center sm:w-auto sm:flex-row text-start ">
         {/* <FlipLink href="#home">{"<"}</FlipLink> */}
-        <h2 className="hidden md:block  text-lg font-bold uppercase sm:text-lg md:text-5xl lg:text-6xl 2xl:text-7xl">{"<"}</h2>
+        {/* <h2 className="hidden md:block  text-lg font-bold uppercase sm:text-lg md:text-5xl lg:text-6xl 2xl:text-7xl">{"<"}</h2> */}
         <FlipLink href="#home">BEN</FlipLink>
         <FlipLink href="#home">RYAN</FlipLink>
       </div>
       <div className="flex flex-row gap-4 w-full justify-start md:justify-center sm:w-auto sm:flex-row ">
         <FlipLink href="#home">RINCONADA</FlipLink>
-      <h2 className="hidden md:block  text-lg font-bold uppercase sm:text-lg md:text-5xl lg:text-6xl 2xl:text-7xl">{"/>"}</h2>
+      {/* <h2 className="hidden md:block  text-lg font-bold uppercase sm:text-lg md:text-5xl lg:text-6xl 2xl:text-7xl">{"/>"}</h2> */}
         {/* <FlipLink className="hidden opacity-0" href="#home">{"/>"}</FlipLink> */}
       </div>
     </section>

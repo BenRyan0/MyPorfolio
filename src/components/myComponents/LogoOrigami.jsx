@@ -26,8 +26,10 @@ export const LogoOrigami = () => {
           <LogoItem key={4} className="text-zinc-50 bg-[#1AACB3]">
             <SiTailwindcss />
           </LogoItem>,
-          <LogoItem key={5} className="text-zinc-50 bg-black">
-            <SiShadcnui size={18} />
+          <LogoItem key={5} className="text-black bg-black">
+            <div className="bg-white rounded-full p-[2px]">
+              <SiShadcnui size={10}/>
+            </div>
           </LogoItem>,
           <LogoItem key={6} className="text-zinc-50 bg-black">
             <SiSocketdotio />
@@ -64,7 +66,7 @@ const LogoRolodex = ({ items }) => {
         transform: "rotateY(-20deg)",
         transformStyle: "preserve-3d",
       }}
-      className="relative z-0 h-10 w-17 shrink-0 rounded-lg border border-neutral-700 bg-neutral-800/70"
+      className="relative z-0 h-7 w-12 shrink-0 rounded border border-neutral-700 bg-neutral-800/70"
     >
       <AnimatePresence mode="sync">
         <motion.div
@@ -123,7 +125,7 @@ const LogoItem = ({ children, className }) => {
   return (
     <div
       className={twMerge(
-        "grid h-8 w-15 place-content-center rounded-lg  text-2xl text-neutral-50",
+        "grid h-5 w-10 place-content-center rounded text-sm text-neutral-50",
         className
       )}
     >

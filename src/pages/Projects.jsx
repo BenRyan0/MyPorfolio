@@ -160,8 +160,7 @@ const Projects = () => {
       id="works"
       className="text-zinc-200 h-full mt-[200px] lg:pt-6  md:px-5 pb-20 md:border-b-2 border-slate-700 "
     >
-
-         <div
+      <div
         className={cn(
           "absolute inset-0",
           "[background-size:40px_40px]",
@@ -170,9 +169,6 @@ const Projects = () => {
       />
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black)] bg-main/55 backdrop-blur-3xl "></div>
       <div className="w-full h-screen py-4 flex justify-center items-center z-50 flex-col">
-            <div className="flex items-start text-2xl md:text-3xl">
-            <UniRevealLink text={"<SELECTED WORKS/>"} location={"/#about"} />
-          </div>
         <StickyScroll content={content} />
       </div>
     </div>

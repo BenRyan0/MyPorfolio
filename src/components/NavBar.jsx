@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import {
@@ -26,14 +25,13 @@ const NavBar = ({ navOpen, setDrawerOpen, activeSection }) => {
   };
 
   useEffect(() => {
-  if (activeSection) {
-    const newHash = `#${activeSection}`;
-    if (window.location.hash !== newHash) {
-      window.history.replaceState(null, "", newHash);
+    if (activeSection) {
+      const newHash = `#${activeSection}`;
+      if (window.location.hash !== newHash) {
+        window.history.replaceState(null, "", newHash);
+      }
     }
-  }
-}, [activeSection]);
-
+  }, [activeSection]);
 
   // On mount, find default active link and position box
   useEffect(() => {
@@ -92,44 +90,47 @@ const NavBar = ({ navOpen, setDrawerOpen, activeSection }) => {
       link: "#works",
       section: "works",
     },
-    {
-      icon: <FileText size={20} />,
-      label: "Resume",
-      link: "#resume",
-      section: "resume",
-    },
+    // {
+    //   icon: <FileText size={20} />,
+    //   label: "Resume",
+    //   link: "#resume",
+    //   section: "resume",
+    // },
     {
       icon: <Contact size={20} />,
       label: "Connect",
       link: "#home",
       section: "connect",
       triggerDrawer: true,
+      classN: " mx-1 ",
     },
   ];
 
   return (
     <nav className={`navbar${navOpen ? " active" : " opacity-0"}`}>
-      {navItems.map(
-        ({ link, icon, label, section, triggerDrawer }, idx) => (
-          <a
-            key={idx}
-            href={link}
-            data-section={section}
-            className="nav-link group relative flex flex-col items-center justify-center w-16 h-16 transition-all duration-500"
-            onClick={(e) => handleClick(e, triggerDrawer)}
+      {navItems.map(({ link, classN, label, section, triggerDrawer }, idx) => (
+        <a
+          key={idx}
+          href={link}
+          data-section={section}
+          className="nav-link group relative flex flex-col items-center justify-center px-1 mx-1 h-16 transition-all duration-300 uppercase font-bold"
+          onClick={(e) => handleClick(e, triggerDrawer)}
+        >
+          {/* ICON */}
+          <span
+            className={`${classN} transition-all duration-300 ease-in-out group-hover:-translate-y-4 group-hover:opacity-0 text-sm flex justify-center items-center gap-1`}
           >
-            {/* ICON */}
-            <span className="transition-all duration-500 ease-in-out group-hover:-translate-y-4 group-hover:opacity-0 text-xs">
-              {icon}
-            </span>
+            {" "}
+            {/* {icon} */}
+            {label}
+          </span>
 
-            {/* LABEL */}
-            <span className="absolute opacity-0 transition-all duration-300 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 translate-y-4 text-sm font-medium">
-              {label}
-            </span>
-          </a>
-        )
-      )}
+          {/* LABEL */}
+          <span className="absolute opacity-0 transition-all duration-300 ease-in-out group-hover:opacity-100 group-hover:translate-y-0 translate-y-4 text-sm font-medium flex flex-row">
+            {label}
+          </span>
+        </a>
+      ))}
       <div className="active-box" ref={activeBox}></div>
     </nav>
   );

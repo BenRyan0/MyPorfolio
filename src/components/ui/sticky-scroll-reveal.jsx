@@ -21,12 +21,11 @@ import {
   DatabaseZap,
   Globe,
   MonitorSmartphone,
-  MonitorCheck,
 } from "lucide-react";
 import { RiReactjsLine } from "react-icons/ri";
 import { IoLogoNodejs, IoLogoCss3 } from "react-icons/io";
 import { SiMongodb, SiTailwindcss, SiSocketdotio } from "react-icons/si";
-import { FaHtml5, FaChevronRight } from "react-icons/fa";
+import { FaHtml5} from "react-icons/fa";
 
 import { InfiniteMovingCards } from "../../components/ui/infinite-moving-cards";
 
@@ -82,7 +81,6 @@ export const StickyScroll = ({ content, contentClassName }) => {
             <h2 className="text-sm">
               {feature.label} <span className="pl-1">({feature.content})</span>{" "}
             </h2>
-            {/* {feature.content} */}
           </p>
         </div>
       );
@@ -116,10 +114,10 @@ export const StickyScroll = ({ content, contentClassName }) => {
 
   return (
     <motion.div
-      className="relative flex lg:h-[30rem] h-[50rem] w-full justify-center lg:space-x-10 overflow-y-scroll overflow-x-hidden rounded-md md:p-10 p-2 my-scroll-container "
+      className="relative flex lg:h-[30rem] h-[50rem] w-full justify-center lg:space-x-10 overflow-y-scroll overflow-x-hidden rounded-md md:p-10 p-2 my-scroll-container"
       ref={ref}
     >
-      <div className="div relative flex items-start px-4">
+      <div className="div relative flex flex-col items-start px-4">
         <div className="max-w-4xl">
           {content.map((item, index) => (
             <div key={item.title + index} className="my-10">
@@ -135,7 +133,7 @@ export const StickyScroll = ({ content, contentClassName }) => {
                     backgroundRepeat: "no-repeat", // prevent tiling
                   }}
                   className={cn(
-                    " w-full aspect-[16/9] overflow-hidden rounded-md bg-white lg:hidden block mb-2",
+                    " w-full  aspect-[16/9] overflow-hidden rounded-md bg-white lg:hidden block mb-2",
                     contentClassName
                   )}
                 >
@@ -267,7 +265,7 @@ export const StickyScroll = ({ content, contentClassName }) => {
         </div>
       </div>
 
-      <div className="lg:flex flex-col justify-between w-[400px] xl:w-[500px] sticky top-10 bottom-0 h-fit hidden">
+      <div className="lg:flex flex-col justify-between w-[350px] md:w-[400px] sticky top-10 bottom-0 h-fit hidden">
         <div
           style={{
             backgroundImage: backgroundImage,

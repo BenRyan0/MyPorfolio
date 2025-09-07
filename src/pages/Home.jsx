@@ -5,10 +5,8 @@ import HeaderMobile from "./../components/HeaderMobile";
 import HeroModel from "./../components/HeroModel";
 import AboutMe from "./AboutMe";
 import Projects from "./Projects";
-import MyResume from "./MyResume";
 import Footer from "./../components/Footer";
 
-import { BackgroundBeams } from "../components/ui/background-beams";
 
 // eslint-disable-next-line no-unused-vars
 import { motion, useAnimation } from "framer-motion";
@@ -83,10 +81,6 @@ const Home = () => {
     {
       id: "works",
       element: <Projects />,
-    },
-    {
-      id: "resume",
-      element: <MyResume />,
     },
   ];
 
