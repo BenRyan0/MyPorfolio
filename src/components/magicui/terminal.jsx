@@ -207,8 +207,8 @@ export const Terminal = ({
   className,
   sequence = true,
   startOnView = true,
-  loop = false, // 🔽 new prop
-  loopDelay = 1500, // delay before restart
+  loop, // 🔽 new prop
+  loopDelay = 7500, // delay before restart
 }) => {
   const containerRef = useRef(null);
   const scrollRef = useRef(null);
