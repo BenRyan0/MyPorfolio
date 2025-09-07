@@ -1,4 +1,4 @@
-"use client";
+"use client";;
 import { cn } from "@/lib/utils";
 import { motion, useInView } from "motion/react";
 import {
@@ -11,52 +11,12 @@ import {
   useState,
 } from "react";
 
-import { PiCopy } from "react-icons/pi";
-import { IoClose } from "react-icons/io5";
-import { FiMinus } from "react-icons/fi";
-import { FaPlus } from "react-icons/fa6";
-import { IoChevronDown } from "react-icons/io5";
-
 const SequenceContext = createContext(null);
+
 const useSequence = () => useContext(SequenceContext);
+
 const ItemIndexContext = createContext(null);
 const useItemIndex = () => useContext(ItemIndexContext);
-// 1. After your existing exports, add:
-export const AnimatedLinkSpan = ({
-  label, // e.g. "Local:"
-  href,
-  target = "_blank", // optional anchor props
-  rel = "noopener noreferrer",
-  children, // link text
-  className, // wrapper classes
-  labelClassName, // label styling
-  linkClassName, // anchor styling
-  delay, // forwarded to AnimatedSpan
-  startOnView, // forwarded to AnimatedSpan
-}) => {
-  return (
-    <AnimatedSpan
-      delay={delay}
-      startOnView={startOnView}
-      className={cn("inline-flex items-baseline gap-x-2", className)}
-    >
-      {/* static label */}
-      {label && (
-        <span className={cn("text-gray-500", labelClassName)}>{label}</span>
-      )}
-
-      {/* clickable link */}
-      <a
-        href={href}
-        target={target}
-        rel={rel}
-        className={cn("text-blue-400 underline", linkClassName)}
-      >
-        {children}
-      </a>
-    </AnimatedSpan>
-  );
-};
 
 export const AnimatedSpan = ({
   children,
@@ -97,8 +57,7 @@ export const AnimatedSpan = ({
         if (itemIndex === null) return;
         sequence.completeItem(itemIndex);
       }}
-      {...props}
-    >
+      {...props}>
       {children}
     </motion.div>
   );
@@ -107,24 +66,20 @@ export const AnimatedSpan = ({
 export const TypingAnimation = ({
   children,
   className,
-  duration,
-  delay,
+  duration = 60,
+  delay = 0,
   as: Component = "span",
   startOnView = true,
-  containerBefore = null,
   ...props
 }) => {
   if (typeof children !== "string") {
     throw new Error("TypingAnimation: children must be a string. Received:");
   }
 
-  const MotionComponent = useMemo(
-    () =>
-      motion.create(Component, {
-        forwardMotionProps: true,
-      }),
-    [Component]
-  );
+  const MotionComponent = useMemo(() =>
+    motion.create(Component, {
+      forwardMotionProps: true,
+    }), [Component]);
 
   const [displayedText, setDisplayedText] = useState("");
   const [started, setStarted] = useState(false);
@@ -188,17 +143,12 @@ export const TypingAnimation = ({
   }, [children, duration, started]);
 
   return (
-    <>
-      {started && containerBefore}
-
-      <MotionComponent
-        ref={elementRef}
-        className={cn("text-sm font-normal tracking-tight my-sc", className)}
-        {...props}
-      >
-        {displayedText}
-      </MotionComponent>
-    </>
+    <MotionComponent
+      ref={elementRef}
+      className={cn("text-sm font-normal tracking-tight", className)}
+      {...props}>
+      {displayedText}
+    </MotionComponent>
   );
 };
 
@@ -206,33 +156,23 @@ export const Terminal = ({
   children,
   className,
   sequence = true,
-  startOnView = true,
-  loop = false, // 🔽 new prop
-  loopDelay = 1500, // delay before restart
+  startOnView = true
 }) => {
   const containerRef = useRef(null);
-  const scrollRef = useRef(null);
   const isInView = useInView(containerRef, {
     amount: 0.3,
-    once: false, // allow re-trigger
+    once: true,
   });
 
   const [activeIndex, setActiveIndex] = useState(0);
-  const [iteration, setIteration] = useState(0); // 🔽 track reruns
   const sequenceHasStarted = sequence ? !startOnView || isInView : false;
-
-  const totalItems = Children.count(children);
 
   const contextValue = useMemo(() => {
     if (!sequence) return null;
     return {
       completeItem: (index) => {
-        setActiveIndex((current) => {
-          if (index === current) {
-            return current + 1;
-          }
-          return current;
-        });
+        setActiveIndex((current) =>
+          index === current ? current + 1 : current);
       },
       activeIndex,
       sequenceStarted: sequenceHasStarted,
@@ -243,74 +183,28 @@ export const Terminal = ({
     if (!sequence) return children;
     const array = Children.toArray(children);
     return array.map((child, index) => (
-      <ItemIndexContext.Provider key={`${iteration}-${index}`} value={index}>
+      <ItemIndexContext.Provider key={index} value={index}>
         {child}
       </ItemIndexContext.Provider>
     ));
-  }, [children, sequence, iteration]);
-
-  // 🔽 Auto-scroll smoothly
-  useEffect(() => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollTo({
-        top: scrollRef.current.scrollHeight,
-        behavior: "smooth",
-      });
-    }
-  }, [wrappedChildren, activeIndex]);
-
-  // 🔄 Reset when done
-  useEffect(() => {
-    if (loop && activeIndex >= totalItems) {
-      const timeout = setTimeout(() => {
-        setActiveIndex(0);
-        setIteration((i) => i + 1); // re-key children so animations restart
-      }, loopDelay);
-      return () => clearTimeout(timeout);
-    }
-  }, [activeIndex, loop, loopDelay, totalItems]);
+  }, [children, sequence]);
 
   const content = (
     <div
       ref={containerRef}
       className={cn(
-        "z-0 h-[260px] w-full max-w-lg rounded-md border border-border react-bg  ",
+        "z-0 h-full max-h-[400px] w-full max-w-lg rounded-xl border border-border bg-background",
         className
-      )}
-    >
-      {/* header bar */}
-      <div className="flex flex-row gap-y-2 h-[30px] justify-between bg-[#2F2F2F] pt-1 rounded-t-md">
-        <div className="flex flex-row ml-2 pt-[7px] items-end">
-          <div className="bg-[#222128] py-[5px] px-4 rounded-t-sm">
-            <p className="text-xs text-end">benryan @hp15s</p>
-          </div>
-          <div className="py-[6px] text-sm px-2 rounded-t-sm hover:bg-[#222128]">
-            <span><FaPlus /></span> 
-          </div>
-          <div className="py-[6px] text-sm px-2 rounded-t-sm hover:bg-[#222128]">
-            <span><IoChevronDown /></span>
-          </div>
-        </div>
-
-        <div className="flex text-neutral-500">
-          <span className="hover:bg-neutral-600/50 hover:text-white h-full flex items-center justify-center px-2">
-            <FiMinus />
-          </span>
-          <span className="hover:bg-neutral-600/50 hover:text-white h-full flex items-center justify-center px-2">
-            <PiCopy />
-          </span>
-          <span className="hover:bg-red-600 hover:text-white h-full flex items-center justify-center px-2 rounded-tr-lg">
-            <IoClose />
-          </span>
+      )}>
+      <div className="flex flex-col gap-y-2 border-b border-border p-4">
+        <div className="flex flex-row gap-x-2">
+          <div className="h-2 w-2 rounded-full bg-red-500"></div>
+          <div className="h-2 w-2 rounded-full bg-yellow-500"></div>
+          <div className="h-2 w-2 rounded-full bg-green-500"></div>
         </div>
       </div>
-
-      {/* scrollable output */}
-      <pre
-        ref={scrollRef}
-        className="my-scroll-container p-4 pt-[220px] overflow-y-auto h-[calc(100%+50px)] pb-[390px]"
-      >
-        <code className="grid gap-y-1">{wrappedChildren}</code>
+      <pre className="p-4">
+        <code className="grid gap-y-1 overflow-auto">{wrappedChildren}</code>
       </pre>
     </div>
   );

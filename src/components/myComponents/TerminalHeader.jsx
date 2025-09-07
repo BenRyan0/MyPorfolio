@@ -6,18 +6,26 @@ import { BsFillPersonFill } from "react-icons/bs";
 
 const today = new Date();
 
+// Force PH timezone (Asia/Manila)
+const options = { timeZone: "Asia/Manila" };
+
 // Get short month (e.g., "Sep")
-const month = today.toLocaleString("en-US", { month: "short" });
+const month = today.toLocaleString("en-US", { month: "short", ...options });
 
 // Get day with leading zero
-const day = String(today.getDate()).padStart(2, "0");
+const day = today.toLocaleString("en-US", { day: "2-digit", ...options });
 
 // Get last two digits of year
-const year = String(today.getFullYear()).slice(-2);
-// Time parts
-const hours = String(today.getHours()).padStart(2, "0");
-const minutes = String(today.getMinutes()).padStart(2, "0");
-const seconds = String(today.getSeconds()).padStart(2, "0");
+const year = today.toLocaleString("en-US", { year: "2-digit", ...options });
+
+// Time in 12-hour format with seconds
+const timeString = today.toLocaleString("en-US", {
+  hour: "2-digit",
+  minute: "2-digit",
+  second: "2-digit",
+  hour12: true,
+  ...options,
+});
 
 const TerminalHeader = ({ err }) => {
   return (
@@ -72,7 +80,7 @@ const TerminalHeader = ({ err }) => {
         <span className="ml-1">{year}</span>
         <p>
           {" "}
-          {hours}:{minutes}:{seconds}
+          {timeString}
         </p>
       </div>
     </div>

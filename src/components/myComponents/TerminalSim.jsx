@@ -11,7 +11,7 @@ import TerminalHeader from "./TerminalHeader";
 const TerminalSim = () => {
   return (
     <div className="w-[470px] ">
-      <Terminal sequence loop>
+      <Terminal sequence>
         <TypingAnimation
           duration={250}
           delay={500}
@@ -71,7 +71,7 @@ const TerminalSim = () => {
         <AnimatedSpan className="">
           &gt; myportfolio-benryanrinconada@0.0.0 dev
         </AnimatedSpan>
-        <AnimatedSpan className="">&gt; vite</AnimatedSpan>
+        {/* <AnimatedSpan className="">&gt; vite</AnimatedSpan> */}
         <AnimatedSpan className="">&gt; VITE v7.0.0  ready in 622 ms</AnimatedSpan>
 
         <AnimatedLinkSpan
@@ -89,7 +89,7 @@ const TerminalSim = () => {
         <AnimatedLinkSpan
           label="⤷ Web: "
           href="https://ben-ryan-rinconada.vercel.app"
-          delay={1000}
+          delay={100}
           startOnView={true}
         >
         ben-ryan-rinconada.vercel.app
