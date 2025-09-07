@@ -12,7 +12,7 @@ import NavBar from './NavBar';
 
 const Header = ({ setDrawerOpen , activeSection}) => {
   return (
-   <header className="fixed top-2 left-0 right-0 py-3 w-full h-20 flex items-center z-40 container mx-auto md:px-13 lg:px-28 sm:px-6 px-2 backdrop-blur-sm lg:backdrop-blur-lg">
+   <header className="fixed top-2 left-0 right-0 py-3 w-full h-20 flex items-center z-40 container mx-auto md:px-13 lg:px-28 sm:px-6 px-2 backdrop-blur-lg">
     <div className="bg-transparent max-w-screen-2xl w-full mx-auto flex justify-between items-center md:grid md:grid-cols-3 px-5 py-2 rounded-md  ">
       <h1>
         <Link to="/">
