@@ -158,7 +158,7 @@ const Projects = () => {
   return (
     <div
       id="works"
-      className="text-zinc-200 h-full mt-[200px] lg:pt-6  md:px-5 pb-20 md:border-b-2 border-slate-700 "
+      className="text-zinc-200 h-full mt-[200px] pt-[100px] lg:pt-6 md:px-5 pb-20 md:border-b-2 border-slate-700 "
     >
       <div
         className={cn(
@@ -167,7 +167,7 @@ const Projects = () => {
           "[background-image:linear-gradient(to_right,#ffff_1px,transparent_1px),linear-gradient(to_bottom,#ffff_1px,transparent_1px)] opacity-10 z-0"
         )}
       />
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black)] bg-main/55 backdrop-blur-3xl "></div>
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black)] bg-black/55 backdrop-blur-3xl "></div>
       <div className="w-full h-screen py-4 flex justify-center items-center z-50 flex-col">
         <StickyScroll content={content} />
       </div>

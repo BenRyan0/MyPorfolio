@@ -65,7 +65,7 @@ const HeroModel = ({ drawerOpen, setDrawerOpen }) => {
               variants={fadeUp}
               className="flex justify-center items-center gap-1 text-center"
             >
-              <h2 className="font-bold pl-1 text-2xl text-gray-400">
+              <h2 className="font-bold pl-1 text-lg md:text-2xl text-gray-400">
                 Front End Developer
               </h2>
               <LogoOrigami />

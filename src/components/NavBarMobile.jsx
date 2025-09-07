@@ -1,34 +1,38 @@
 // NavBarMobile.jsx
 import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
-import { House, SquareUserRound, Folder, FileText, Contact } from "lucide-react";
+import {
+  House,
+  SquareUserRound,
+  Folder,
+  FileText,
+  Contact,
+} from "lucide-react";
 
 const NavBarMobile = ({ navOpen, setDrawerOpen, activeSection }) => {
   const lastActiveLink = useRef(null);
-  const activeBox      = useRef(null);
+  const activeBox = useRef(null);
 
   // Utility to move the highlight box
   const repositionBox = (el) => {
     if (!el || !activeBox.current) return;
     const { offsetTop, offsetLeft, offsetWidth, offsetHeight } = el;
     Object.assign(activeBox.current.style, {
-      top:    `${offsetTop}px`,
-      left:   `${offsetLeft}px`,
-      width:  `${offsetWidth}px`,
+      top: `${offsetTop}px`,
+      left: `${offsetLeft}px`,
+      width: `${offsetWidth}px`,
       height: `${offsetHeight}px`,
     });
   };
 
-  
   useEffect(() => {
-  if (activeSection) {
-    const newHash = `#${activeSection}`;
-    if (window.location.hash !== newHash) {
-      window.history.replaceState(null, "", newHash);
+    if (activeSection) {
+      const newHash = `#${activeSection}`;
+      if (window.location.hash !== newHash) {
+        window.history.replaceState(null, "", newHash);
+      }
     }
-  }
-}, [activeSection]);
-
+  }, [activeSection]);
 
   // 1) On mount, init the box to whatever link has .active
   useEffect(() => {
@@ -63,21 +67,21 @@ const NavBarMobile = ({ navOpen, setDrawerOpen, activeSection }) => {
     if (triggerDrawer) setDrawerOpen(true);
   };
 
- const navItems = [
+  const navItems = [
     {
-      icon: <House  size={24} />,
+      icon: <House size={20} />,
       label: "Home",
       link: "#home",
       section: "home",
     },
     {
-      icon: <SquareUserRound  size={24} />,
+      icon: <SquareUserRound size={20} />,
       label: "About",
       link: "#about",
       section: "about",
     },
     {
-      icon: <Folder  size={24} />,
+      icon: <Folder size={20} />,
       label: "Works",
       link: "#works",
       section: "works",
@@ -89,7 +93,7 @@ const NavBarMobile = ({ navOpen, setDrawerOpen, activeSection }) => {
     //   section: "resume",
     // },
     {
-      icon: <Contact size={24} />,
+      icon: <Contact size={20} />,
       label: "Connect",
       link: "#home",
       section: "connect",
@@ -108,9 +112,9 @@ const NavBarMobile = ({ navOpen, setDrawerOpen, activeSection }) => {
             ${section === activeSection ? "active" : ""}`}
           onClick={(e) => handleClick(e, triggerDrawer)}
         >
-          <span className="transition-all mb-4 duration-300 ease-in-out text-center flex flex-col justify-center items-center font-bold text-zinc-300 text-xs">
+          <span className="transition-all mb-1 duration-300 ease-in-out text-center flex flex-row gap-1 justify-center items-end font-bold text-zinc-300">
             {icon}
-             {label}
+            <span className="text-sm">{label}</span>
           </span>
         </a>
       ))}
@@ -121,7 +125,7 @@ const NavBarMobile = ({ navOpen, setDrawerOpen, activeSection }) => {
 };
 
 NavBarMobile.propTypes = {
-  navOpen:       PropTypes.bool.isRequired,
+  navOpen: PropTypes.bool.isRequired,
   setDrawerOpen: PropTypes.func.isRequired,
   activeSection: PropTypes.string.isRequired,
 };
