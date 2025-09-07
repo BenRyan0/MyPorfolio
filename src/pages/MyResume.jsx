@@ -86,7 +86,7 @@ const MyResume = () => {
   return (
     <div
       id="resume"
-      className="h-full bg-main flex flex-col justify-center items-center gap-4 pt-28"
+      className="h-full w-full bg-main flex flex-col justify-center items-center gap-4 pt-28"
     >
       <div
         className={cn(
