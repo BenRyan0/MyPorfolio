@@ -22,7 +22,7 @@ const year = today.toLocaleString("en-US", { year: "2-digit", ...options });
 const timeString = today.toLocaleString("en-US", {
   hour: "2-digit",
   minute: "2-digit",
-  second: "2-digit",
+//   second: "2-digit",
   hour12: true,
   ...options,
 });
