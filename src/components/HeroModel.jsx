@@ -20,7 +20,7 @@ const HeroModel = ({ drawerOpen, setDrawerOpen }) => {
           )}
         />
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_5%,black)] bg-main backdrop-blur-3xl"></div>
-        <div className="w-full h-full flex justify-start items-center z-20 pb-20 md:pb-0 px-10">
+        <div className="w-full h-full flex justify-start items-center z-20 pb-20 md:pb-0 md:px-10">
           <motion.div
             initial={{ x: -200, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -35,7 +35,7 @@ const HeroModel = ({ drawerOpen, setDrawerOpen }) => {
             >
               G'day, I'm
             </motion.h2>
-            <h2 className="font-bold text-7xl">Ben Ryan Rinconada</h2>
+            <h2 className="font-bold text-5xl lg:text-7xl">Ben Ryan Rinconada</h2>
             <div className="flex justify-center items-center gap-1 text-center">
               <h2
                 className="font-bold pl-1 text-2xl text-gray-400
@@ -45,7 +45,7 @@ const HeroModel = ({ drawerOpen, setDrawerOpen }) => {
               </h2>
               <LogoOrigami />
             </div>
-            <div className="w-7/12 pl-1 text-sm text-zinc-400 ">
+            <div className="md:w-7/12 pl-1 text-sm text-zinc-400 ">
               <p>
                 I'm a recent graduate with a solid background in JavaScript, and
                 I'm currently focused on mastering the MERN stack to develop
