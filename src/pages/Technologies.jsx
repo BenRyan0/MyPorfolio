@@ -111,13 +111,8 @@ const Technologies = () => {
   }, []);
 
   return (
-    <div className="relative md:h-fit mt-4">
-      <h2 className="font-bold text-2xl ">Tech Stack</h2>
-      <p className="text-start text-sm">
-        Some technologies and tools I use on daily basis.
-      </p>
-
-      <div className="text-base transition-transform duration-300 mt-5 grid grid-cols-3 md:grid-cols-4 gap-1 md:w-11/12">
+    <div className="relative md:h-fit">
+      <div className="text-base transition-transform duration-300  grid grid-cols-3 md:grid-cols-4 gap-1 md:w-11/12">
         {icons.map((item, i) => {
           const isActive = i === activeIndex;
           return (

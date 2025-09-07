@@ -113,7 +113,7 @@ const NavBar = ({ navOpen, setDrawerOpen, activeSection }) => {
           key={idx}
           href={link}
           data-section={section}
-          className="nav-link group relative flex flex-col items-center justify-center px-1 mx-1 h-16 transition-all duration-300 uppercase font-bold"
+          className="nav-link group relative flex flex-col items-center justify-center px-1 mx-1 h-16 transition-all duration-300 tracking-wider font-bold iBrand"
           onClick={(e) => handleClick(e, triggerDrawer)}
         >
           {/* ICON */}

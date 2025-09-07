@@ -330,6 +330,16 @@ body::-webkit-scrollbar-thumb {
   font-family: Syntha-Nova, sans-serif;
 }
 
+@font-face {
+  font-family: iBrand;
+  src: url(/fonts/ibrand.otf);
+}
+
+.iBrand {
+  font-family: iBrand, sans-serif;
+  letter-spacing: 0.07em; 
+}
+
 
 
 
@@ -360,3 +370,22 @@ body::-webkit-scrollbar-thumb {
     }
   }
 }
+
+@keyframes fadeCycle {
+  0%, 33%   { opacity: 1; }
+  34%, 100% { opacity: 0; }
+}
+
+.animate-cycle {
+  position: absolute;
+  animation: fadeCycle 6s infinite;
+}
+
+/* Each one starts later */
+.animate-cycle.delay-1 {
+  animation-delay: 2s;
+}
+.animate-cycle.delay-2 {
+  animation-delay: 4s;
+}
+
