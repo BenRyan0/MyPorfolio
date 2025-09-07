@@ -7,6 +7,8 @@ import AboutMe from "./AboutMe";
 import Projects from "./Projects";
 import Footer from "./../components/Footer";
 
+import { SmoothCursor } from "@/components/ui/smooth-cursor";
+
 
 // eslint-disable-next-line no-unused-vars
 import { motion, useAnimation } from "framer-motion";
@@ -110,6 +112,7 @@ const Home = () => {
           activeSection={activeSection}
         />
         <Footer drawerOpen={drawerOpen} setDrawerOpen={setDrawerOpen} />
+        {/* <SmoothCursor /> */}
       </div>
     </div>
   );

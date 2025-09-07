@@ -6,6 +6,7 @@ import { ContactMe } from "@/components/ContactMeDrawer";
 import { motion } from "framer-motion";
 import { LogoOrigami } from "./myComponents/LogoOrigami";
 import { cn } from "../lib/utils";
+import TerminalSim from "./myComponents/TerminalSim";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -32,32 +33,39 @@ const slideRight = {
   hidden: { x: 100, opacity: 0 },
   show: { x: 0, opacity: 1, transition: { type: "spring", stiffness: 70 } },
 };
+const slideRightTerminal = {
+  hidden: { x: 100, opacity: 0 },
+  show: { x: 0, opacity: 1, transition: { type: "spring", stiffness: 70 } },
+};
 
 const HeroModel = ({ drawerOpen, setDrawerOpen }) => {
   return (
     <div id="home" className="text-zinc-50 pb-2 h-screen w-full relative">
       <div className="relative h-full flex flex-wrap justify-center items-center overflow-hidden flex-col-reverse md:flex-row ">
-       <div
-        className={cn(
-          "absolute inset-0",
-          "[background-size:40px_40px]",
-          "[background-image:linear-gradient(to_right,#ffff_1px,transparent_1px),linear-gradient(to_bottom,#ffff_1px,transparent_1px)] opacity-10 "
-        )}
-      />
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_5%,black)] bg-main backdrop-blur-3xl"></div>
-        <div className="md:w-full h-full flex justify-start items-center z-20 pb-20 md:pb-0 md:px-10 ">
+        <div
+          className={cn(
+            "absolute inset-0",
+            "[background-size:40px_40px]",
+            "[background-image:linear-gradient(to_right,#ffff_1px,transparent_1px),linear-gradient(to_bottom,#ffff_1px,transparent_1px)] opacity-10 "
+          )}
+        />
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_5%,black)] bg-main backdrop-blur-3xl"></div>
+        <div className="md:w-full h-full flex justify-start items-center z-20 pb-20 md:pb-0 md:px-10 relative">
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="show"
-            className="flex flex-col items-start text-start gap-1 z-30"
+            className="flex flex-col md:w-8/12 w-full items-start text-start gap-1 z-30"
           >
-            <motion.h2 variants={slideLeft} className="font-semibold text-xl pl-1">
+            <motion.h2
+              variants={slideLeft}
+              className="font-semibold text-xl pl-1"
+            >
               G'day, I'm
             </motion.h2>
             <motion.h2
               variants={slideRight}
-              className="font-bold text-5xl lg:text-7xl iBrand tracking-wider pl-1"
+              className="font-bold text-5xl  iBrand tracking-wider pl-1"
             >
               Ben Ryan Rinconada
             </motion.h2>
@@ -65,14 +73,14 @@ const HeroModel = ({ drawerOpen, setDrawerOpen }) => {
               variants={fadeUp}
               className="flex justify-center items-center gap-1 text-center"
             >
-              <h2 className="font-bold pl-1 text-lg md:text-2xl text-gray-400">
+              <h2 className="font-bold pl-1 text-lg md:text-xl text-gray-400">
                 Front End Developer
               </h2>
               <LogoOrigami />
             </motion.div>
             <motion.div
               variants={fadeUp}
-              className="md:w-7/12 pl-1 text-sm text-zinc-400"
+              className="md:w-9/12 pl-1 text-sm text-zinc-400"
             >
               <p>
                 I'm a recent graduate with a solid background in JavaScript, and
@@ -111,6 +119,17 @@ const HeroModel = ({ drawerOpen, setDrawerOpen }) => {
             </motion.div>
 
             <ContactMe open={drawerOpen} setOpen={setDrawerOpen} />
+          </motion.div>
+
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="show"
+            className="flex-col items-start text-start gap-1 z-30 hidden md:flex"
+          >
+            <motion.div variants={slideRightTerminal} className="">
+              <TerminalSim />
+            </motion.div>
           </motion.div>
         </div>
       </div>
