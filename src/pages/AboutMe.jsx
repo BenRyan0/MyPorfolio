@@ -1,11 +1,7 @@
 import React from "react";
 import InfiniteSwipe from "./../components/myComponents/SwipingCards";
 import Technologies from "./Technologies";
-import { UniRevealLink } from "./../components/myComponents/UniRevealLink";
-import { ChangingTexts } from "./../components/myComponents/ChangingTexts";
-
 import { cn } from "../lib/utils";
-import MyTools from './MyTools';
 
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";

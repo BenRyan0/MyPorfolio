@@ -1,31 +1,5 @@
 import React from "react";
-import { PROJECTS } from "@/constants";
-import { GoDotFill } from "react-icons/go";
-import {
-  DatabaseZap,
-  Globe,
-  MonitorSmartphone,
-  MonitorCheck,
-} from "lucide-react";
-
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "../components/ui/navigation-menu"; // adjust the path as needed
-
-import NumLabel from "../components/myComponents/NumberLabel";
 import { cn } from "../lib/utils";
-
-import { RiReactjsLine } from "react-icons/ri";
-import { IoLogoNodejs, IoLogoCss3 } from "react-icons/io";
-import { SiMongodb, SiTailwindcss, SiSocketdotio } from "react-icons/si";
-import { FaHtml5, FaChevronRight } from "react-icons/fa";
-import { UniRevealLink } from "./../components/myComponents/UniRevealLink";
-
 import { StickyScroll } from "../components/ui/sticky-scroll-reveal";
 
 const Projects = () => {
@@ -169,6 +143,9 @@ const Projects = () => {
       />
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black)] bg-main backdrop-blur-3xl "></div>
       <div className="w-full h-screen py-4 flex justify-center items-center z-50 flex-col">
+        <h2 className="font-bold text-2xl iBrand items-end text-end pr-24 w-full z-50">
+              Selected Works 
+            </h2>
         <StickyScroll content={content} />
       </div>
     </div>

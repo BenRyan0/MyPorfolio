@@ -34,10 +34,10 @@ const slideRight = {
   hidden: { x: 100, opacity: 0 },
   show: { x: 0, opacity: 1, transition: { type: "spring", stiffness: 70 } },
 };
-const slideRightTerminal = {
-  hidden: { x: 100, opacity: 0 },
-  show: { x: 0, opacity: 1, transition: { type: "spring", stiffness: 70 } },
-};
+// const slideRightTerminal = {
+//   hidden: { x: 100, opacity: 0 },
+//   show: { x: 0, opacity: 1, transition: { type: "spring", stiffness: 70 } },
+// };
 
 const HeroModel = ({ drawerOpen, setDrawerOpen }) => {
   return (
@@ -50,13 +50,13 @@ const HeroModel = ({ drawerOpen, setDrawerOpen }) => {
             "[background-image:linear-gradient(to_right,#ffff_1px,transparent_1px),linear-gradient(to_bottom,#ffff_1px,transparent_1px)] opacity-10 "
           )}
         />
-        <div className="pointer-events-none absolute inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_5%,black)] bg-main backdrop-blur-3xl"></div>
+        <div className="pointer-events-none absolute inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_10%,black)] bg-main backdrop-blur-3xl"></div>
         <div className="md:w-full h-full flex justify-start items-center z-20 pb-20 md:pb-0 md:px-10 relative">
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="show"
-            className="flex flex-col lg:w-8/12 w-full items-start text-start gap-1 z-30"
+            className="flex flex-col lg:w-10/12 w-full items-start text-start gap-1 z-30"
           >
             <motion.h2
               variants={slideLeft}
@@ -66,7 +66,7 @@ const HeroModel = ({ drawerOpen, setDrawerOpen }) => {
             </motion.h2>
             <motion.h2
               variants={slideRight}
-              className="font-bold text-5xl  iBrand tracking-wider pl-1"
+              className="font-bold text-5xl lg:text-6xl 2xl:text-7xl  iBrand tracking-wider pl-1"
             >
               Ben Ryan Rinconada
             </motion.h2>
@@ -74,14 +74,14 @@ const HeroModel = ({ drawerOpen, setDrawerOpen }) => {
               variants={fadeUp}
               className="flex justify-center items-center gap-1 text-center"
             >
-              <h2 className="font-bold pl-1 text-lg md:text-xl text-gray-400">
+              <h2 className="font-bold pl-1 text-[24px] text-gray-400">
                 Front End Developer
               </h2>
               <LogoOrigami />
             </motion.div>
             <motion.div
               variants={fadeUp}
-              className="md:w-9/12 pl-1 text-sm text-zinc-400"
+              className="lg:w-7/12 pl-1 text-sm text-zinc-400"
             >
               <p>
                 I'm a recent graduate with a solid background in JavaScript, and
@@ -126,9 +126,10 @@ const HeroModel = ({ drawerOpen, setDrawerOpen }) => {
             variants={containerVariants}
             initial="hidden"
             animate="show"
-            className="flex-col items-start text-start gap-1 z-30 hidden lg:flex"
+            className="absolute right-0 bottom-10 hidden lg:block"
+            // className="flex-col justify-end items-end text-start gap-1 z-30 hidden lg:flex lg:w-4/12 w-full h-full bg-red-700 "
           >
-            <motion.div variants={slideRightTerminal} className="">
+            <motion.div variants={fadeUp} className="">
               <TerminalSim />
             </motion.div>
           </motion.div>

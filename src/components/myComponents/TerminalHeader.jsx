@@ -60,7 +60,7 @@ const TerminalHeader = ({ err }) => {
           <PiGitBranch />
           main
         </div>
-        <div
+        {/* <div
           className={`${
             err ? "block" : "hidden"
           } relative flex items-center justify-center gap-0.5 pl-3  bg-red-600 border-0 shadow-md text-white
@@ -69,7 +69,7 @@ const TerminalHeader = ({ err }) => {
   after:border-l-red-600`}
         >
           !err
-        </div>
+        </div> */}
       </div>
 
       {/* Right-side info */}
@@ -78,10 +78,7 @@ const TerminalHeader = ({ err }) => {
         <span className="ml-1">{month}</span>
         <span className="ml-1">{day}</span>
         <span className="ml-1">{year}</span>
-        <p>
-          {" "}
-          {timeString}
-        </p>
+        <span className="ml-1">{timeString}</span>
       </div>
     </div>
   );

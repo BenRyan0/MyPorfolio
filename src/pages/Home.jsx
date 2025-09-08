@@ -112,7 +112,7 @@ const Home = () => {
           activeSection={activeSection}
         />
         <Footer drawerOpen={drawerOpen} setDrawerOpen={setDrawerOpen} />
-        {/* <SmoothCursor /> */}
+        <SmoothCursor />
       </div>
     </div>
   );

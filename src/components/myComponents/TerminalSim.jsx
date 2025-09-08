@@ -4,53 +4,28 @@ import {
   Terminal,
   TypingAnimation,
   AnimatedLinkSpan,
-} from "@/components/magicui/terminal";
+} from "@/components/magicui/terminalMinima";
 import { MdWindow } from "react-icons/md";
 import TerminalHeader from "./TerminalHeader";
 
 const TerminalSim = () => {
   return (
-    <div className="w-[470px] ">
-      <Terminal sequence loop>
+    <div>
+      <Terminal className={"w-[400px] text-xs"} sequence loop>
         <TypingAnimation
           duration={250}
           delay={500}
           containerBefore={
             <TerminalHeader />
-            //   <div className="inline-block mr-2 text-green-500">asdasd</div>
           }
         >
           &gt; npm install
-        </TypingAnimation>
+        </TypingAnimation>       
         <TypingAnimation
           duration={150}
           delay={100}
           containerBefore={
             <TerminalHeader />
-            //   <div className="inline-block mr-2 text-green-500">asdasd</div>
-          }
-        >
-          &gt; npm install -D tailwindcss postcss autoprefixer
-        </TypingAnimation>
-        <TypingAnimation
-          duration={150}
-          delay={100}
-          containerBefore={
-            <TerminalHeader />
-            //   <div className="inline-block mr-2 text-green-500">asdasd</div>
-          }
-        >
-          &gt; npx tailwindcss init -p
-        </TypingAnimation>
-        <AnimatedSpan className="text-green-500">
-          ✔ TailwindCSS initialized.
-        </AnimatedSpan>
-        <TypingAnimation
-          duration={150}
-          delay={100}
-          containerBefore={
-            <TerminalHeader />
-            //   <div className="inline-block mr-2 text-green-500">asdasd</div>
           }
         >
           &gt; npm run devv
@@ -63,7 +38,6 @@ const TerminalSim = () => {
           delay={200}
           containerBefore={
              <TerminalHeader err={true} />
-            //   <div className="inline-block mr-2 text-green-500">asdasd</div>
           }
         >
           npm run dev
